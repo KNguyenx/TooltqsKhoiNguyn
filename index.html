@@ -6,19 +6,18 @@
 <title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Cổ Trang</title>
 <style>
 :root {
-    --bg-primary: #150f0a;
-    --bg-sidebar: rgba(26, 18, 12, 0.95);
-    --bg-panel: rgba(41, 28, 18, 0.88);
-    --bg-card: rgba(61, 43, 28, 0.88);
-    --bg-card-hover: rgba(87, 61, 40, 0.95);
+    --bg-primary: #1c140d;
+    --bg-sidebar: rgba(30, 21, 14, 0.95);
+    --bg-panel: rgba(46, 32, 21, 0.9);
+    --bg-card: rgba(69, 49, 33, 0.9);
+    --bg-card-hover: rgba(94, 68, 47, 0.95);
     --accent-gold: #d4af37;
     --accent-gold-hover: #f3c653;
-    --accent-red: #8b0000;
-    --accent-red-hover: #a00000;
-    --text-main: #f4ebd0;
-    --text-muted: #c2b295;
-    --border-color: rgba(212, 175, 55, 0.3);
-    --border-highlight: #d4af37;
+    --accent-red: #7a1c1c;
+    --accent-red-hover: #962222;
+    --text-main: #f5eedc;
+    --text-muted: #d1c3a5;
+    --border-color: rgba(212, 175, 55, 0.25);
 }
 
 * { box-sizing: border-box; user-select: none; }
@@ -32,7 +31,7 @@ body {
     background-size: cover;
     transition: background-image 0.4s ease-in-out;
     color: var(--text-main);
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: "Times New Roman", Times, serif;
     display: flex;
     min-height: 100vh;
 }
@@ -46,20 +45,21 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.6);
 }
 .sidebar-header {
     padding: 24px 16px;
     text-align: center;
     border-bottom: 2px solid var(--accent-gold);
-    background: rgba(15, 10, 6, 0.85);
+    background: rgba(18, 12, 8, 0.9);
 }
 .sidebar-header h2 {
     margin: 0;
-    font-size: 19px;
+    font-size: 20px;
     color: var(--accent-gold);
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px #000;
+    font-family: "Times New Roman", Times, serif;
 }
 .tool-menu {
     list-style: none;
@@ -73,13 +73,14 @@ body {
     border-radius: 6px;
     cursor: pointer;
     color: var(--text-muted);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 12px;
     transition: all 0.3s;
     border: 1px solid transparent;
+    font-family: "Times New Roman", Times, serif;
 }
 .tool-item:hover {
     background: var(--bg-card);
@@ -93,13 +94,19 @@ body {
     box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
 }
 
-.tool-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 3px;
+.tool-badge-num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    background: rgba(18, 12, 8, 0.8);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
     flex-shrink: 0;
-    filter: sepia(50%);
 }
 
 /* KHU VỰC NỘI DUNG CHÍNH BÊN PHẢI */
@@ -107,7 +114,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 24px;
-    background: rgba(10, 7, 5, 0.65);
+    background: rgba(12, 8, 5, 0.6);
 }
 .tool-view {
     display: none;
@@ -118,7 +125,7 @@ body {
     display: block;
 }
 
-/* UI CÁC PANEL CỦA TOOL 1: THẦN TÔN QUYỀN */
+/* PANEL UI */
 .panel {
     background: var(--bg-panel);
     backdrop-filter: blur(8px);
@@ -128,8 +135,8 @@ body {
     margin-bottom: 22px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
-h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', serif; text-shadow: 1px 1px 2px #000; }
-.note { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; font-style: italic; }
+h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Roman", Times, serif; text-shadow: 1px 1px 2px #000; }
+.note { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; font-style: italic; }
 
 .player-input-group {
     display: flex;
@@ -138,19 +145,20 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     margin-bottom: 18px;
 }
 .player-input-group label {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--accent-gold);
     white-space: nowrap;
 }
 .player-name-input {
     flex: 1;
-    background: rgba(15, 10, 6, 0.9);
+    background: rgba(18, 12, 8, 0.9);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     padding: 10px 14px;
     color: var(--text-main);
-    font-size: 15px;
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
     outline: none;
     user-select: text;
 }
@@ -172,6 +180,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
     text-align: center;
     transition: all 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -197,8 +206,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     background: var(--bg-card);
     color: var(--text-main);
     padding: 10px 18px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -206,7 +216,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 .action.enter-btn { background: var(--accent-red); border-color: var(--accent-gold); color: var(--accent-gold); }
 .action.enter-btn:hover { background: var(--accent-red-hover); }
 .action.summary-btn { background: #1b4d3e; border-color: var(--accent-gold); color: var(--accent-gold); }
-.action.reset { background: rgba(139, 0, 0, 0.3); border-color: #8b0000; color: #fca5a5; margin-left: auto; }
+.action.reset { background: rgba(122, 28, 28, 0.4); border-color: #8b0000; color: #fca5a5; margin-left: auto; }
 
 .tabs-header {
     display: flex;
@@ -224,7 +234,8 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     border-radius: 6px 6px 0 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -233,7 +244,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 .tab-btn.active { background: var(--accent-red); color: var(--accent-gold); }
 .tab-btn.summary-tab { border-color: #2e8b57; }
 .tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); }
-.tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 12px; }
+.tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 13px; }
 
 .summary {
     display: grid;
@@ -250,12 +261,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     padding: 10px 14px;
 }
 .item-name { font-weight: bold; color: var(--text-main); }
-.count { font-weight: bold; font-size: 13px; background: var(--accent-red); color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 3px 10px; }
+.count { font-weight: bold; font-size: 14px; background: var(--accent-red); color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 3px 10px; }
 .empty { color: var(--text-muted); padding: 20px 0; text-align: center; font-style: italic; grid-column: 1 / -1; }
 .total { text-align: right; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
 .total b { font-size: 20px; color: var(--accent-gold); margin-left: 6px; }
 
-/* STYLES DÀNH RIÊNG CHO TOOL 2: HỨA THIỆU */
+/* TOOL 2: HỨA THIỆU */
 .ht-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -273,7 +284,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .ht-box-title {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: var(--accent-gold);
     text-align: center;
@@ -283,21 +294,22 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     letter-spacing: 1px;
 }
 .ht-btn-extract {
-    background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
+    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 12px 16px;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ht-btn-extract:hover { background: linear-gradient(135deg, #a00000 0%, #700000 100%); }
+.ht-btn-extract:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
 
 .ht-drawn-container {
-    background-color: rgba(15, 10, 6, 0.9);
+    background-color: rgba(18, 12, 8, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -310,7 +322,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2b1d12;
+    background-color: #332316;
     border: 1px solid var(--accent-gold);
     color: var(--text-main);
     padding: 8px 12px;
@@ -325,11 +337,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
 }
 .ht-btn-select:hover { background-color: #246351; }
 
 .ht-list-container {
-    background-color: rgba(15, 10, 6, 0.9);
+    background-color: rgba(18, 12, 8, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -337,7 +350,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     overflow-y: auto;
 }
 .ht-list-title {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--accent-gold);
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -354,7 +367,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     cursor: pointer;
 }
 .ht-skill-tag {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-align: center;
     padding: 8px 4px;
     border-radius: 4px;
@@ -366,7 +379,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 .ht-skill-tag:hover { transform: scale(1.03); border-color: var(--accent-gold); }
 
 .ht-skill-available { background-color: #243d32; color: #e2f0d9; }
-.ht-skill-used { background-color: #262220; color: #736b65; text-decoration: line-through; border-color: #3b3532; }
+.ht-skill-used { background-color: #2c2522; color: #7a706b; text-decoration: line-through; border-color: #3b3532; }
 
 /* Tooltip */
 [data-tooltip]:hover::after {
@@ -379,7 +392,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     color: var(--accent-gold);
     padding: 8px 12px;
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: normal;
     white-space: nowrap;
     z-index: 100;
@@ -399,7 +412,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     align-items: center;
 }
 .modal-content {
-    background-color: #221710;
+    background-color: #2a1c13;
     border: 2px solid var(--accent-gold);
     border-radius: 8px;
     width: 90%; max-width: 550px;
@@ -408,23 +421,23 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 .modal-title {
-    color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 14px;
+    color: var(--accent-gold); font-size: 1.6rem; margin-bottom: 14px;
     border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
     text-shadow: 1px 1px 2px #000;
 }
 .modal-body {
-    font-size: 1.05rem; line-height: 1.6; white-space: pre-line;
+    font-size: 1.1rem; line-height: 1.6; white-space: pre-line;
     max-height: 350px; overflow-y: auto; margin-bottom: 20px;
     color: #e6dfcc;
 }
 .modal-close {
-    background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
+    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
     color: var(--accent-gold); border: 1px solid var(--accent-gold);
-    padding: 8px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; float: right;
+    padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
 }
-.modal-close:hover { background: linear-gradient(135deg, #a00000 0%, #700000 100%); }
+.modal-close:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
 
-/* STYLES DÀNH RIÊNG CHO TOOL 3: CÁT HUYỀN */
+/* TOOL 3: CÁT HUYỀN */
 .ch-container {
     max-width: 850px;
     margin: 0 auto;
@@ -454,25 +467,26 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     margin-bottom: 16px;
     border-radius: 6px;
     border: 1px solid var(--accent-gold);
-    background: rgba(10, 7, 5, 0.95);
+    background: rgba(12, 8, 5, 0.95);
     color: var(--text-main);
+    font-family: "Times New Roman", Times, serif;
     outline: none;
 }
 .ch-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
+    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     font-weight: bold;
     font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
     cursor: pointer;
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ch-btn:hover { background: linear-gradient(135deg, #a00000 0%, #700000 100%); }
-.ch-btn:disabled { background: #333; color: #777; cursor: not-allowed; border-color: #555; }
+.ch-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
 
 .ch-grid-seats {
     display: grid;
@@ -483,41 +497,42 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 @media (min-width: 600px) { .ch-grid-seats { grid-template-columns: repeat(5, 1fr); } }
 
 .ch-seat-card {
-    background: rgba(15, 10, 6, 0.9);
+    background: rgba(18, 12, 8, 0.9);
     border: 1px solid var(--border-color);
     padding: 12px;
     border-radius: 6px;
     text-align: center;
 }
-.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(50, 35, 20, 0.95); }
-.ch-seat-title { font-weight: bold; margin-bottom: 8px; color: var(--accent-gold); font-size: 13px; }
+.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(54, 38, 23, 0.95); }
+.ch-seat-title { font-weight: bold; margin-bottom: 8px; color: var(--accent-gold); font-size: 14px; }
 
 .ch-btn-damage {
-    background: #8b0000;
+    background: #7a1c1c;
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 4px;
     margin-top: 8px;
     padding: 8px;
-    font-size: 13px;
+    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
     cursor: pointer;
     width: 100%;
     font-weight: bold;
 }
-.ch-btn-damage:hover { background: #a00000; }
+.ch-btn-damage:hover { background: #962222; }
 
 .ch-dashboard {
-    background: rgba(15, 10, 6, 0.9);
+    background: rgba(18, 12, 8, 0.9);
     border: 1px solid var(--border-color);
     padding: 16px;
     border-radius: 6px;
     text-align: center;
     margin-bottom: 20px;
 }
-.ch-status-hidden { font-style: italic; color: var(--text-muted); font-size: 13px; margin-top: 6px; }
+.ch-status-hidden { font-style: italic; color: var(--text-muted); font-size: 14px; margin-top: 6px; }
 
 .ch-result-box {
-    background: rgba(15, 10, 6, 0.95);
+    background: rgba(18, 12, 8, 0.95);
     border: 2px dashed var(--accent-gold);
     padding: 22px;
     border-radius: 8px;
@@ -526,16 +541,16 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     display: none;
 }
 .ch-result-title { font-size: 22px; color: var(--accent-gold); font-weight: bold; margin-bottom: 12px; text-shadow: 1px 1px 2px #000; }
-.ch-result-detail { font-size: 15px; line-height: 1.6; color: var(--text-main); }
+.ch-result-detail { font-size: 16px; line-height: 1.6; color: var(--text-main); }
 
 .ch-badge-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
-.ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 15px; transition: all 0.3s ease; border: 1px solid var(--accent-gold); }
-.ch-badge-red { background: #8b0000; color: var(--accent-gold); box-shadow: 0 0 5px #8b0000; }
+.ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 16px; transition: all 0.3s ease; border: 1px solid var(--accent-gold); }
+.ch-badge-red { background: #7a1c1c; color: var(--accent-gold); box-shadow: 0 0 5px #7a1c1c; }
 .ch-badge-black { background: #262220; color: var(--text-muted); border-color: #555; }
 .ch-badge.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 15px var(--accent-gold); }
 .ch-badge.inactive { opacity: 0.25; transform: scale(0.92); filter: grayscale(80%); }
 
-/* STYLES DÀNH RIÊNG CHO TOOL 4: MƯU TƯ MÃ SƯ */
+/* TOOL 4: MƯU TƯ MÃ SƯ */
 .tms-container {
     max-width: 850px;
     margin: 0 auto;
@@ -548,18 +563,19 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 }
 .tms-btn-container { text-align: center; margin-bottom: 25px; }
 .tms-btn {
-    background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
+    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 14px 32px;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.tms-btn:hover { background: linear-gradient(135deg, #a00000 0%, #700000 100%); transform: scale(1.02); }
+.tms-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); transform: scale(1.02); }
 .tms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .tms-card {
     border: 1px solid var(--accent-gold);
@@ -572,11 +588,11 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 }
 .tms-card-rank { font-size: 18px; font-weight: bold; width: 30px; color: var(--accent-gold); }
 .tms-card-suit { font-size: 20px; margin: 0 8px; }
-.tms-red { color: #ff4d4d; }
+.tms-red { color: #ff6b6b; }
 .tms-black { color: #d1d5db; }
-.tms-card-name { font-weight: bold; flex-grow: 1; text-align: right; color: var(--text-main); font-size: 14px; }
+.tms-card-name { font-weight: bold; flex-grow: 1; text-align: right; color: var(--text-main); font-size: 15px; }
 
-/* STYLES DÀNH RIÊNG CHO TOOL 5: BỒ NGUYÊN */
+/* TOOL 5: BỒ NGUYÊN */
 .bn-container {
     max-width: 520px;
     margin: 0 auto;
@@ -589,7 +605,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 }
 .bn-container h1 {
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     margin-bottom: 24px;
     color: var(--accent-gold);
     text-shadow: 1px 1px 2px #000;
@@ -602,39 +618,41 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--accent-gold);
 }
 .bn-form-group select {
     width: 100%;
     padding: 12px 16px;
-    background-color: rgba(10, 7, 5, 0.95);
+    background-color: rgba(12, 8, 5, 0.95);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     color: var(--text-main);
     font-size: 1rem;
+    font-family: "Times New Roman", Times, serif;
     outline: none;
 }
 .bn-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
+    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.bn-btn:hover { background: linear-gradient(135deg, #a00000 0%, #700000 100%); }
+.bn-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
 .bn-result-card {
     margin-top: 25px;
     padding: 20px;
     border-radius: 6px;
-    background-color: rgba(15, 10, 6, 0.95);
+    background-color: rgba(18, 12, 8, 0.95);
     border: 1px solid var(--border-color);
     display: none;
 }
@@ -651,7 +669,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 .bn-result-row:last-child { margin-bottom: 0; }
 .bn-label-title { color: var(--text-muted); }
@@ -659,16 +677,16 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     padding: 4px 10px;
     border-radius: 4px;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 .bn-status-success {
     background-color: rgba(34, 197, 94, 0.2);
-    color: #22c55e;
+    color: #4ade80;
     border: 1px solid rgba(34, 197, 94, 0.3);
 }
 .bn-status-fail {
     background-color: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
+    color: #f87171;
     border: 1px solid rgba(239, 68, 68, 0.3);
 }
 .bn-weapon-name {
@@ -694,27 +712,27 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
     <ul class="tool-menu">
         <!-- TOOL 1 -->
         <li class="tool-item active" data-bg="tonquyen.webp" onclick="switchTool('tool-ttq', this)">
-            <img src="https://ibb.co/VYDgvSWf" class="tool-icon" alt="icon">
+            <span class="tool-badge-num">1</span>
             <span>Thần Tôn Quyền</span>
         </li>
         <!-- TOOL 2 -->
         <li class="tool-item" data-bg="Hua_Thieu.webp" onclick="switchTool('tool-huathieu', this)">
-            <img src="https://cdn-icons-png.flaticon.com/512/3094/3094833.png" class="tool-icon" alt="icon">
+            <span class="tool-badge-num">2</span>
             <span>Hứa Thiệu</span>
         </li>
         <!-- TOOL 3 -->
         <li class="tool-item" data-bg="Cat_Huyen.webp" onclick="switchTool('tool-cathuyen', this)">
-            <img src="https://cdn-icons-png.flaticon.com/512/1021/1021264.png" class="tool-icon" alt="icon">
+            <span class="tool-badge-num">3</span>
             <span>Cát Huyền</span>
         </li>
         <!-- TOOL 4 -->
         <li class="tool-item" data-bg="Muu_Tu_Ma_Su.webp" onclick="switchTool('tool-tumasu', this)">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" class="tool-icon" alt="icon">
+            <span class="tool-badge-num">4</span>
             <span>Mưu Tư Mã Sư</span>
         </li>
         <!-- TOOL 5 -->
         <li class="tool-item" data-bg="Bo_Nguyen.webp" onclick="switchTool('tool-boynguyen', this)">
-            <img src="https://cdn-icons-png.flaticon.com/512/2913/2913974.png" class="tool-icon" alt="icon">
+            <span class="tool-badge-num">5</span>
             <span>Bồ Nguyên</span>
         </li>
     </ul>
@@ -837,7 +855,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
             <!-- BƯỚC 2 -->
             <div id="step2" class="ch-step" style="display: none;">
                 <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">2. Nhập Thân Phận Người Chơi Khác</h2>
-                <p style="text-align: center; color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">Nhập lần lượt thân phận từng người. Sau khi xác nhận thông tin sẽ được ẩn an toàn.</p>
+                <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">Nhập lần lượt thân phận từng người. Sau khi xác nhận thông tin sẽ được ẩn an toàn.</p>
                 <div id="rolesInputContainer"></div>
                 <button id="btnStartGame" class="ch-btn" onclick="startGame()" style="margin-top: 15px;">Bắt Đầu Trận Đấu</button>
             </div>
@@ -953,7 +971,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: 'Georgia', se
 /* LOGIC CHUYỂN TAB CÔNG CỤ VÀ THAY ĐỔI HÌNH NỀN */
 function setBackgroundImage(bgFile) {
     if (bgFile) {
-        document.body.style.backgroundImage = `linear-gradient(rgba(15, 10, 5, 0.8), rgba(15, 10, 5, 0.9)), url('${bgFile}')`;
+        document.body.style.backgroundImage = `linear-gradient(rgba(18, 12, 8, 0.82), rgba(18, 12, 8, 0.92)), url('${bgFile}')`;
     }
 }
 
@@ -1151,7 +1169,7 @@ renderGrid();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU (ĐÃ LÀM SẠCH LỖI DẤU VÀ XÓA [CITE: 7])
+   LOGIC TOOL 2: HỨA THIỆU
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
@@ -1450,8 +1468,8 @@ function renderRoleInputsCH() {
                 <option value="PhanTac">Phản Tặc</option>
                 <option value="NoiGian">Nội Gián</option>
             </select>
-            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 13px; background: var(--accent-red); border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
-            <span id="status_hidden_${i}" style="display:none; color: #10b981; font-weight: bold; margin-left: 10px;">✔ Đã ẩn</span>
+            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #7a1c1c; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
+            <span id="status_hidden_${i}" style="display:none; color: #4ade80; font-weight: bold; margin-left: 10px;">✔ Đã ẩn</span>
         `;
         container.appendChild(div);
 
@@ -1493,7 +1511,7 @@ function renderGameGridCH() {
             titleText += " (Cát Huyền)";
             card.innerHTML = `
                 <div class="ch-seat-title">${titleText}</div>
-                <div style="font-size: 11px; color: var(--text-muted); padding: 8px 0; font-style: italic;">Bản thân (Không nhận dame)</div>
+                <div style="font-size: 12px; color: var(--text-muted); padding: 8px 0; font-style: italic;">Bản thân (Không nhận dame)</div>
             `;
         } else {
             card.innerHTML = `
@@ -1556,7 +1574,7 @@ function luyenDan() {
 
     if (total <= 3) {
         title.innerText = "🔮 Kỹ Năng: \"Anh Tư\"";
-        detail.innerHTML = "<strong>Hiệu quả nhận được:</strong> Bạn nhận được lá <span style='color: #ff4d4d; font-weight: bold;'>[Đào]</span>.";
+        detail.innerHTML = "<strong>Hiệu quả nhận được:</strong> Bạn nhận được lá <span style='color: #ff6b6b; font-weight: bold;'>[Đào]</span>.";
     } else {
         if (redMarkers > blackMarkers) {
             title.innerText = "🔮 Kỹ Năng: \"Quan Tinh\"";
@@ -1566,7 +1584,7 @@ function luyenDan() {
             detail.innerHTML = "<strong>Hiệu quả nhận được:</strong> Bạn nhận được lá <span style='color: #60a5fa; font-weight: bold;'>[Thuận Thủ Khiên Dương]</span>.";
         } else {
             title.innerText = "🔮 Kỹ Năng: \"Công Tâm\"";
-            detail.innerHTML = "<strong>Hiệu quả nhận được:</strong> Bạn nhận được lá <span style='color: #f472b6; font-weight: bold;'>[Sát]</span> và <span style='color: #ff4d4d; font-weight: bold;'>[Quyết Đấu]</span>.";
+            detail.innerHTML = "<strong>Hiệu quả nhận được:</strong> Bạn nhận được lá <span style='color: #f472b6; font-weight: bold;'>[Sát]</span> và <span style='color: #ff6b6b; font-weight: bold;'>[Quyết Đấu]</span>.";
         }
     }
 }

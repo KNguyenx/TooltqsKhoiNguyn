@@ -773,14 +773,14 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-top: 18px;
     padding-top: 14px;
     border-top: 1px solid var(--border-color);
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-muted);
 }
 .tp-lowest-display b {
-    font-size: 22px;
+    font-size: 26px;
     color: var(--accent-gold);
     display: block;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 @media (max-width: 768px) {
@@ -1059,7 +1059,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
             </div>
             <button class="tp-reset-btn" onclick="resetDataTP()">Đặt Lại (Reset)</button>
             <div class="tp-lowest-display">
-                Chất ít nhất: <b id="lowest-suits-text">♠ Bích, ♣ Chuồn, ♦ Rô, ♥ Cơ</b>
+                Chất ít nhất:<br><b id="lowest-suits-text">Bích, Chuồn, Rô, Cơ</b>
             </div>
         </div>
     </div>
@@ -1276,7 +1276,7 @@ renderGrid();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU
+   LOGIC TOOL 2: HỨA THIỆU (BỔ SUNG ĐẦY ĐỦ KỸ NĂNG)
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
@@ -1385,7 +1385,40 @@ const skillDescriptions = {
     "Võ Uy": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài của một màu trên tay sử dụng như [Sát] (không hạn chế cự ly số lần), cứ với mỗi loại bài trong đó bạn có thể lựa chọn chấp hành một hạng mục một lần: rút một lá bài, phi tỏa định kỹ của người chơi mục tiêu vô hiệu trong lượt hiện tại, số lần có thể phát động kỹ năng này +1 trong lượt hiện tại. Nếu [Sát] này chấp hành được cả 3 hạng mục lựa chọn, thì sát thương +1.",
     "Tá Quân": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi, lệnh họ rút ba lá bài đồng thời lựa chọn một hạng mục:\n1. Bài này không thể được sử dụng cũng như không tính vào giới hạn trữ bài, cho đến khi kết thúc lượt kế tiếp của họ.\n2. Mất 1 điểm sinh lực, rút thêm một lá bài đồng thời sử dụng tùy ý lá bài trong đó, sau đó bỏ đi bài không sử dụng.",
     "Tư Nhuệ": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài sử dụng như một lá bài Cơ Bản hoặc bài Cẩm Nang có cùng số chữ trong tên (không hạn chế cự ly và số lần).",
-    "Xu Chu": "Giai đoạn hành động giới hạn một lần, bạn có thể lấy ra một lá bài ở đầu chồng bài rút, nếu là [Sát], bạn sử dụng nó; nếu không phải là [Sát], bạn lựa chọn một hạng mục: thu lấy tất cả bài lấy ra, hoặc lấy ra lần nữa (số lần không thể vượt quá số người chơi còn sống)."
+    "Xu Chu": "Giai đoạn hành động giới hạn một lần, bạn có thể lấy ra một lá bài ở đầu chồng bài rút, nếu là [Sát], bạn sử dụng nó; nếu không phải là [Sát], bạn lựa chọn một hạng mục: thu lấy tất cả bài lấy ra, hoặc lấy ra lần nữa (số lần không thể vượt quá số người chơi còn sống).",
+    
+    /* KỸ NĂNG MỞ ĐẦU GIAI ĐOẠN KẾT THÚC */
+    "Quận Binh": "Giai đoạn kết thúc của một người chơi, nếu số bài trên tay của họ ≤ 1, họ có thể rút một lá bài và đem tất cả bài trên tay giao cho bạn, sau đó bạn đem cùng lượng bài giao cho người đó[cite: 3].",
+    "Trực Ngôn": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi rút một lá bài và mở nó ra, nếu bài này là bài Cơ Bản, bạn rút một lá bài. Nếu bài này là bài Trang Bị, họ sử dụng nó và hồi phục 1 điểm sinh lực[cite: 3].",
+    "Truân Giang": "Giai đoạn kết thúc, nếu trong giai đoạn hành động bạn không sử dụng bài chỉ định qua người chơi khác thành mục tiêu, bạn có thể rút X lá bài (X là tất cả thế lực trên bàn chơi)[cite: 3].",
+    "Bế Nguyệt": "Giai đoạn kết thúc, bạn có thể rút một lá bài. Nếu bạn không có bài trên tay, thay đổi thành rút hai lá bài[cite: 3].",
+    "Tinh Sách": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn sử dụng qua số bài ≥ số sinh lực của bạn, thì bạn có thể thực hiện thêm một giai đoạn rút bài hoặc giai đoạn hành động. Nếu số chất của số bài này cũng ≥ số sinh lực của bạn, thì bạn chấp hành cả hai hạng mục[cite: 3].",
+    "Trấn Hành": "Mở đầu giai đoạn kết thúc hoặc sau khi bạn nhận thiệt hại, bạn có thể xem 3 lá bài ở đầu chồng bài rút, sau đó bạn thu lấy trong đó một lá bài không cùng chất với bài còn lại rồi đặt bài dư lại đầu chồng bài, gọi là \"Tín\"[cite: 3].",
+    "Mặc Chí": "Giai đoạn kết thúc, bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ nhất bạn sử dụng trong giai đoạn hành động lượt hiện tại, sau đó bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ hai bạn sử dụng trong giai đoạn hành động lượt hiện tại[cite: 3].",
+    "Tội Luận": "Giai đoạn kết thúc, bạn có thể xem 3 lá bài ở đầu chồng bài rút, bạn giữ lại một lá bài với mỗi hạng mục thỏa mãn sau đây, sau đó đặt lại theo thứ tự tùy ý bài còn dư:\n- Bạn đã gây ra sát thương trong lượt hiện tại.\n- Bạn chưa bỏ bài trong lượt hiện tại.\n- Bài trên tay nhỏ nhất bàn.\nNếu tất cả đều không thỏa mãn, bạn cùng một người chơi khác tự mất 1 điểm sinh lực[cite: 3].",
+    "Phục Gian": "Tỏa Định Kỹ. Giai đoạn chuẩn bị và giai đoạn kết thúc, bạn ngẫu nhiên xem bài trên tay của một người chơi có số bài trên tay không lớn nhất toàn bàn[cite: 3].",
+    "Khốn Phấn": "Tỏa Định Kỹ. Giai đoạn kết thúc, bạn tự mất 1 điểm sinh lực, sau đó rút hai lá bài[cite: 3].",
+    "Cư Thủ": "Giai đoạn kết thúc, bạn có thể lật mặt võ tướng và rút 4 lá bài, sau đó bạn bỏ đi một lá bài trên tay, nếu bằng cách này bỏ đi bài Trang Bị, thì bạn thay đổi thành sử dụng nó[cite: 3].",
+    "Trấn Cốt": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, giai đoạn kết thúc lượt hiện tại của bạn và khi kết thúc lượt sau của người đó, họ rút bài hoặc bỏ bài trên tay cho đến khi bằng số bài trên tay của bạn (rút bài tối đa 5 lá bài)[cite: 3].",
+    "Bỉnh Nhất": "Giai đoạn kết thúc, bạn có thể mở ra tất cả bài trên tay, nếu cùng màu, bạn lệnh tối đa tùy ý người chơi mỗi người rút một lá bài (số người được lựa chọn không thể vượt quá số bài trên tay bạn mở ra). Nếu cùng điểm số, thì bạn rút một lá bài[cite: 3].",
+    "Bí Kế": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số sinh lực bạn đã mất), sau đó bạn có thể đem cùng lượng bài trên tay giao cho người chơi khác[cite: 3].",
+    "Tuyệt Sách": "Giai đoạn kết thúc, bạn có thể gây ra 1 điểm sát thương đối với một người chơi khác không có bài trên tay[cite: 3].",
+    "Huệ Dân": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số người có số bài trên tay nhỏ hơn số sinh lực), sau đó mở ra cùng một lượng bài trên tay. Bắt đầu từ một người chơi bạn lựa chọn, họ lần lượt thu lấy trong đó một lá bài[cite: 2, 3].",
+    "Dụ Địch": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác bỏ đi một lá bài trên tay của bạn, nếu bài bỏ đi:\n- Không phải [Sát], thì bạn thu lấy một lá bài của họ.\n- Không phải màu Đen, thì bạn rút một lá bài[cite: 3].",
+    "Khoan Thích": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, cho đến khi mở đầu lượt tiếp theo của bạn, sau khi người này nhận điểm sát thương thứ 2 trong cùng một lượt, họ hồi phục 1 điểm sinh lực (mỗi lượt giới hạn phát động một lần)[cite: 3].",
+    "Tiết Ứng": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, [Sát] hoặc bài Cẩm Nang thường người này sử dụng ở lượt tiếp theo không hạn chế cự ly và có thể chỉ định thêm một mục tiêu, sau khi họ gây ra sát thương, họ không thể tiếp tục sử dụng bài cho đến khi kết thúc lượt[cite: 3].",
+    "Tùy Chinh": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi. Giai đoạn hành động tiếp theo của người này sử dụng [Sát] không hạn chế cự ly và có thể sử dụng thêm một lá [Sát]. Sau đó khi kết thúc giai đoạn hành động của họ, bạn có thể xem như sử dụng một lá [Sát] đối với một người chơi khác đã từng nhận sát thương trong lượt của họ[cite: 3].",
+    "Trấn Quân": "Giai đoạn chuẩn bị hoặc giai đoạn kết thúc, bạn có thể bỏ đi X lá bài của một người chơi (X bằng số bài trên tay của họ trừ đi số sinh lực và ít nhất 1), nếu trong đó không có bài Trang Bị, bạn lựa chọn một hạng mục:\n- Bỏ đi một lá bài.\n- Người này rút bằng lượng bài[cite: 3].",
+    "Cử Tiến": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài phi Cơ Bản và lệnh một người chơi khác lựa chọn một hạng mục:\n- Rút hai lá bài.\n- Hồi phục 1 điểm sinh lực.\n- Hồi phục bài võ tướng về trạng thái ban đầu[cite: 3].",
+    "Đãi Yến": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác thu được một lá bài Cơ Bản chất ♥, sau đó nếu họ từng là mục tiêu của kỹ năng này ở lượt trước, họ tự mất 1 điểm sinh lực[cite: 3].",
+    "Noãn Huệ": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi, người này có thể xem như sử dụng X lá bài Cơ Bản (X là số bài trong khu Trang Bị của họ và tối thiểu là 1, nếu họ sử dụng bài cùng tên bằng cách này, sau khi hoàn tất kết toán thì bỏ đi toàn bộ bài trong khu Trang Bị)[cite: 3].",
+    "Tẩm Tình": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài của một người chơi khác có chứa người chơi ở vị trí số một trong phạm vi công kích. Sau đó nếu số bài trên tay của họ nhiều hơn so với vị trí số một, bạn rút một lá bài[cite: 3].",
+    "Viện Hộ": "Giai đoạn kết thúc, bạn có thể đem một lá bài Trang Bị đặt vào khu Trang Bị của một người chơi, nếu bài này là:\n- Bài Vũ Khí, bỏ đi một lá bài của một người chơi nằm trong cự ly 1 của bạn.\n- Bài Phòng Cụ (Giáp), họ rút một lá bài.\n- Bài Tọa Kỵ (Ngựa), họ hồi phục 1 điểm sinh lực[cite: 3].",
+    "Sinh Tức": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn chưa từng gây ra sát thương, bạn có thể rút hai lá bài[cite: 3].",
+    "Trầm Dũng": "Giai đoạn kết thúc, bạn có thể rút X lá bài ( X là số loại bài bạn đã sử dụng ở lượt hiện tại)[cite: 3].",
+    "Tuẫn Tiết": "Khi kết thúc mỗi lượt chơi, nếu lượt hiện tại bạn từng thu được bài ở ngoài giai đoạn rút bài, có thể lựa chọn một hạng mục:\n- Lệnh một người chơi đem bài trên tay điều chỉnh đến bằng giá trị sinh lực của họ.\n- Lệnh một người chơi đem giá trị sinh lực điều chỉnh đến bằng số bài trên tay của họ.\n(Mỗi hạng mục giới hạn một lần mỗi vòng chơi)[cite: 3].",
+    "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó[cite: 3].",
+    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5)[cite: 3]."
 };
 
 function getDescription(name) {
@@ -1425,7 +1458,7 @@ const rawDataHT = {
     end: [
         "Quận Binh", "Trực Ngôn", "Truân Giang", "Bế Nguyệt", "Tinh Sách", "Trấn Hành", "Mặc Chí", "Tội Luận", "Phục Gian", "Khốn Phấn",
         "Cư Thủ", "Trấn Cốt", "Bỉnh Nhất", "Bí Kế", "Tuyệt Sách", "Huệ Dân", "Dụ Địch", "Khoan Thích", "Tiết Ứng", "Tùy Chinh",
-        "Trấn Quân", "Cử Tiến", "Đãi Yến", "Noãn Huệ", "Tẩm Tình", "Viện Hộ", "Sinh Tức", "Trầm Dũng"
+        "Trấn Quân", "Cử Tiến", "Đãi Yến", "Noãn Huệ", "Tẩm Tình", "Viện Hộ", "Sinh Tức", "Trầm Dũng", "Tuẫn Tiết", "Thâu Lương", "Soạn Văn"
     ],
     damage: [
         "Yêu Danh", "Đàn Tâm", "Quy Tâm", "Bí Dục", "Phản Quỹ", "Cương Liệt", "Di Kế", "Gian Hùng", "Ân Oán", "Cát Cảnh",

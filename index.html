@@ -17,7 +17,8 @@
     --accent-red-hover: #244d8f;
     --text-main: #f0f4f8;
     --text-muted: #93c5fd;
-    --border-color: rgba(243, 156, 18, 0.3);
+    --border-color: rgba(255, 255, 255, 0.4);
+    --border-main: #ffffff;
 }
 
 * { box-sizing: border-box; user-select: none; }
@@ -41,7 +42,7 @@ body {
     width: 280px;
     background: var(--bg-sidebar);
     backdrop-filter: blur(10px);
-    border-right: 2px solid var(--accent-gold);
+    border-right: 2px solid var(--border-main);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -50,7 +51,7 @@ body {
 .sidebar-header {
     padding: 24px 16px;
     text-align: center;
-    border-bottom: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--border-main);
     background: rgba(8, 13, 24, 0.9);
 }
 .sidebar-header h2 {
@@ -90,7 +91,7 @@ body {
 .tool-item.active {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border-color: var(--accent-gold);
+    border-color: var(--border-main);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
 }
 
@@ -101,8 +102,8 @@ body {
     width: 26px;
     height: 26px;
     background: rgba(8, 13, 24, 0.8);
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
+    border: 1px solid var(--border-main);
+    color: var(--text-main);
     border-radius: 50%;
     font-size: 14px;
     font-weight: bold;
@@ -129,7 +130,7 @@ body {
 .panel {
     background: var(--bg-panel);
     backdrop-filter: blur(8px);
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     border-radius: 8px;
     padding: 22px;
     margin-bottom: 22px;
@@ -153,7 +154,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .player-name-input {
     flex: 1;
     background: rgba(8, 13, 24, 0.9);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 6px;
     padding: 10px 14px;
     color: var(--text-main);
@@ -163,7 +164,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     user-select: text;
 }
 .player-name-input:focus {
-    box-shadow: 0 0 8px var(--accent-gold);
+    box-shadow: 0 0 8px var(--border-main);
 }
 
 .grid {
@@ -172,7 +173,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     gap: 12px;
 }
 .card-btn {
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
     background: var(--bg-card);
     color: var(--text-main);
     border-radius: 6px;
@@ -187,6 +188,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .card-btn:hover {
     background: var(--bg-card-hover);
+    border-color: var(--border-main);
     transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0,0,0,0.5);
 }
@@ -201,7 +203,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     border-top: 1px solid var(--border-color);
 }
 .action {
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     background: var(--bg-card);
     color: var(--text-main);
@@ -212,23 +214,23 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     cursor: pointer;
     transition: all 0.2s;
 }
-.action:hover { background: var(--bg-card-hover); }
-.action.enter-btn { background: #1e3a8a; border-color: var(--accent-gold); color: var(--accent-gold); }
+.action:hover { background: var(--bg-card-hover); border-color: var(--border-main); }
+.action.enter-btn { background: #1e3a8a; border-color: var(--border-main); color: var(--accent-gold); }
 .action.enter-btn:hover { background: #2563eb; }
-.action.summary-btn { background: #1b4d3e; border-color: var(--accent-gold); color: var(--accent-gold); }
+.action.summary-btn { background: #1b4d3e; border-color: var(--border-main); color: var(--accent-gold); }
 .action.reset { background: rgba(30, 58, 138, 0.4); border-color: #3b82f6; color: #93c5fd; margin-left: auto; }
 
 .tabs-header {
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    border-bottom: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--border-main);
     padding-bottom: 8px;
     margin-bottom: 18px;
 }
 .tab-btn {
     background: rgba(13, 20, 36, 0.9);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
     color: var(--text-muted);
     padding: 8px 16px;
     border-radius: 6px 6px 0 0;
@@ -241,9 +243,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     align-items: center;
     gap: 8px;
 }
-.tab-btn.active { background: #1e3a8a; color: var(--accent-gold); }
+.tab-btn.active { background: #1e3a8a; color: var(--accent-gold); border-color: var(--border-main); }
 .tab-btn.summary-tab { border-color: #2e8b57; }
-.tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); }
+.tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); border-color: var(--border-main); }
 .tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 13px; }
 
 .summary {
@@ -261,7 +263,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     padding: 10px 14px;
 }
 .item-name { font-weight: bold; color: var(--text-main); }
-.count { font-weight: bold; font-size: 14px; background: #1e3a8a; color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 3px 10px; }
+.count { font-weight: bold; font-size: 14px; background: #1e3a8a; color: var(--accent-gold); border: 1px solid var(--border-main); border-radius: 12px; padding: 3px 10px; }
 .empty { color: var(--text-muted); padding: 20px 0; text-align: center; font-style: italic; grid-column: 1 / -1; }
 .total { text-align: right; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
 .total b { font-size: 20px; color: var(--accent-gold); margin-left: 6px; }
@@ -275,7 +277,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ht-box {
     background-color: var(--bg-panel);
     backdrop-filter: blur(8px);
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     border-radius: 8px;
     padding: 18px;
     display: flex;
@@ -288,7 +290,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
     color: var(--accent-gold);
     text-align: center;
-    border-bottom: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--border-main);
     padding-bottom: 10px;
     text-shadow: 1px 1px 2px #000;
     letter-spacing: 1px;
@@ -296,7 +298,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ht-btn-extract {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     padding: 12px 16px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -323,7 +325,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     justify-content: space-between;
     align-items: center;
     background-color: #1a2a4a;
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     color: var(--text-main);
     padding: 8px 12px;
     border-radius: 4px;
@@ -332,7 +334,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ht-btn-select {
     background-color: #1b4d3e;
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     padding: 5px 14px;
     border-radius: 4px;
     cursor: pointer;
@@ -374,9 +376,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
     user-select: none;
     transition: transform 0.1s;
-    border: 1px solid rgba(243, 156, 18, 0.2);
+    border: 1px solid var(--border-color);
 }
-.ht-skill-tag:hover { transform: scale(1.03); border-color: var(--accent-gold); }
+.ht-skill-tag:hover { transform: scale(1.03); border-color: var(--border-main); }
 
 .ht-skill-available { background-color: #16302b; color: #e2f0d9; }
 .ht-skill-used { background-color: #141c2e; color: #64748b; text-decoration: line-through; border-color: #1e293b; }
@@ -398,7 +400,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0,0,0,0.8);
     pointer-events: none;
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
 }
 
 /* Modal chi tiết kỹ năng Hứa Thiệu */
@@ -413,7 +415,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .modal-content {
     background-color: #131d35;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     border-radius: 8px;
     width: 90%; max-width: 550px;
     padding: 24px;
@@ -432,7 +434,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .modal-close {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-    color: var(--accent-gold); border: 1px solid var(--accent-gold);
+    color: var(--accent-gold); border: 1px solid var(--border-main);
     padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
 }
 .modal-close:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
@@ -445,7 +447,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     backdrop-filter: blur(8px);
     padding: 28px;
     border-radius: 8px;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .ch-step {
@@ -466,7 +468,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     padding: 10px;
     margin-bottom: 16px;
     border-radius: 6px;
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     background: rgba(8, 13, 24, 0.95);
     color: var(--text-main);
     font-family: "Times New Roman", Times, serif;
@@ -477,7 +479,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     padding: 12px;
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 6px;
     font-weight: bold;
     font-size: 16px;
@@ -503,13 +505,13 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     border-radius: 6px;
     text-align: center;
 }
-.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(30, 58, 138, 0.4); }
+.ch-seat-card.me { border-color: var(--border-main); background: rgba(30, 58, 138, 0.4); }
 .ch-seat-title { font-weight: bold; margin-bottom: 8px; color: var(--accent-gold); font-size: 14px; }
 
 .ch-btn-damage {
     background: #1e3a8a;
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 4px;
     margin-top: 8px;
     padding: 8px;
@@ -533,7 +535,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
 .ch-result-box {
     background: rgba(8, 13, 24, 0.95);
-    border: 2px dashed var(--accent-gold);
+    border: 2px dashed var(--border-main);
     padding: 22px;
     border-radius: 8px;
     text-align: center;
@@ -544,10 +546,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ch-result-detail { font-size: 16px; line-height: 1.6; color: var(--text-main); }
 
 .ch-badge-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
-.ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 16px; transition: all 0.3s ease; border: 1px solid var(--accent-gold); }
+.ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 16px; transition: all 0.3s ease; border: 1px solid var(--border-main); }
 .ch-badge-red { background: #1e3a8a; color: var(--accent-gold); box-shadow: 0 0 5px #1e3a8a; }
 .ch-badge-black { background: #141c2e; color: var(--text-muted); border-color: #555; }
-.ch-badge.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 15px var(--accent-gold); }
+.ch-badge.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 15px var(--border-main); }
 .ch-badge.inactive { opacity: 0.25; transform: scale(0.92); filter: grayscale(80%); }
 
 /* TOOL 4: MƯU TƯ MÃ SƯ */
@@ -558,14 +560,14 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     backdrop-filter: blur(8px);
     padding: 28px;
     border-radius: 8px;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .tms-btn-container { text-align: center; margin-bottom: 25px; }
 .tms-btn {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     padding: 14px 32px;
     font-size: 18px;
     font-weight: bold;
@@ -578,7 +580,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .tms-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); transform: scale(1.02); }
 .tms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .tms-card {
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 6px;
     padding: 12px;
     background: rgba(13, 20, 36, 0.9);
@@ -600,7 +602,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     backdrop-filter: blur(8px);
     padding: 30px;
     border-radius: 8px;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid var(--border-main);
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .bn-container h1 {
@@ -625,7 +627,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     width: 100%;
     padding: 12px 16px;
     background-color: rgba(8, 13, 24, 0.95);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 6px;
     color: var(--text-main);
     font-size: 1rem;
@@ -637,7 +639,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     padding: 14px;
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     border-radius: 6px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -653,7 +655,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     padding: 20px;
     border-radius: 6px;
     background-color: rgba(8, 13, 24, 0.95);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-main);
     display: none;
 }
 .bn-result-card.show {
@@ -694,7 +696,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
 }
 
-/* TOOL 6: TINH PHÁP CHÍNH (Đã đổi viền thành màu đen #000) */
+/* TOOL 6: TINH PHÁP CHÍNH (Viền trắng) */
 .tp-container {
     max-width: 500px;
     margin: 0 auto;
@@ -702,7 +704,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     backdrop-filter: blur(8px);
     padding: 30px;
     border-radius: 8px;
-    border: 2px solid #000;
+    border: 2px solid var(--border-main);
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     text-align: center;
 }
@@ -730,7 +732,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tp-card:hover {
     background-color: var(--bg-card-hover);
-    border-color: var(--accent-gold);
+    border-color: var(--border-main);
 }
 .tp-card.lowest {
     border-color: #e74c3c;
@@ -753,7 +755,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .tp-reset-btn {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--border-main);
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -769,13 +771,16 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tp-lowest-display {
     margin-top: 18px;
-    padding-top: 12px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-color);
-    font-size: 16px;
+    font-size: 15px;
     color: var(--text-muted);
 }
 .tp-lowest-display b {
+    font-size: 22px;
     color: var(--accent-gold);
+    display: block;
+    margin-top: 4px;
 }
 
 @media (max-width: 768px) {
@@ -1054,7 +1059,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
             </div>
             <button class="tp-reset-btn" onclick="resetDataTP()">Đặt Lại (Reset)</button>
             <div class="tp-lowest-display">
-                Chất ít nhất: <b id="lowest-suits-text">Bích, Chuồn, Rô, Cơ</b>
+                Chất ít nhất: <b id="lowest-suits-text">♠ Bích, ♣ Chuồn, ♦ Rô, ♥ Cơ</b>
             </div>
         </div>
     </div>
@@ -1570,7 +1575,7 @@ function renderRoleInputsCH() {
                 <option value="PhanTac">Phản Tặc</option>
                 <option value="NoiGian">Nội Gián</option>
             </select>
-            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #1e3a8a; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
+            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #1e3a8a; border:1px solid var(--border-main); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
             <span id="status_hidden_${i}" style="display:none; color: #4ade80; font-weight: bold; margin-left: 10px;">✔ Đã ẩn</span>
         `;
         container.appendChild(div);
@@ -1836,10 +1841,10 @@ function updateUITP() {
     let minVal = Math.min(...values);
 
     let suitsMap = {
-        bich: '♠ Bích',
-        chuon: '♣ Chuồn',
-        ro: '♦ Rô',
-        co: '♥ Cơ'
+        bich: 'Bích',
+        chuon: 'Chuồn',
+        ro: 'Rô',
+        co: 'Cơ'
     };
 
     let lowestSuits = [];

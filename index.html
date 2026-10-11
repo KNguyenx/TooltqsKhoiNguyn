@@ -694,7 +694,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
 }
 
-/* TOOL 6: TINH PHÁP CHÍNH */
+/* TOOL 6: TINH PHÁP CHÍNH (Đã đổi viền thành màu đen #000) */
 .tp-container {
     max-width: 500px;
     margin: 0 auto;
@@ -702,7 +702,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     backdrop-filter: blur(8px);
     padding: 30px;
     border-radius: 8px;
-    border: 2px solid var(--accent-gold);
+    border: 2px solid #000;
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     text-align: center;
 }
@@ -766,6 +766,16 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tp-reset-btn:hover {
     background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+}
+.tp-lowest-display {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 16px;
+    color: var(--text-muted);
+}
+.tp-lowest-display b {
+    color: var(--accent-gold);
 }
 
 @media (max-width: 768px) {
@@ -1043,6 +1053,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                 </div>
             </div>
             <button class="tp-reset-btn" onclick="resetDataTP()">Đặt Lại (Reset)</button>
+            <div class="tp-lowest-display">
+                Chất ít nhất: <b id="lowest-suits-text">Bích, Chuồn, Rô, Cơ</b>
+            </div>
         </div>
     </div>
 
@@ -1822,6 +1835,14 @@ function updateUITP() {
     let values = Object.values(countsTP);
     let minVal = Math.min(...values);
 
+    let suitsMap = {
+        bich: '♠ Bích',
+        chuon: '♣ Chuồn',
+        ro: '♦ Rô',
+        co: '♥ Cơ'
+    };
+
+    let lowestSuits = [];
     let suits = ['bich', 'chuon', 'ro', 'co'];
     suits.forEach(suit => {
         let card = document.getElementById(`card-${suit}`);
@@ -1831,8 +1852,11 @@ function updateUITP() {
     suits.forEach(suit => {
         if (countsTP[suit] === minVal) {
             document.getElementById(`card-${suit}`).classList.add('lowest');
+            lowestSuits.push(suitsMap[suit]);
         }
     });
+
+    document.getElementById('lowest-suits-text').innerText = lowestSuits.join(', ');
 }
 
 updateUITP();

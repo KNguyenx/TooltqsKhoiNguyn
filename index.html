@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Cổ Trang</title>
+<title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Xanh Navy</title>
 <style>
 :root {
-    --bg-primary: #12100d;
-    --bg-sidebar: rgba(22, 18, 14, 0.95);
-    --bg-panel: rgba(33, 26, 20, 0.9);
-    --bg-card: rgba(48, 38, 29, 0.9);
-    --bg-card-hover: rgba(66, 53, 41, 0.95);
-    --accent-gold: #c99c37;
-    --accent-gold-hover: #e5b448;
-    --accent-red: #6e2226;
-    --accent-red-hover: #882b30;
-    --text-main: #f5eedc;
-    --text-muted: #d1c3a5;
-    --border-color: rgba(201, 156, 55, 0.25);
+    --bg-primary: #0a0f1d;
+    --bg-sidebar: rgba(13, 20, 36, 0.95);
+    --bg-panel: rgba(19, 29, 53, 0.9);
+    --bg-card: rgba(28, 43, 77, 0.9);
+    --bg-card-hover: rgba(38, 59, 104, 0.95);
+    --accent-gold: #f39c12;
+    --accent-gold-hover: #f1c40f;
+    --accent-red: #1b3a6b;
+    --accent-red-hover: #244d8f;
+    --text-main: #f0f4f8;
+    --text-muted: #93c5fd;
+    --border-color: rgba(243, 156, 18, 0.3);
 }
 
 * { box-sizing: border-box; user-select: none; }
@@ -45,13 +45,13 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.7);
 }
 .sidebar-header {
     padding: 24px 16px;
     text-align: center;
     border-bottom: 2px solid var(--accent-gold);
-    background: rgba(14, 11, 8, 0.9);
+    background: rgba(8, 13, 24, 0.9);
 }
 .sidebar-header h2 {
     margin: 0;
@@ -88,7 +88,7 @@ body {
     border-color: var(--border-color);
 }
 .tool-item.active {
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
     border-color: var(--accent-gold);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
@@ -100,7 +100,7 @@ body {
     align-items: center;
     width: 26px;
     height: 26px;
-    background: rgba(14, 11, 8, 0.8);
+    background: rgba(8, 13, 24, 0.8);
     border: 1px solid var(--accent-gold);
     color: var(--accent-gold);
     border-radius: 50%;
@@ -114,7 +114,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 24px;
-    background: rgba(10, 8, 6, 0.6);
+    background: rgba(6, 10, 18, 0.6);
 }
 .tool-view {
     display: none;
@@ -152,7 +152,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .player-name-input {
     flex: 1;
-    background: rgba(14, 11, 8, 0.9);
+    background: rgba(8, 13, 24, 0.9);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     padding: 10px 14px;
@@ -213,10 +213,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: all 0.2s;
 }
 .action:hover { background: var(--bg-card-hover); }
-.action.enter-btn { background: var(--accent-red); border-color: var(--accent-gold); color: var(--accent-gold); }
-.action.enter-btn:hover { background: var(--accent-red-hover); }
+.action.enter-btn { background: #1e3a8a; border-color: var(--accent-gold); color: var(--accent-gold); }
+.action.enter-btn:hover { background: #2563eb; }
 .action.summary-btn { background: #1b4d3e; border-color: var(--accent-gold); color: var(--accent-gold); }
-.action.reset { background: rgba(110, 34, 38, 0.5); border-color: #6e2226; color: #fca5a5; margin-left: auto; }
+.action.reset { background: rgba(30, 58, 138, 0.4); border-color: #3b82f6; color: #93c5fd; margin-left: auto; }
 
 .tabs-header {
     display: flex;
@@ -227,7 +227,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-bottom: 18px;
 }
 .tab-btn {
-    background: rgba(16, 12, 9, 0.9);
+    background: rgba(13, 20, 36, 0.9);
     border: 1px solid var(--accent-gold);
     color: var(--text-muted);
     padding: 8px 16px;
@@ -241,7 +241,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     align-items: center;
     gap: 8px;
 }
-.tab-btn.active { background: var(--accent-red); color: var(--accent-gold); }
+.tab-btn.active { background: #1e3a8a; color: var(--accent-gold); }
 .tab-btn.summary-tab { border-color: #2e8b57; }
 .tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); }
 .tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 13px; }
@@ -255,13 +255,13 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(16, 12, 9, 0.9);
+    background: rgba(13, 20, 36, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 10px 14px;
 }
 .item-name { font-weight: bold; color: var(--text-main); }
-.count { font-weight: bold; font-size: 14px; background: var(--accent-red); color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 3px 10px; }
+.count { font-weight: bold; font-size: 14px; background: #1e3a8a; color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 3px 10px; }
 .empty { color: var(--text-muted); padding: 20px 0; text-align: center; font-style: italic; grid-column: 1 / -1; }
 .total { text-align: right; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
 .total b { font-size: 20px; color: var(--accent-gold); margin-left: 6px; }
@@ -294,7 +294,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     letter-spacing: 1px;
 }
 .ht-btn-extract {
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 12px 16px;
@@ -306,10 +306,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: all 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ht-btn-extract:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
+.ht-btn-extract:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 
 .ht-drawn-container {
-    background-color: rgba(14, 11, 8, 0.9);
+    background-color: rgba(8, 13, 24, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -322,7 +322,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2b2017;
+    background-color: #1a2a4a;
     border: 1px solid var(--accent-gold);
     color: var(--text-main);
     padding: 8px 12px;
@@ -342,7 +342,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ht-btn-select:hover { background-color: #246351; }
 
 .ht-list-container {
-    background-color: rgba(14, 11, 8, 0.9);
+    background-color: rgba(8, 13, 24, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -374,12 +374,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
     user-select: none;
     transition: transform 0.1s;
-    border: 1px solid rgba(201, 156, 55, 0.2);
+    border: 1px solid rgba(243, 156, 18, 0.2);
 }
 .ht-skill-tag:hover { transform: scale(1.03); border-color: var(--accent-gold); }
 
-.ht-skill-available { background-color: #213830; color: #e2f0d9; }
-.ht-skill-used { background-color: #221c17; color: #7a706b; text-decoration: line-through; border-color: #352c25; }
+.ht-skill-available { background-color: #16302b; color: #e2f0d9; }
+.ht-skill-used { background-color: #141c2e; color: #64748b; text-decoration: line-through; border-color: #1e293b; }
 
 /* Tooltip */
 [data-tooltip]:hover::after {
@@ -388,7 +388,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #120f0c;
+    background-color: #080d18;
     color: var(--accent-gold);
     padding: 8px 12px;
     border-radius: 6px;
@@ -412,7 +412,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     align-items: center;
 }
 .modal-content {
-    background-color: #241d17;
+    background-color: #131d35;
     border: 2px solid var(--accent-gold);
     border-radius: 8px;
     width: 90%; max-width: 550px;
@@ -431,11 +431,11 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     color: #e6dfcc;
 }
 .modal-close {
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold); border: 1px solid var(--accent-gold);
     padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
 }
-.modal-close:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
+.modal-close:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 
 /* TOOL 3: CÁT HUYỀN */
 .ch-container {
@@ -449,7 +449,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .ch-step {
-    background: rgba(16, 12, 9, 0.9);
+    background: rgba(13, 20, 36, 0.9);
     padding: 22px;
     border-radius: 6px;
     margin-bottom: 20px;
@@ -467,7 +467,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-bottom: 16px;
     border-radius: 6px;
     border: 1px solid var(--accent-gold);
-    background: rgba(10, 8, 6, 0.95);
+    background: rgba(8, 13, 24, 0.95);
     color: var(--text-main);
     font-family: "Times New Roman", Times, serif;
     outline: none;
@@ -475,7 +475,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ch-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
@@ -486,7 +486,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ch-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
+.ch-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 
 .ch-grid-seats {
     display: grid;
@@ -497,17 +497,17 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 @media (min-width: 600px) { .ch-grid-seats { grid-template-columns: repeat(5, 1fr); } }
 
 .ch-seat-card {
-    background: rgba(14, 11, 8, 0.9);
+    background: rgba(8, 13, 24, 0.9);
     border: 1px solid var(--border-color);
     padding: 12px;
     border-radius: 6px;
     text-align: center;
 }
-.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(46, 35, 25, 0.95); }
+.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(30, 58, 138, 0.4); }
 .ch-seat-title { font-weight: bold; margin-bottom: 8px; color: var(--accent-gold); font-size: 14px; }
 
 .ch-btn-damage {
-    background: #6e2226;
+    background: #1e3a8a;
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 4px;
@@ -519,10 +519,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     width: 100%;
     font-weight: bold;
 }
-.ch-btn-damage:hover { background: #882b30; }
+.ch-btn-damage:hover { background: #2563eb; }
 
 .ch-dashboard {
-    background: rgba(14, 11, 8, 0.9);
+    background: rgba(8, 13, 24, 0.9);
     border: 1px solid var(--border-color);
     padding: 16px;
     border-radius: 6px;
@@ -532,7 +532,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ch-status-hidden { font-style: italic; color: var(--text-muted); font-size: 14px; margin-top: 6px; }
 
 .ch-result-box {
-    background: rgba(14, 11, 8, 0.95);
+    background: rgba(8, 13, 24, 0.95);
     border: 2px dashed var(--accent-gold);
     padding: 22px;
     border-radius: 8px;
@@ -545,8 +545,8 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
 .ch-badge-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
 .ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 16px; transition: all 0.3s ease; border: 1px solid var(--accent-gold); }
-.ch-badge-red { background: #6e2226; color: var(--accent-gold); box-shadow: 0 0 5px #6e2226; }
-.ch-badge-black { background: #221c17; color: var(--text-muted); border-color: #555; }
+.ch-badge-red { background: #1e3a8a; color: var(--accent-gold); box-shadow: 0 0 5px #1e3a8a; }
+.ch-badge-black { background: #141c2e; color: var(--text-muted); border-color: #555; }
 .ch-badge.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 15px var(--accent-gold); }
 .ch-badge.inactive { opacity: 0.25; transform: scale(0.92); filter: grayscale(80%); }
 
@@ -563,7 +563,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tms-btn-container { text-align: center; margin-bottom: 25px; }
 .tms-btn {
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 14px 32px;
@@ -575,13 +575,13 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.tms-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); transform: scale(1.02); }
+.tms-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); transform: scale(1.02); }
 .tms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .tms-card {
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     padding: 12px;
-    background: rgba(16, 12, 9, 0.9);
+    background: rgba(13, 20, 36, 0.9);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -624,7 +624,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .bn-form-group select {
     width: 100%;
     padding: 12px 16px;
-    background-color: rgba(10, 8, 6, 0.95);
+    background-color: rgba(8, 13, 24, 0.95);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     color: var(--text-main);
@@ -635,7 +635,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .bn-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
@@ -647,12 +647,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.bn-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
+.bn-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 .bn-result-card {
     margin-top: 25px;
     padding: 20px;
     border-radius: 6px;
-    background-color: rgba(14, 11, 8, 0.95);
+    background-color: rgba(8, 13, 24, 0.95);
     border: 1px solid var(--border-color);
     display: none;
 }
@@ -694,6 +694,80 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
 }
 
+/* TOOL 6: TINH PHÁP CHÍNH */
+.tp-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.tp-container h2 {
+    margin-bottom: 20px;
+    color: var(--accent-gold);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px #000;
+}
+.tp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.tp-card {
+    background-color: rgba(8, 13, 24, 0.9);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+.tp-card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--accent-gold);
+}
+.tp-card.lowest {
+    border-color: #e74c3c;
+    background-color: #2b1312;
+    box-shadow: 0 0 12px rgba(231, 76, 60, 0.6);
+}
+.tp-symbol {
+    font-size: 26px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.tp-bich, .tp-chuon { color: #ffffff; }
+.tp-ro, .tp-co { color: #e74c3c; }
+.tp-count {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--accent-gold);
+}
+.tp-reset-btn {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+.tp-reset-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+}
+
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -707,7 +781,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 <!-- SIDEBAR DANH SÁCH TOOL -->
 <div class="sidebar">
     <div class="sidebar-header">
-        <h2>📜 SƠN HÀ BÁ SƠN<br><span style="font-size: 13px; color: var(--text-muted); font-weight: normal;">Hệ Thống Công Cụ Tam Quốc Sát</span></h2>
+        <h2>📜 TAM QUỐC SÁT<br><span style="font-size: 13px; color: var(--text-muted); font-weight: normal;">Hệ Thống Công Cụ</span></h2>
     </div>
     <ul class="tool-menu">
         <li class="tool-item active" data-bg="tonquyen.webp" onclick="switchTool('tool-ttq', this)">
@@ -729,6 +803,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="Bo_Nguyen.webp" onclick="switchTool('tool-boynguyen', this)">
             <span class="tool-badge-num">5</span>
             <span>Bồ Nguyên</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-tinhphapchinh', this)">
+            <span class="tool-badge-num">6</span>
+            <span>Tinh Pháp Chính</span>
         </li>
     </ul>
 </div>
@@ -942,6 +1020,32 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
+    <!-- TOOL 6: TINH PHÁP CHÍNH -->
+    <div id="tool-tinhphapchinh" class="tool-view">
+        <div class="tp-container">
+            <h2>Tinh Pháp Chính</h2>
+            <div class="tp-grid">
+                <div class="tp-card" id="card-bich" onclick="incrementTP('bich')">
+                    <span class="tp-symbol tp-bich">♠ Bích</span>
+                    <span class="tp-count" id="count-bich">0</span>
+                </div>
+                <div class="tp-card" id="card-chuon" onclick="incrementTP('chuon')">
+                    <span class="tp-symbol tp-chuon">♣ Chuồn</span>
+                    <span class="tp-count" id="count-chuon">0</span>
+                </div>
+                <div class="tp-card" id="card-ro" onclick="incrementTP('ro')">
+                    <span class="tp-symbol tp-ro">♦ Rô</span>
+                    <span class="tp-count" id="count-ro">0</span>
+                </div>
+                <div class="tp-card" id="card-co" onclick="incrementTP('co')">
+                    <span class="tp-symbol tp-co">♥ Cơ</span>
+                    <span class="tp-count" id="count-co">0</span>
+                </div>
+            </div>
+            <button class="tp-reset-btn" onclick="resetDataTP()">Đặt Lại (Reset)</button>
+        </div>
+    </div>
+
 </div>
 
 <!-- Hộp thoại Modal hiển thị text khi ấn vào kỹ năng Hứa Thiệu -->
@@ -956,7 +1060,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 <script>
 function setBackgroundImage(bgFile) {
     if (bgFile) {
-        document.body.style.backgroundImage = `linear-gradient(rgba(18, 16, 13, 0.82), rgba(18, 16, 13, 0.92)), url('${bgFile}')`;
+        document.body.style.backgroundImage = `linear-gradient(rgba(10, 15, 29, 0.85), rgba(10, 15, 29, 0.93)), url('${bgFile}')`;
     }
 }
 
@@ -1453,7 +1557,7 @@ function renderRoleInputsCH() {
                 <option value="PhanTac">Phản Tặc</option>
                 <option value="NoiGian">Nội Gián</option>
             </select>
-            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #6e2226; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
+            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #1e3a8a; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
             <span id="status_hidden_${i}" style="display:none; color: #4ade80; font-weight: bold; margin-left: 10px;">✔ Đã ẩn</span>
         `;
         container.appendChild(div);
@@ -1688,6 +1792,50 @@ function confirmActionBN() {
     weaponText.innerText = weapon;
     resultCard.classList.add('show');
 }
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 6: TINH PHÁP CHÍNH
+------------------------------------------------------------- */
+let countsTP = {
+    bich: 0,
+    chuon: 0,
+    ro: 0,
+    co: 0
+};
+
+function incrementTP(suit) {
+    countsTP[suit]++;
+    updateUITP();
+}
+
+function resetDataTP() {
+    countsTP = { bich: 0, chuon: 0, ro: 0, co: 0 };
+    updateUITP();
+}
+
+function updateUITP() {
+    document.getElementById('count-bich').innerText = countsTP.bich;
+    document.getElementById('count-chuon').innerText = countsTP.chuon;
+    document.getElementById('count-ro').innerText = countsTP.ro;
+    document.getElementById('count-co').innerText = countsTP.co;
+
+    let values = Object.values(countsTP);
+    let minVal = Math.min(...values);
+
+    let suits = ['bich', 'chuon', 'ro', 'co'];
+    suits.forEach(suit => {
+        let card = document.getElementById(`card-${suit}`);
+        card.classList.remove('lowest');
+    });
+
+    suits.forEach(suit => {
+        if (countsTP[suit] === minVal) {
+            document.getElementById(`card-${suit}`).classList.add('lowest');
+        }
+    });
+}
+
+updateUITP();
 </script>
 
 </body>

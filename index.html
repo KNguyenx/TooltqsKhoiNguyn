@@ -248,7 +248,7 @@ h1, h2 { margin: 0 0 8px; color: #e9d5ff; }
 .total { text-align: right; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
 .total b { font-size: 20px; color: var(--accent-purple); margin-left: 6px; }
 
-/* STYLES DÀNH RIÊNG CHO TOOL 2: HỨA THIỆU (CẬP NHẬT MỚI) */
+/* STYLES DÀNH RIÊNG CHO TOOL 2: HỨA THIỆU */
 .ht-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -971,7 +971,7 @@ renderGrid();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU (CẬP NHẬT HOÀN CHỈNH)
+   LOGIC TOOL 2: HỨA THIỆU
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1)[cite: 1].",
@@ -1135,7 +1135,7 @@ function selectSkillHT(type, skillName) {
 ['action', 'end', 'damage'].forEach(type => renderGridHT(type));
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 3: CÁT HUYỀN
+   LOGIC TOOL 3: CÁT HUYỀN (ĐÃ XÓA NÚT NHẬN DAME CỦA CHÍNH MÌNH)
 ------------------------------------------------------------- */
 let totalPlayersCount = 10;
 let catHuyenSeat = 1;
@@ -1231,12 +1231,20 @@ function renderGameGridCH() {
         card.className = `ch-seat-card ${i === catHuyenSeat ? 'me' : ''}`;
 
         let titleText = `Vị trí ${i}`;
-        if (i === catHuyenSeat) titleText += " (Cát Huyền)";
-
-        card.innerHTML = `
-            <div class="ch-seat-title">${titleText}</div>
-            <button class="ch-btn-damage" onclick="addDamageCH(${i})">💥 Nhận Dame</button>
-        `;
+        if (i === catHuyenSeat) {
+            titleText += " (Cát Huyền)";
+            // Ô của Cát Huyền hiển thị thông báo, không có nút nhận dame
+            card.innerHTML = `
+                <div class="ch-seat-title">${titleText}</div>
+                <div style="font-size: 11px; color: var(--text-muted); padding: 8px 0; font-style: italic;">Bản thân (Không nhận dame)</div>
+            `;
+        } else {
+            // Các vị trí khác có nút nhận dame bình thường
+            card.innerHTML = `
+                <div class="ch-seat-title">${titleText}</div>
+                <button class="ch-btn-damage" onclick="addDamageCH(${i})">💥 Nhận Dame</button>
+            `;
+        }
         grid.appendChild(card);
     }
 }

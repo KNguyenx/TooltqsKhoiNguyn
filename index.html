@@ -6,18 +6,18 @@
 <title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Cổ Trang</title>
 <style>
 :root {
-    --bg-primary: #1c140d;
-    --bg-sidebar: rgba(30, 21, 14, 0.95);
-    --bg-panel: rgba(46, 32, 21, 0.9);
-    --bg-card: rgba(69, 49, 33, 0.9);
-    --bg-card-hover: rgba(94, 68, 47, 0.95);
-    --accent-gold: #d4af37;
-    --accent-gold-hover: #f3c653;
-    --accent-red: #7a1c1c;
-    --accent-red-hover: #962222;
+    --bg-primary: #12100d;
+    --bg-sidebar: rgba(22, 18, 14, 0.95);
+    --bg-panel: rgba(33, 26, 20, 0.9);
+    --bg-card: rgba(48, 38, 29, 0.9);
+    --bg-card-hover: rgba(66, 53, 41, 0.95);
+    --accent-gold: #c99c37;
+    --accent-gold-hover: #e5b448;
+    --accent-red: #6e2226;
+    --accent-red-hover: #882b30;
     --text-main: #f5eedc;
     --text-muted: #d1c3a5;
-    --border-color: rgba(212, 175, 55, 0.25);
+    --border-color: rgba(201, 156, 55, 0.25);
 }
 
 * { box-sizing: border-box; user-select: none; }
@@ -51,7 +51,7 @@ body {
     padding: 24px 16px;
     text-align: center;
     border-bottom: 2px solid var(--accent-gold);
-    background: rgba(18, 12, 8, 0.9);
+    background: rgba(14, 11, 8, 0.9);
 }
 .sidebar-header h2 {
     margin: 0;
@@ -88,7 +88,7 @@ body {
     border-color: var(--border-color);
 }
 .tool-item.active {
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold);
     border-color: var(--accent-gold);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
@@ -100,7 +100,7 @@ body {
     align-items: center;
     width: 26px;
     height: 26px;
-    background: rgba(18, 12, 8, 0.8);
+    background: rgba(14, 11, 8, 0.8);
     border: 1px solid var(--accent-gold);
     color: var(--accent-gold);
     border-radius: 50%;
@@ -114,7 +114,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 24px;
-    background: rgba(12, 8, 5, 0.6);
+    background: rgba(10, 8, 6, 0.6);
 }
 .tool-view {
     display: none;
@@ -152,7 +152,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .player-name-input {
     flex: 1;
-    background: rgba(18, 12, 8, 0.9);
+    background: rgba(14, 11, 8, 0.9);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     padding: 10px 14px;
@@ -216,7 +216,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .action.enter-btn { background: var(--accent-red); border-color: var(--accent-gold); color: var(--accent-gold); }
 .action.enter-btn:hover { background: var(--accent-red-hover); }
 .action.summary-btn { background: #1b4d3e; border-color: var(--accent-gold); color: var(--accent-gold); }
-.action.reset { background: rgba(122, 28, 28, 0.4); border-color: #8b0000; color: #fca5a5; margin-left: auto; }
+.action.reset { background: rgba(110, 34, 38, 0.5); border-color: #6e2226; color: #fca5a5; margin-left: auto; }
 
 .tabs-header {
     display: flex;
@@ -227,7 +227,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-bottom: 18px;
 }
 .tab-btn {
-    background: rgba(20, 14, 10, 0.9);
+    background: rgba(16, 12, 9, 0.9);
     border: 1px solid var(--accent-gold);
     color: var(--text-muted);
     padding: 8px 16px;
@@ -255,7 +255,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(20, 14, 10, 0.9);
+    background: rgba(16, 12, 9, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 10px 14px;
@@ -294,7 +294,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     letter-spacing: 1px;
 }
 .ht-btn-extract {
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 12px 16px;
@@ -306,10 +306,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: all 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ht-btn-extract:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
+.ht-btn-extract:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
 
 .ht-drawn-container {
-    background-color: rgba(18, 12, 8, 0.9);
+    background-color: rgba(14, 11, 8, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -322,7 +322,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #332316;
+    background-color: #2b2017;
     border: 1px solid var(--accent-gold);
     color: var(--text-main);
     padding: 8px 12px;
@@ -342,7 +342,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ht-btn-select:hover { background-color: #246351; }
 
 .ht-list-container {
-    background-color: rgba(18, 12, 8, 0.9);
+    background-color: rgba(14, 11, 8, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
@@ -374,12 +374,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
     user-select: none;
     transition: transform 0.1s;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(201, 156, 55, 0.2);
 }
 .ht-skill-tag:hover { transform: scale(1.03); border-color: var(--accent-gold); }
 
-.ht-skill-available { background-color: #243d32; color: #e2f0d9; }
-.ht-skill-used { background-color: #2c2522; color: #7a706b; text-decoration: line-through; border-color: #3b3532; }
+.ht-skill-available { background-color: #213830; color: #e2f0d9; }
+.ht-skill-used { background-color: #221c17; color: #7a706b; text-decoration: line-through; border-color: #352c25; }
 
 /* Tooltip */
 [data-tooltip]:hover::after {
@@ -388,7 +388,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #120a05;
+    background-color: #120f0c;
     color: var(--accent-gold);
     padding: 8px 12px;
     border-radius: 6px;
@@ -412,7 +412,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     align-items: center;
 }
 .modal-content {
-    background-color: #2a1c13;
+    background-color: #241d17;
     border: 2px solid var(--accent-gold);
     border-radius: 8px;
     width: 90%; max-width: 550px;
@@ -431,11 +431,11 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     color: #e6dfcc;
 }
 .modal-close {
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold); border: 1px solid var(--accent-gold);
     padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
 }
-.modal-close:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
+.modal-close:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
 
 /* TOOL 3: CÁT HUYỀN */
 .ch-container {
@@ -449,7 +449,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .ch-step {
-    background: rgba(20, 14, 10, 0.9);
+    background: rgba(16, 12, 9, 0.9);
     padding: 22px;
     border-radius: 6px;
     margin-bottom: 20px;
@@ -467,7 +467,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-bottom: 16px;
     border-radius: 6px;
     border: 1px solid var(--accent-gold);
-    background: rgba(12, 8, 5, 0.95);
+    background: rgba(10, 8, 6, 0.95);
     color: var(--text-main);
     font-family: "Times New Roman", Times, serif;
     outline: none;
@@ -475,7 +475,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ch-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
@@ -486,7 +486,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.ch-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
+.ch-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
 
 .ch-grid-seats {
     display: grid;
@@ -497,17 +497,17 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 @media (min-width: 600px) { .ch-grid-seats { grid-template-columns: repeat(5, 1fr); } }
 
 .ch-seat-card {
-    background: rgba(18, 12, 8, 0.9);
+    background: rgba(14, 11, 8, 0.9);
     border: 1px solid var(--border-color);
     padding: 12px;
     border-radius: 6px;
     text-align: center;
 }
-.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(54, 38, 23, 0.95); }
+.ch-seat-card.me { border-color: var(--accent-gold); background: rgba(46, 35, 25, 0.95); }
 .ch-seat-title { font-weight: bold; margin-bottom: 8px; color: var(--accent-gold); font-size: 14px; }
 
 .ch-btn-damage {
-    background: #7a1c1c;
+    background: #6e2226;
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 4px;
@@ -519,10 +519,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     width: 100%;
     font-weight: bold;
 }
-.ch-btn-damage:hover { background: #962222; }
+.ch-btn-damage:hover { background: #882b30; }
 
 .ch-dashboard {
-    background: rgba(18, 12, 8, 0.9);
+    background: rgba(14, 11, 8, 0.9);
     border: 1px solid var(--border-color);
     padding: 16px;
     border-radius: 6px;
@@ -532,7 +532,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .ch-status-hidden { font-style: italic; color: var(--text-muted); font-size: 14px; margin-top: 6px; }
 
 .ch-result-box {
-    background: rgba(18, 12, 8, 0.95);
+    background: rgba(14, 11, 8, 0.95);
     border: 2px dashed var(--accent-gold);
     padding: 22px;
     border-radius: 8px;
@@ -545,8 +545,8 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
 .ch-badge-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; }
 .ch-badge { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 16px; transition: all 0.3s ease; border: 1px solid var(--accent-gold); }
-.ch-badge-red { background: #7a1c1c; color: var(--accent-gold); box-shadow: 0 0 5px #7a1c1c; }
-.ch-badge-black { background: #262220; color: var(--text-muted); border-color: #555; }
+.ch-badge-red { background: #6e2226; color: var(--accent-gold); box-shadow: 0 0 5px #6e2226; }
+.ch-badge-black { background: #221c17; color: var(--text-muted); border-color: #555; }
 .ch-badge.active { opacity: 1; transform: scale(1.08); box-shadow: 0 0 15px var(--accent-gold); }
 .ch-badge.inactive { opacity: 0.25; transform: scale(0.92); filter: grayscale(80%); }
 
@@ -563,7 +563,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tms-btn-container { text-align: center; margin-bottom: 25px; }
 .tms-btn {
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     padding: 14px 32px;
@@ -575,13 +575,13 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transition: 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.tms-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); transform: scale(1.02); }
+.tms-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); transform: scale(1.02); }
 .tms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .tms-card {
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     padding: 12px;
-    background: rgba(20, 14, 10, 0.9);
+    background: rgba(16, 12, 9, 0.9);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -624,7 +624,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .bn-form-group select {
     width: 100%;
     padding: 12px 16px;
-    background-color: rgba(12, 8, 5, 0.95);
+    background-color: rgba(10, 8, 6, 0.95);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
     color: var(--text-main);
@@ -635,7 +635,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .bn-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #7a1c1c 0%, #4a1010 100%);
+    background: linear-gradient(135deg, #6e2226 0%, #3f1215 100%);
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 6px;
@@ -647,12 +647,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
-.bn-btn:hover { background: linear-gradient(135deg, #962222 0%, #5c1414 100%); }
+.bn-btn:hover { background: linear-gradient(135deg, #882b30 0%, #4e171a 100%); }
 .bn-result-card {
     margin-top: 25px;
     padding: 20px;
     border-radius: 6px;
-    background-color: rgba(18, 12, 8, 0.95);
+    background-color: rgba(14, 11, 8, 0.95);
     border: 1px solid var(--border-color);
     display: none;
 }
@@ -704,33 +704,28 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 </head>
 <body>
 
-<!-- SIDEBAR DANH SÁCH TOOL (CỔ TRANG) -->
+<!-- SIDEBAR DANH SÁCH TOOL -->
 <div class="sidebar">
     <div class="sidebar-header">
         <h2>📜 SƠN HÀ BÁ SƠN<br><span style="font-size: 13px; color: var(--text-muted); font-weight: normal;">Hệ Thống Công Cụ Tam Quốc Sát</span></h2>
     </div>
     <ul class="tool-menu">
-        <!-- TOOL 1 -->
         <li class="tool-item active" data-bg="tonquyen.webp" onclick="switchTool('tool-ttq', this)">
             <span class="tool-badge-num">1</span>
             <span>Thần Tôn Quyền</span>
         </li>
-        <!-- TOOL 2 -->
         <li class="tool-item" data-bg="Hua_Thieu.webp" onclick="switchTool('tool-huathieu', this)">
             <span class="tool-badge-num">2</span>
             <span>Hứa Thiệu</span>
         </li>
-        <!-- TOOL 3 -->
         <li class="tool-item" data-bg="Cat_Huyen.webp" onclick="switchTool('tool-cathuyen', this)">
             <span class="tool-badge-num">3</span>
             <span>Cát Huyền</span>
         </li>
-        <!-- TOOL 4 -->
         <li class="tool-item" data-bg="Muu_Tu_Ma_Su.webp" onclick="switchTool('tool-tumasu', this)">
             <span class="tool-badge-num">4</span>
             <span>Mưu Tư Mã Sư</span>
         </li>
-        <!-- TOOL 5 -->
         <li class="tool-item" data-bg="Bo_Nguyen.webp" onclick="switchTool('tool-boynguyen', this)">
             <span class="tool-badge-num">5</span>
             <span>Bồ Nguyên</span>
@@ -775,7 +770,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <h1 style="text-align: center; margin-bottom: 24px; color: var(--accent-gold); letter-spacing: 2px; text-shadow: 2px 2px 4px #000;">⚔️ HỨA THIỆU - BÌNH XUÂN KỶ NĂNG ⚔️</h1>
         
         <div class="ht-container">
-            <!-- Ô 1: Giai đoạn hành động -->
             <div class="ht-box" id="box-action">
                 <div class="ht-box-title">GIAI ĐOẠN HÀNH ĐỘNG</div>
                 <button class="ht-btn-extract" onclick="extractSkills('action')">TRÍCH XUẤT (3 CHIÊU)</button>
@@ -788,7 +782,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                 </div>
             </div>
 
-            <!-- Ô 2: Mở đầu giai đoạn kết thúc -->
             <div class="ht-box" id="box-end">
                 <div class="ht-box-title">MỞ ĐẦU GIAI ĐOẠN KẾT THÚC</div>
                 <button class="ht-btn-extract" onclick="extractSkills('end')">TRÍCH XUẤT (3 CHIÊU)</button>
@@ -801,7 +794,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                 </div>
             </div>
 
-            <!-- Ô 3: Sau khi nhận sát thương -->
             <div class="ht-box" id="box-damage">
                 <div class="ht-box-title">SAU KHI NHẬN SÁT THƯƠNG</div>
                 <button class="ht-btn-extract" onclick="extractSkills('damage')">TRÍCH XUẤT (3 CHIÊU)</button>
@@ -821,7 +813,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <div class="ch-container">
             <h1 style="color: var(--accent-gold); text-align: center; text-shadow: 2px 2px 4px #000;">☯️ ĐẠO SĨ CÁT HUYỀN - LUYỆN ĐAN ☯️</h1>
 
-            <!-- BƯỚC 1 -->
             <div id="step1" class="ch-step">
                 <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">1. Cấu Hình Trận Đấu</h2>
                 
@@ -852,7 +843,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                 <button class="ch-btn" onclick="setupCatHuyen()">Xác Nhận Cát Huyền</button>
             </div>
 
-            <!-- BƯỚC 2 -->
             <div id="step2" class="ch-step" style="display: none;">
                 <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">2. Nhập Thân Phận Người Chơi Khác</h2>
                 <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">Nhập lần lượt thân phận từng người. Sau khi xác nhận thông tin sẽ được ẩn an toàn.</p>
@@ -860,7 +850,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                 <button id="btnStartGame" class="ch-btn" onclick="startGame()" style="margin-top: 15px;">Bắt Đầu Trận Đấu</button>
             </div>
 
-            <!-- BƯỚC 3 -->
             <div id="step3" class="ch-step" style="display: none;">
                 <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">3. Ghi Nhận Sát Thương & Luyện Đan</h2>
                 
@@ -875,15 +864,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
                     <button class="ch-btn" onclick="luyenDan()" style="background: linear-gradient(135deg, #1b4d3e 0%, #0f2b23 100%); color: var(--accent-gold); font-size: 18px;">🔮 LUYỆN ĐAN (Xem Hiệu Quả)</button>
                 </div>
 
-                <!-- BẢNG KẾT QUẢ -->
                 <div id="resultBox" class="ch-result-box">
                     <div id="resultTitle" class="ch-result-title"></div>
-                    
                     <div class="ch-badge-container">
                         <span id="badgeRed" class="ch-badge ch-badge-red">🔴 TIÊU KÝ ĐỎ</span>
                         <span id="badgeBlack" class="ch-badge ch-badge-black">⚫ TIÊU KÝ ĐEN</span>
                     </div>
-
                     <div id="resultDetail" class="ch-result-detail"></div>
                 </div>
             </div>
@@ -968,10 +954,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 </div>
 
 <script>
-/* LOGIC CHUYỂN TAB CÔNG CỤ VÀ THAY ĐỔI HÌNH NỀN */
 function setBackgroundImage(bgFile) {
     if (bgFile) {
-        document.body.style.backgroundImage = `linear-gradient(rgba(18, 12, 8, 0.82), rgba(18, 12, 8, 0.92)), url('${bgFile}')`;
+        document.body.style.backgroundImage = `linear-gradient(rgba(18, 16, 13, 0.82), rgba(18, 16, 13, 0.92)), url('${bgFile}')`;
     }
 }
 
@@ -1468,7 +1453,7 @@ function renderRoleInputsCH() {
                 <option value="PhanTac">Phản Tặc</option>
                 <option value="NoiGian">Nội Gián</option>
             </select>
-            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #7a1c1c; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
+            <button type="button" id="btn_confirm_${i}" onclick="confirmRoleCH(${i})" style="padding: 6px 12px; font-size: 14px; font-family: 'Times New Roman', Times, serif; background: #6e2226; border:1px solid var(--accent-gold); color:var(--accent-gold); border-radius:4px; cursor:pointer;">Xác Nhận & Ẩn</button>
             <span id="status_hidden_${i}" style="display:none; color: #4ade80; font-weight: bold; margin-left: 10px;">✔ Đã ẩn</span>
         `;
         container.appendChild(div);

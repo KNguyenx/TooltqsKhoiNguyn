@@ -1310,7 +1310,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
             <div class="bn-form-group">
                 <label for="cardSelect">Ô 1: Chọn Lá Bài</label>
                 <select id="cardSelect">
-                    <option value="A">A</option>
+                    <option value="A">A (1)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -2202,12 +2202,23 @@ function drawCardsTMS() {
 drawCardsTMS();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 5: BỒ NGUYÊN
+   LOGIC TOOL 5: BỒ NGUYÊN (CẬP NHẬT TỈ LỆ)
 ------------------------------------------------------------- */
 function confirmActionBN() {
     const card = document.getElementById('cardSelect').value;
     const suit = document.getElementById('suitSelect').value;
-    let successRate = (card === 'K' || card === 'ThiemDien') ? 100 : 90;
+    
+    let successRate = 90;
+    if (card === 'K' || card === 'ThiemDien') {
+        successRate = 100;
+    } else if (['9', '10', 'J', 'Q'].includes(card)) {
+        successRate = 95;
+    } else if (['5', '6', '7', '8'].includes(card)) {
+        successRate = 90;
+    } else if (['A', '2', '3', '4'].includes(card)) {
+        successRate = 85;
+    }
+
     let isSuccess = Math.random() * 100 <= successRate;
 
     let weapon = (card === 'ThiemDien') ? 'Thiên Lôi Nhận' : 
@@ -2370,15 +2381,16 @@ const vvSkillDescriptions = {
     "Thiểm Điện": "Thiểm Điện",
     "Thủy Yêm Thất Quân": "Thủy Yêm Thất Quân",
     "Hỏa Công": "Hỏa Công",
-    "Quyết Đấu": "Quyết Đấu"
+    "Quyết Đấu": "Quyết Đấu",
+    "Ngũ Cốc Phong Đăng": "Ngũ Cốc Phong Đăng"
 };
 
-const dsNgauNhien17 = [
+const dsNgauNhien18 = [
     "Đào Viên Kết Nghĩa", "Sát", "Né", "Đào", "Rượu", "Vô Trung Sinh Hữu", 
     "Tá Đao Sát Nhân", "Nam Man Nhập Xâm", "Vạn Tiễn Tề Phát", 
     "Thuận Thủ Khiên Dương", "Quá Hà Sách Kiều", "Vô Giải Khả Kích", 
     "Lạc Bất Tư Thục", "Binh Lương Thốn Đoạn", "Thiểm Điện", 
-    "Thủy Yêm Thất Quân", "Hỏa Công", "Quyết Đấu"
+    "Thủy Yêm Thất Quân", "Hỏa Công", "Quyết Đấu", "Ngũ Cốc Phong Đăng"
 ];
 const dsLoaiSat = ["Sát", "Hỏa sát", "Lôi sát"];
 

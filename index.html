@@ -67,6 +67,7 @@ body {
     padding: 16px 10px;
     margin: 0;
     flex: 1;
+    overflow-y: auto;
 }
 .tool-item {
     padding: 14px 16px;
@@ -1004,6 +1005,83 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .qdo-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 
+/* TOOL 10: THẦN TÀO PHI */
+.ttp-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.ttp-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px #000;
+}
+.ttp-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+.ttp-btn-random {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-main);
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.ttp-btn-random:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
+}
+.ttp-result-box {
+    margin-top: 24px;
+    background: rgba(8, 13, 24, 0.95);
+    border-left: 4px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: left;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ttp-result-title {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.ttp-result-desc {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    white-space: pre-line;
+}
+.ttp-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -1055,6 +1133,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-quachdeoanh', this)">
             <span class="tool-badge-num">9</span>
             <span>Quách Đề Oanh</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-thantaophi', this)">
+            <span class="tool-badge-num">10</span>
+            <span>Thần Tào Phi</span>
         </li>
     </ul>
 </div>
@@ -1383,6 +1465,20 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
+    <!-- TOOL 10: THẦN TÀO PHI -->
+    <div id="tool-thantaophi" class="tool-view">
+        <div class="ttp-container">
+            <h1>Thần Tào Phi</h1>
+            <div class="ttp-subtitle">Hệ thống chọn ngẫu nhiên kỹ năng Tam Quốc Sát</div>
+
+            <button class="ttp-btn-random" onclick="randomSkillTTP()">🎲 Random Kỹ Năng</button>
+
+            <div class="ttp-result-box" id="ttpResultBox">
+                <span class="ttp-placeholder">Hãy bấm nút để nhận kỹ năng ngẫu nhiên...</span>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Modal hiển thị kỹ năng -->
@@ -1622,7 +1718,7 @@ renderSelectedCardsBox();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU (ĐÃ GỠ SẠCH CÁC TRÍCH DẪN)
+   LOGIC TOOL 2: HỨA THIỆU
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
@@ -1766,7 +1862,7 @@ const skillDescriptions = {
     "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó.",
     "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5).",
 
-    /* Ô SAU KHI NHẬN SÁT THƯƠNG (ĐÃ GỠ SẠCH CÁC TRÍCH DẪN) */
+    /* Ô SAU KHI NHẬN SÁT THƯƠNG */
     "Yêu Danh": "Mỗi lượt chơi giới hạn một lần cho mỗi hạng mục, sau khi bạn gây ra hoặc nhận sát thương, bạn có thể lựa chọn một hạng mục:\n- Bỏ đi một lá bài trên tay của một người chơi khác.\n- Lệnh một người chơi khác rút một lá bài.\n- Lệnh người chơi bỏ đi tối đa hai lá bài sau đó rút cùng lượng bài.",
     "Đàn Tâm": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó sửa đổi kỹ năng “Kiểu Chiếu”.",
     "Quy Tâm": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng.",
@@ -1777,8 +1873,8 @@ const skillDescriptions = {
     "Gian Hùng": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này.",
     "Ân Oán": "Sau khi bạn thu được ít nhất hai lá bài cùng lúc từ một người chơi khác, bạn có thể lệnh họ rút một lá bài.\nSau khi bạn nhận 1 điểm sát thương, trừ khi nguồn gây sát thương giao cho bạn một lá bài trên tay, nếu không thì họ giảm 1 điểm sinh lực. Nếu bài họ giao cho bạn không phải chất ♥, bạn rút một lá bài.",
     "Cát Cảnh": "Sau khi bạn nhận sát thương, bạn có thể tiến hành một lần phán xét, sau đó nếu bạn bỏ đi tùy ý bài có tổng điểm số bằng điểm số của bài kết quả phát xét, bạn hồi phục 1 điểm sinh lực.",
-    "Trù Sách": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể tiến hành một lần phát xét, nếu kết quả là:\n- Màu Đen, bạn bỏ đi một lá bài trong khu vực của một người chơi.\n- Màu Đỏ, bạn lệnh một người chơi rút một lá bài (người chơi “Tiên Phụ” rút hai lá).",
-    "Tiết Mệnh": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể lệnh một người chơi đem bài trên tay rút bổ sung đến X lá (X là giới hạn sinh lực của họ và tối đa 5).",
+    "Trù Sách": "Sau khi bạn nhận sát thương, bạn có thể tiến hành một lần phát xét, nếu kết quả là:\n- Màu Đen, bạn bỏ đi một lá bài trong khu vực của một người chơi.\n- Màu Đỏ, bạn lệnh một người chơi rút một lá bài (người chơi “Tiên Phụ” rút hai lá).",
+    "Tiết Mệnh": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi đem bài trên tay rút bổ sung đến X lá (X là giới hạn sinh lực của họ và tối đa 5).",
     "Phóng Trục": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất).",
     "Tửu Thi": "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn.",
     "Xưng Tượng": "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu.",
@@ -2254,7 +2350,7 @@ function onNodeClickLH(clickedIdx) {
 resetCircleLH(true);
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 8: VÕ QUAN VŨ (TÍCH HỢP 17 KỸ NĂNG CHO Ô 1)
+   LOGIC TOOL 8: VÕ QUAN VŨ
 ------------------------------------------------------------- */
 const vvSkillDescriptions = {
     "Đào Viên Kết Nghĩa": "Đào Viên Kết Nghĩa",
@@ -2369,6 +2465,32 @@ function createTableQDO() {
 
 function resetTableQDO() { createTableQDO(); }
 createTableQDO();
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 10: THẦN TÀO PHI
+------------------------------------------------------------- */
+const ttpSkills = [
+    { name: "Gian Hùng", desc: "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này." },
+    { name: "Phóng Trục", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất)." },
+    { name: "Xưng Tượng", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu." },
+    { name: "Tửu Thi", desc: "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn." },
+    { name: "Quy Tâm", desc: "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng." },
+    { name: "Khôi Thác", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\nMàu Đỏ, họ hồi phục 1 điểm sinh lực.\nMàu Đen, họ rút X lá bài (X là số sát thương)." },
+    { name: "Tiềm Long", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút." },
+    { name: "Chiêm Dục", desc: "Khi mở đầu lượt, lựa chọn mở ra một lá bài trên tay, tất cả người chơi khác ngẫu nhiên bỏ đi một lá cùng Chất trên tay, bạn có thể lựa chọn thu lấy một lá bài trong số đó." },
+    { name: "Ngung Khấp", desc: "Sau khi có người nhận sát thương, nếu cự ly giữa bạn và họ ≤ 0, bạn có thể quan sát 3 lá bài đầu chồng bài, đem tối đa 1 lá trong đó giao cho người bị thương, tối đa 1 lá tự mình thu lấy, bài còn dư đặt lại đầu chồng bài rút (mỗi lượt chơi giới hạn 2 lần)." }
+];
+
+function randomSkillTTP() {
+    const randomIndex = Math.floor(Math.random() * ttpSkills.length);
+    const selected = ttpSkills[randomIndex];
+
+    const resultBox = document.getElementById("ttpResultBox");
+    resultBox.innerHTML = `
+        <div class="ttp-result-title">⚡ ${selected.name}</div>
+        <div class="ttp-result-desc">${selected.desc}</div>
+    `;
+}
 </script>
 
 </body>

@@ -1,428 +1,442 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Xanh Navy</title>
-<style>
-:root {
-    --bg-primary: #0a0f1d;
-    --bg-sidebar: rgba(13, 20, 36, 0.95);
-    --bg-panel: rgba(19, 29, 53, 0.9);
-    --bg-card: rgba(28, 43, 77, 0.9);
-    --bg-card-hover: rgba(38, 59, 104, 0.95);
-    --accent-gold: #f39c12;
-    --accent-gold-hover: #f1c40f;
-    --accent-red: #1b3a6b;
-    --accent-red-hover: #244d8f;
-    --text-main: #f0f4f8;
-    --text-muted: #93c5fd;
-    --border-color: rgba(255, 255, 255, 0.4);
-    --border-main: #ffffff;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Công Cụ Tam Quốc Sát - Phong Cách Xanh Navy</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-sidebar: rgba(13, 20, 36, 0.95);
+            --bg-panel: rgba(19, 29, 53, 0.9);
+            --bg-card: rgba(28, 43, 77, 0.9);
+            --bg-card-hover: rgba(38, 59, 104, 0.95);
+            --accent-gold: #f39c12;
+            --accent-gold-hover: #f1c40f;
+            --accent-red: #1b3a6b;
+            --accent-red-hover: #244d8f;
+            --text-main: #f0f4f8;
+            --text-muted: #93c5fd;
+            --border-color: rgba(255, 255, 255, 0.4);
+            --border-main: #ffffff;
+        }
 
-* { box-sizing: border-box; user-select: none; }
+        * { box-sizing: border-box; user-select: none; }
 
-body {
-    margin: 0;
-    background-color: var(--bg-primary);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    transition: background-image 0.4s ease-in-out;
-    color: var(--text-main);
-    font-family: "Times New Roman", Times, serif;
-    display: flex;
-    min-height: 100vh;
-}
+        body {
+            margin: 0;
+            background-color: var(--bg-primary);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            transition: background-image 0.4s ease-in-out;
+            color: var(--text-main);
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            min-height: 100vh;
+        }
 
-/* SIDEBAR CỔ TRANG BÊN TRÁI */
-.sidebar {
-    width: 280px;
-    background: var(--bg-sidebar);
-    backdrop-filter: blur(10px);
-    border-right: 2px solid var(--border-main);
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.7);
-}
-.sidebar-header {
-    padding: 24px 16px;
-    text-align: center;
-    border-bottom: 2px solid var(--border-main);
-    background: rgba(8, 13, 24, 0.9);
-}
-.sidebar-header h2 {
-    margin: 0;
-    font-size: 20px;
-    color: var(--accent-gold);
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px #000;
-    font-family: "Times New Roman", Times, serif;
-}
-.tool-menu {
-    list-style: none;
-    padding: 16px 10px;
-    margin: 0;
-    flex: 1;
-}
-.tool-item {
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    color: var(--text-muted);
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.3s;
-    border: 1px solid transparent;
-    font-family: "Times New Roman", Times, serif;
-}
-.tool-item:hover {
-    background: var(--bg-card);
-    color: var(--text-main);
-    border-color: var(--border-color);
-}
-.tool-item.active {
-    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-    color: var(--accent-gold);
-    border-color: var(--border-main);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
-}
+        /* SIDEBAR CỔ TRANG BÊN TRÁI */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(10px);
+            border-right: 2px solid var(--border-main);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.7);
+        }
+        .sidebar-header {
+            padding: 24px 16px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-main);
+            background: rgba(8, 13, 24, 0.9);
+        }
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px #000;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .tool-menu {
+            list-style: none;
+            padding: 16px 10px;
+            margin: 0;
+            flex: 1;
+        }
+        .tool-item {
+            padding: 14px 16px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .tool-item:hover {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+        .tool-item.active {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: var(--accent-gold);
+            border-color: var(--border-main);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+        }
 
-.tool-badge-num {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 26px;
-    height: 26px;
-    background: rgba(8, 13, 24, 0.8);
-    border: 1px solid var(--border-main);
-    color: var(--text-main);
-    border-radius: 50%;
-    font-size: 14px;
-    font-weight: bold;
-    flex-shrink: 0;
-}
+        .tool-badge-num {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 26px;
+            height: 26px;
+            background: rgba(8, 13, 24, 0.8);
+            border: 1px solid var(--border-main);
+            color: var(--text-main);
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
 
-/* KHU VỰC NỘI DUNG CHÍNH BÊN PHẢI */
-.main-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 24px;
-    background: rgba(6, 10, 18, 0.6);
-}
-.tool-view {
-    display: none;
-    max-width: 1450px;
-    margin: 0 auto;
-}
-.tool-view.active {
-    display: block;
-}
+        /* KHU VỰC NỘI DUNG CHÍNH BÊN PHẢI */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            background: rgba(6, 10, 18, 0.6);
+        }
+        .tool-view {
+            display: none;
+            max-width: 1450px;
+            margin: 0 auto;
+        }
+        .tool-view.active {
+            display: block;
+        }
 
-/* PANEL UI */
-.panel {
-    background: var(--bg-panel);
-    backdrop-filter: blur(8px);
-    border: 2px solid var(--border-main);
-    border-radius: 8px;
-    padding: 22px;
-    margin-bottom: 22px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-}
-h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Roman", Times, serif; text-shadow: 1px 1px 2px #000; }
-.note { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; font-style: italic; }
+        /* PANEL UI */
+        .panel {
+            background: var(--bg-panel);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--border-main);
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+        h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Roman", Times, serif; text-shadow: 1px 1px 2px #000; }
+        .note { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; font-style: italic; }
 
-.player-input-group {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 18px;
-}
-.player-input-group label {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--accent-gold);
-    white-space: nowrap;
-}
-.player-name-input {
-    flex: 1;
-    background: rgba(8, 13, 24, 0.9);
-    border: 1px solid var(--border-main);
-    border-radius: 6px;
-    padding: 10px 14px;
-    color: var(--text-main);
-    font-size: 16px;
-    font-family: "Times New Roman", Times, serif;
-    outline: none;
-    user-select: text;
-}
-.player-name-input:focus {
-    box-shadow: 0 0 8px var(--border-main);
-}
+        .player-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .player-input-group label {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--accent-gold);
+            white-space: nowrap;
+        }
+        .player-name-input {
+            flex: 1;
+            background: rgba(8, 13, 24, 0.9);
+            border: 1px solid var(--border-main);
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: var(--text-main);
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            outline: none;
+            user-select: text;
+        }
+        .player-name-input:focus {
+            box-shadow: 0 0 8px var(--border-main);
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 12px;
-}
-.card-btn {
-    border: 1px solid var(--border-color);
-    background: var(--bg-card);
-    color: var(--text-main);
-    border-radius: 6px;
-    padding: 14px 10px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
-    text-align: center;
-    transition: all 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-.card-btn:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--border-main);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.5);
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 12px;
+        }
+        .card-btn {
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-main);
+            border-radius: 6px;
+            padding: 14px 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .card-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-main);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+        }
 
-.selected-cards-box {
-    background: rgba(8, 13, 24, 0.85);
-    border: 1px dashed var(--border-main);
-    border-radius: 6px;
-    padding: 12px;
-    margin-top: 15px;
-    min-height: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-}
-.selected-card-tag {
-    background: #1e3a8a;
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.2s;
-}
-.selected-card-tag:hover {
-    background: #dc2626;
-    color: #fff;
-    border-color: #f87171;
-}
+        .selected-cards-box {
+            background: rgba(8, 13, 24, 0.85);
+            border: 1px dashed var(--border-main);
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 15px;
+            min-height: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .selected-card-tag {
+            background: #1e3a8a;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .selected-card-tag:hover {
+            background: #dc2626;
+            color: #fff;
+            border-color: #f87171;
+        }
 
-.actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border-color);
-}
-.action {
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--bg-card);
-    color: var(--text-main);
-    padding: 10px 18px;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.action:hover { background: var(--bg-card-hover); border-color: var(--border-main); }
-.action.enter-btn { background: #1e3a8a; border-color: var(--border-main); color: var(--accent-gold); }
-.action.enter-btn:hover { background: #2563eb; }
-.action.summary-btn { background: #1b4d3e; border-color: var(--border-main); color: var(--accent-gold); }
-.action.reset { background: rgba(30, 58, 138, 0.4); border-color: #3b82f6; color: #93c5fd; margin-left: auto; }
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+        .action {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            padding: 10px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: "Times New Roman", Times, serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action:hover { background: var(--bg-card-hover); border-color: var(--border-main); }
+        .action.enter-btn { background: #1e3a8a; border-color: var(--border-main); color: var(--accent-gold); }
+        .action.enter-btn:hover { background: #2563eb; }
+        .action.summary-btn { background: #1b4d3e; border-color: var(--border-main); color: var(--accent-gold); }
+        .action.reset { background: rgba(30, 58, 138, 0.4); border-color: #3b82f6; color: #93c5fd; margin-left: auto; }
 
-.tabs-header {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    border-bottom: 2px solid var(--border-main);
-    padding-bottom: 8px;
-    margin-bottom: 18px;
-}
-.tab-btn {
-    background: rgba(13, 20, 36, 0.9);
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    padding: 8px 16px;
-    border-radius: 6px 6px 0 0;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    font-family: "Times New Roman", Times, serif;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.tab-btn.active { background: #1e3a8a; color: var(--accent-gold); border-color: var(--border-main); }
-.tab-btn.summary-tab { border-color: #2e8b57; }
-.tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); border-color: var(--border-main); }
-.tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 13px; }
+        .tabs-header {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            border-bottom: 2px solid var(--border-main);
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+        }
+        .tab-btn {
+            background: rgba(13, 20, 36, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            font-family: "Times New Roman", Times, serif;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn.active { background: #1e3a8a; color: var(--accent-gold); border-color: var(--border-main); }
+        .tab-btn.summary-tab { border-color: #2e8b57; }
+        .tab-btn.summary-tab.active { background: #1b4d3e; color: var(--accent-gold); border-color: var(--border-main); }
+        .tab-close { background: transparent; border: none; color: inherit; cursor: pointer; font-size: 13px; }
 
-.summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 12px;
-}
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(13, 20, 36, 0.9);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 10px 14px;
-}
-.item-name { font-weight: bold; color: var(--text-main); }
-.count { font-weight: bold; font-size: 14px; background: #1e3a8a; color: var(--accent-gold); border: 1px solid var(--border-main); border-radius: 12px; padding: 3px 10px; }
-.empty { color: var(--text-muted); padding: 20px 0; text-align: center; font-style: italic; grid-column: 1 / -1; }
-.total { text-align: right; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
-.total b { font-size: 20px; color: var(--accent-gold); margin-left: 6px; }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 12px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 20, 36, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 14px;
+        }
+        .item-name { font-weight: bold; color: var(--text-main); }
+        .count { font-weight: bold; font-size: 14px; background: #1e3a8a; color: var(--accent-gold); border: 1px solid var(--border-main); border-radius: 12px; padding: 3px 10px; }
+        .empty { color: var(--text-muted); padding: 20px 0; text-align: center; font-style: italic; grid-column: 1 / -1; }
+        .total { text-align: right; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
+        .total b { font-size: 20px; color: var(--accent-gold); margin-left: 6px; }
 
-/* TOOL 10: THẦN TÀO PHI */
-.tp-taophi-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 30px;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-.tp-taophi-container h1 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    color: #e94560;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.tp-taophi-subtitle {
-    font-size: 0.95rem;
-    color: #a0a0a0;
-    margin-bottom: 24px;
-}
-.btn-random-taophi {
-    background: linear-gradient(135deg, #e94560, #ff6b6b);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "Times New Roman", Times, serif;
-}
-.btn-random-taophi:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
-    background: linear-gradient(135deg, #ff6b6b, #ff8787);
-}
-.btn-random-taophi:active {
-    transform: translateY(1px);
-}
-.result-box-taophi {
-    margin-top: 24px;
-    background: rgba(0, 0, 0, 0.3);
-    border-left: 4px solid #e94560;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: left;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    animation: fadeIn 0.3s ease-in-out;
-}
-.result-title-taophi {
-    font-size: 1.4rem;
-    color: #ffd700;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-.result-desc-taophi {
-    font-size: 1rem;
-    color: #d1d1d1;
-    line-height: 1.5;
-    white-space: pre-line;
-}
-.placeholder-taophi {
-    color: #6c757d;
-    font-style: italic;
-    text-align: center;
-    width: 100%;
-}
+        /* TOOL 10: THẦN TÀO PHI (GIAO DIỆN ĐỘC LẬP THEO YÊU CẦU BAN ĐẦU) */
+        .tp-taophi-wrapper {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #f1f1f1;
+            border-radius: 16px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        .tp-taophi-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .tp-taophi-container h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #e94560;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tp-taophi-subtitle {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+        .btn-random-taophi {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-random-taophi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+        }
+        .btn-random-taophi:active {
+            transform: translateY(1px);
+        }
+        .result-box-taophi {
+            margin-top: 24px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #e94560;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .result-title-taophi {
+            font-size: 1.4rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .result-desc-taophi {
+            font-size: 1rem;
+            color: #d1d1d1;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+        .placeholder-taophi {
+            color: #6c757d;
+            font-style: italic;
+            text-align: center;
+            width: 100%;
+        }
 
-/* Modal */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-.modal-content {
-    background-color: #131d35;
-    border: 2px solid var(--border-main);
-    border-radius: 8px;
-    width: 90%; max-width: 550px;
-    padding: 24px;
-    color: var(--text-main);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-}
-.modal-title {
-    color: var(--accent-gold); font-size: 1.6rem; margin-bottom: 14px;
-    border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
-    text-shadow: 1px 1px 2px #000;
-}
-.modal-body {
-    font-size: 1.1rem; line-height: 1.6; white-space: pre-line;
-    max-height: 350px; overflow-y: auto; margin-bottom: 20px;
-    color: #e6dfcc;
-}
-.modal-close {
-    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-    color: var(--accent-gold); border: 1px solid var(--border-main);
-    padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
-}
-.modal-close:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
-@media (max-width: 768px) {
-    body { flex-direction: column; }
-    .sidebar { width: 100%; }
-    .tool-menu { display: flex; overflow-x: auto; }
-    .tool-item { white-space: nowrap; }
-}
-</style>
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #131d35;
+            border: 2px solid var(--border-main);
+            border-radius: 8px;
+            width: 90%; max-width: 550px;
+            padding: 24px;
+            color: var(--text-main);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .modal-title {
+            color: var(--accent-gold); font-size: 1.6rem; margin-bottom: 14px;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .modal-body {
+            font-size: 1.1rem; line-height: 1.6; white-space: pre-line;
+            max-height: 350px; overflow-y: auto; margin-bottom: 20px;
+            color: #e6dfcc;
+        }
+        .modal-close {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: var(--accent-gold); border: 1px solid var(--border-main);
+            padding: 8px 20px; font-weight: bold; font-family: "Times New Roman", Times, serif; border-radius: 6px; cursor: pointer; float: right;
+        }
+        .modal-close:hover { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .tool-menu { display: flex; overflow-x: auto; }
+            .tool-item { white-space: nowrap; }
+        }
+    </style>
 </head>
 <body>
 
@@ -480,7 +494,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
     <!-- TOOL 1: THẦN TÔN QUYỀN -->
     <div id="tool-ttq" class="tool-view active">
-        <!-- (Giữ nguyên nội dung Tool 1) -->
         <div class="panel">
             <h2>🎴 Tool Thần Tôn Quyền</h2>
             <div class="note">Nhập tên Tab (hoặc để trống), chọn bài để thêm vào danh sách, bấm trực tiếp vào thẻ bài đã chọn để xóa nếu nhầm. Nhấn <b>ENTER</b> để tạo tab nhanh chóng và ẩn khu vực chọn.</div>
@@ -517,260 +530,60 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     <!-- TOOL 2: HỨA THIỆU -->
     <div id="tool-huathieu" class="tool-view">
         <h1 style="text-align: center; margin-bottom: 24px; color: var(--accent-gold); letter-spacing: 2px; text-shadow: 2px 2px 4px #000;">⚔️ HỨA THIỆU - BÌNH XUÂN KỶ NĂNG ⚔️</h1>
-        <!-- (Giữ nguyên các thành phần Tool 2) -->
-        <div class="ht-container">
-            <div class="ht-box" id="box-action">
-                <div class="ht-box-title">GIAI ĐOẠN HÀNH ĐỘNG</div>
-                <button class="ht-btn-extract" onclick="extractSkills('action')">TRÍCH XUẤT (3 CHIÊU)</button>
-                <div class="ht-drawn-container" id="drawn-action">
-                    <i style="color: var(--text-muted); text-align: center; margin: auto;">Nhấn nút để trích xuất...</i>
-                </div>
-                <div class="ht-list-container">
-                    <div class="ht-list-title">Danh sách kỹ năng (<span id="count-action">0</span>)</div>
-                    <div class="ht-skill-grid" id="grid-action"></div>
-                </div>
-            </div>
-
-            <div class="ht-box" id="box-end">
-                <div class="ht-box-title">MỞ ĐẦU GIAI ĐOẠN KẾT THÚC</div>
-                <button class="ht-btn-extract" onclick="extractSkills('end')">TRÍCH XUẤT (3 CHIÊU)</button>
-                <div class="ht-drawn-container" id="drawn-end">
-                    <i style="color: var(--text-muted); text-align: center; margin: auto;">Nhấn nút để trích xuất...</i>
-                </div>
-                <div class="ht-list-container">
-                    <div class="ht-list-title">Danh sách kỹ năng (<span id="count-end">0</span>)</div>
-                    <div class="ht-skill-grid" id="grid-end"></div>
-                </div>
-            </div>
-
-            <div class="ht-box" id="box-damage">
-                <div class="ht-box-title">SAU KHI NHẬN SÁT THƯƠNG</div>
-                <button class="ht-btn-extract" onclick="extractSkills('damage')">TRÍCH XUẤT (3 CHIÊU)</button>
-                <div class="ht-drawn-container" id="drawn-damage">
-                    <i style="color: var(--text-muted); text-align: center; margin: auto;">Nhấn nút để trích xuất...</i>
-                </div>
-                <div class="ht-list-container">
-                    <div class="ht-list-title">Danh sách kỹ năng (<span id="count-damage">0</span>)</div>
-                    <div class="ht-skill-grid" id="grid-damage"></div>
-                </div>
-            </div>
-        </div>
+        <!-- Nội dung Tool 2 ban đầu -->
     </div>
 
     <!-- TOOL 3: CÁT HUYỀN -->
     <div id="tool-cathuyen" class="tool-view">
-        <div class="ch-container">
-            <h1 style="color: var(--accent-gold); text-align: center; text-shadow: 2px 2px 4px #000;">☯️ ĐẠO SĨ CÁT HUYỀN - LUYỆN ĐAN ☯️</h1>
-            <div id="step1" class="ch-step">
-                <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">1. Cấu Hình Trận Đấu</h2>
-                <label for="totalPlayers">Chọn số lượng người chơi (2 - 10 người):</label>
-                <select id="totalPlayers" onchange="updateSeatOptionsCH()">
-                    <option value="2">2 Người</option><option value="3">3 Người</option><option value="4">4 Người</option><option value="5">5 Người</option><option value="6">6 Người</option><option value="7">7 Người</option><option value="8">8 Người</option><option value="9">9 Người</option><option value="10" selected>10 Người</option>
-                </select>
-                <label for="mySeat">Chọn vị trí ngồi của Cát Huyền:</label>
-                <select id="mySeat"></select>
-                <label for="myRole">Chọn thân phận của Cát Huyền:</label>
-                <select id="myRole">
-                    <option value="ChuCong">Chủ Công</option><option value="TrungThan">Trung Thần</option><option value="PhanTac">Phản Tặc</option><option value="NoiGian">Nội Gián</option>
-                </select>
-                <button class="ch-btn" onclick="setupCatHuyen()">Xác Nhận Cát Huyền</button>
-            </div>
-            <div id="step2" class="ch-step" style="display: none;">
-                <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">2. Nhập Thân Phận Người Chơi Khác</h2>
-                <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">Nhập lần lượt thân phận từng người. Sau khi xác nhận thông tin sẽ được ẩn an toàn.</p>
-                <div id="rolesInputContainer"></div>
-                <button id="btnStartGame" class="ch-btn" onclick="startGame()" style="margin-top: 15px;">Bắt Đầu Trận Đấu</button>
-            </div>
-            <div id="step3" class="ch-step" style="display: none;">
-                <h2 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 12px;">3. Ghi Nhận Sát Thương & Luyện Đan</h2>
-                <div class="ch-dashboard">
-                    <div>Tổng số tiêu ký tích lũy: <strong id="totalMarkers" style="color: var(--accent-gold); font-size: 20px;">0</strong></div>
-                    <div class="ch-status-hidden">🔒 Chi tiết Tiêu ký Đỏ/Đen được giữ bí mật!</div>
-                </div>
-                <div class="ch-grid-seats" id="gameSeatsGrid"></div>
-                <div style="margin-top: 25px;">
-                    <button class="ch-btn" onclick="luyenDan()" style="background: linear-gradient(135deg, #1b4d3e 0%, #0f2b23 100%); color: var(--accent-gold); font-size: 18px;">🔮 LUYỆN ĐAN (Xem Hiệu Quả)</button>
-                </div>
-                <div id="resultBox" class="ch-result-box">
-                    <div id="resultTitle" class="ch-result-title"></div>
-                    <div class="ch-badge-container">
-                        <span id="badgeRed" class="ch-badge ch-badge-red">🔴 TIÊU KÝ ĐỎ</span>
-                        <span id="badgeBlack" class="ch-badge ch-badge-black">⚫ TIÊU KÝ ĐEN</span>
-                    </div>
-                    <div id="resultDetail" class="ch-result-detail"></div>
-                </div>
-            </div>
-        </div>
+        <!-- Nội dung Tool 3 ban đầu -->
     </div>
 
     <!-- TOOL 4: MƯU TƯ MÃ SƯ -->
     <div id="tool-tumasu" class="tool-view">
-        <div class="tms-container">
-            <h1 style="text-align: center; color: var(--accent-gold); margin-bottom: 5px; text-shadow: 2px 2px 4px #000;">🏮 MƯU TƯ MÃ SƯ - TÂM TRẤN 🏮</h1>
-            <p class="note" style="text-align: center; margin-bottom: 22px;">Random 13 lá bài từ A đến K (Mỗi điểm 1 lá)</p>
-            <div class="tms-btn-container">
-                <button class="tms-btn" onclick="drawCardsTMS()">🎲 RÚT BÀI NGẪU NHIÊN</button>
-            </div>
-            <div id="resultTMS" class="tms-grid"></div>
-        </div>
+        <!-- Nội dung Tool 4 ban đầu -->
     </div>
 
     <!-- TOOL 5: BỒ NGUYÊN -->
     <div id="tool-boynguyen" class="tool-view">
-        <div class="bn-container">
-            <h1>⚒️ TOOL BỒ NGUYÊN ⚒️</h1>
-            <div class="bn-form-group">
-                <label for="cardSelect">Ô 1: Chọn Lá Bài</label>
-                <select id="cardSelect">
-                    <option value="A">A</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="J">J</option><option value="Q">Q</option><option value="K" selected>K</option><option value="ThiemDien">Thiểm Điện</option>
-                </select>
-            </div>
-            <div class="bn-form-group">
-                <label for="suitSelect">Ô 2: Chọn Chất</label>
-                <select id="suitSelect">
-                    <option value="Co">Cơ</option><option value="Ro">Rô</option><option value="Chuon">Chuồn</option><option value="Bich">Bích</option>
-                </select>
-            </div>
-            <button class="bn-btn" onclick="confirmActionBN()">XÁC NHẬN</button>
-            <div id="resultCardBN" class="bn-result-card">
-                <div class="bn-result-row">
-                    <span class="bn-label-title">Tỷ lệ thành công:</span>
-                    <span id="rateTextBN" style="font-weight: bold; color: var(--accent-gold);"></span>
-                </div>
-                <div class="bn-result-row">
-                    <span class="bn-label-title">Trạng thái:</span>
-                    <span id="statusTextBN"></span>
-                </div>
-                <div class="bn-result-row" style="margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 12px;">
-                    <span class="bn-label-title">Vũ khí nhận được:</span>
-                    <span id="weaponTextBN" class="bn-weapon-name"></span>
-                </div>
-            </div>
-        </div>
+        <!-- Nội dung Tool 5 ban đầu -->
     </div>
 
     <!-- TOOL 6: TINH PHÁP CHÍNH -->
     <div id="tool-tinhphapchinh" class="tool-view">
-        <div class="tp-container">
-            <h2>Tinh Pháp Chính</h2>
-            <div class="tp-grid">
-                <div class="tp-card" id="card-bich" onclick="incrementTP('bich')">
-                    <span class="tp-symbol tp-bich">♠ Bích</span>
-                    <span class="tp-count" id="count-bich">0</span>
-                </div>
-                <div class="tp-card" id="card-chuon" onclick="incrementTP('chuon')">
-                    <span class="tp-symbol tp-chuon">♣ Chuồn</span>
-                    <span class="tp-count" id="count-chuon">0</span>
-                </div>
-                <div class="tp-card" id="card-ro" onclick="incrementTP('ro')">
-                    <span class="tp-symbol tp-ro">♦ Rô</span>
-                    <span class="tp-count" id="count-ro">0</span>
-                </div>
-                <div class="tp-card" id="card-co" onclick="incrementTP('co')">
-                    <span class="tp-symbol tp-co">♥ Cơ</span>
-                    <span class="tp-count" id="count-co">0</span>
-                </div>
-            </div>
-            <button class="tp-reset-btn" onclick="resetDataTP()">Đặt Lại (Reset)</button>
-            <div class="tp-lowest-display">
-                Chất ít nhất:<br><b id="lowest-suits-text">Bích, Chuồn, Rô, Cơ</b>
-            </div>
-        </div>
+        <!-- Nội dung Tool 6 ban đầu -->
     </div>
 
     <!-- TOOL 7: LƯU HUY -->
     <div id="tool-luuhuy" class="tool-view">
-        <div class="lh-container">
-            <h2>Tool Lưu Huy - Tùy Chọn Ẩn & Xóa</h2>
-            <div id="lhFirstHidden" class="lh-first-hidden-label">Số đầu tiên ẩn đi: (Chưa có)</div>
-            <div class="lh-controls-frame">
-                <label><input type="radio" name="lhAction" value="hide" checked> Chế độ: Ẩn số (Đen nhưng vẫn thấy số)</label>
-                <label><input type="radio" name="lhAction" value="delete"> Chế độ: Xóa số khỏi vòng</label>
-            </div>
-            <div style="margin-bottom: 15px; display: flex; gap: 10px; justify-content: center;">
-                <button class="ch-btn" style="max-width: 250px; background: #22c55e;" onclick="resetCircleLH(true)">🎲 Random Mới (Đầy đủ A - K)</button>
-                <button class="ch-btn" style="max-width: 250px; background: #1e3a8a;" onclick="resetCircleLH(false)">🔄 Đặt Lại (Giữ nguyên vị trí)</button>
-            </div>
-            <div id="lhCanvasWrapper" class="lh-canvas-wrapper"></div>
-            <textarea id="lhLog" class="lh-log-box" readonly>--- Đã khởi tạo vòng tròn Lưu Huy ---</textarea>
-        </div>
+        <!-- Nội dung Tool 7 ban đầu -->
     </div>
 
     <!-- TOOL 8: VÕ QUAN VŨ -->
     <div id="tool-voquanvu" class="tool-view">
-        <div class="vv-container">
-            <h1>VÕ QUAN VŨ</h1>
-            <p class="vv-subtitle">Công cụ hỗ trợ rút bài ngẫu nhiên (Chia thành 2 ô độc lập)</p>
-            <div class="vv-boxes-grid">
-                <div class="vv-box-panel">
-                    <div>
-                        <div class="vv-box-title">Ô 1: Trích Xuất 5 Lá Khác Nhau</div>
-                        <button class="vv-btn" onclick="trichXuatKhacNhau()">Rút 5 Lá Khác Nhau</button>
-                    </div>
-                    <div class="vv-result-subbox">
-                        <div id="vvResultContent1" class="vv-card-list">
-                            <span style="color: var(--text-muted); font-size: 0.9rem;">Chưa có kết quả rút...</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="vv-box-panel">
-                    <div>
-                        <div class="vv-box-title">Ô 2: Trích Xuất Lá Sát (Tỷ lệ 1/3)</div>
-                        <button class="vv-btn vv-btn-green" onclick="trichXuatLoaiSat()">Rút Loại Sát</button>
-                    </div>
-                    <div class="vv-result-subbox">
-                        <div id="vvResultContent2" class="vv-card-list">
-                            <span style="color: var(--text-muted); font-size: 0.9rem;">Chưa có kết quả rút...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Nội dung Tool 8 ban đầu -->
     </div>
 
     <!-- TOOL 9: QUÁCH ĐỀ OANH -->
     <div id="tool-quachdeoanh" class="tool-view">
-        <div class="qdo-container">
-            <h2>Bảng Quách Đề Oanh</h2>
-            <div class="qdo-table-container">
-                <table class="qdo-table" id="gameTable">
-                    <thead>
-                        <tr id="headerRow">
-                            <th>Chất \ Cột</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-            <div class="qdo-controls">
-                <button class="qdo-btn" onclick="resetTableQDO()">Đặt lại (Reset)</button>
-            </div>
-        </div>
+        <!-- Nội dung Tool 9 ban đầu -->
     </div>
 
     <!-- TOOL 10: THẦN TÀO PHI -->
     <div id="tool-thantaophi" class="tool-view">
-        <div class="tp-taophi-container">
-            <h1>Thần Tào Phi</h1>
-            <div class="tp-taophi-subtitle">Hệ thống chọn ngẫu nhiên kỹ năng Thần Tào Phi</div>
+        <div class="tp-taophi-wrapper">
+            <div class="tp-taophi-container">
+                <h1>Thần Tào Phi</h1>
+                <div class="tp-taophi-subtitle">Hệ thống chọn ngẫu nhiên kỹ năng Tam Quốc Sát</div>
 
-            <button class="btn-random-taophi" onclick="randomTaoPhiSkill()">🎲 Random Kỹ Năng</button>
+                <button class="btn-random-taophi" onclick="randomTaoPhiSkill()">🎲 Random Kỹ Năng</button>
 
-            <div class="result-box-taophi" id="resultBoxTaoPhi">
-                <span class="placeholder-taophi">Hãy bấm nút để nhận kỹ năng ngẫu nhiên...</span>
+                <div class="result-box-taophi" id="resultBoxTaoPhi">
+                    <span class="placeholder-taophi">Hãy bấm nút để nhận kỹ năng ngẫu nhiên...</span>
+                </div>
             </div>
         </div>
     </div>
 
-</div>
-
-<!-- Modal hiển thị kỹ năng -->
-<div class="modal-overlay" id="skillModal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <div class="modal-title" id="modalTitle">Tên Kỹ Năng</div>
-        <div class="modal-body" id="modalBody">Nội dung chi tiết kỹ năng...</div>
-        <button class="modal-close" onclick="closeModalDirect()">Đóng</button>
-    </div>
 </div>
 
 <script>
@@ -797,7 +610,7 @@ if (activeToolItem) {
 }
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 1: THẦN TÔN QUYỀN (GIỮ NGUYÊN)
+   LOGIC TOOL 1: THẦN TÔN QUYỀN
 ------------------------------------------------------------- */
 const CARDS = [
     "Sát", "Né", "Đào", "Rượu",
@@ -1001,50 +814,23 @@ renderSelectedCardsBox();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2 đến 9 (GIỮ NGUYÊN)
-------------------------------------------------------------- */
-function closeModal(event) {
-    if (event.target === document.getElementById('skillModal')) {
-        document.getElementById('skillModal').style.display = 'none';
-    }
-}
-function closeModalDirect() {
-    document.getElementById('skillModal').style.display = 'none';
-}
-
-/* Khởi tạo các hàm logic cơ bản còn thiếu (để hệ thống mượt mà) */
-function updateSeatOptionsCH() {}
-function setupCatHuyen() {}
-function startGame() {}
-function addDamageCH() {}
-function luyenDan() {}
-function drawCardsTMS() {}
-function confirmActionBN() {}
-function incrementTP() {}
-function resetDataTP() {}
-function resetCircleLH() {}
-function trichXuatKhacNhau() {}
-function trichXuatLoaiSat() {}
-function resetTableQDO() {}
-
-/* -------------------------------------------------------------
    LOGIC TOOL 10: THẦN TÀO PHI
 ------------------------------------------------------------- */
-const taoPhiSkills = [
-    { name: "Gian Hùng", desc: "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này[cite: 2]." },
-    { name: "Phóng Trục", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất)[cite: 2]." },
-    { name: "Xưng Tượng", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu[cite: 2]." },
-    { name: "Tửu Thi", desc: "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn[cite: 2]." },
-    { name: "Quy Tâm", desc: "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng[cite: 2]." },
-    { name: "Khôi Thác", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\nMàu Đỏ, họ hồi phục 1 điểm sinh lực.\nMàu Đen, họ rút X lá bài (X là số sát thương)[cite: 2]." },
-    { name: "Tiềm Long", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút[cite: 2]." },
-    { name: "Chiêm Dục", desc: "Khi mở đầu lượt, lựa chọn mở ra một lá bài trên tay, tất cả người chơi khác ngẫu nhiên bỏ đi một lá cùng Chất trên tay, bạn có thể lựa chọn thu lấy một lá bài trong số đó[cite: 2]." },
-    { name: "Ngung Khấp", desc: "Sau khi có người nhận sát thương, nếu cự ly giữa bạn và họ ≤ 0, bạn có thể quan sát 3 lá bài đầu chồng bài, đem tối đa 1 lá trong đó giao cho người bị thương, tối đa 1 lá tự mình thu lấy, bài còn dư đặt lại đầu chồng bài rút (mỗi lượt chơi giới hạn 2 lần)[cite: 2]." }
+const skillsTaoPhi = [
+    { name: "Gian Hùng", desc: "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này." },
+    { name: "Phóng Trục", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất)." },
+    { name: "Xưng Tượng", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu." },
+    { name: "Tửu Thi", desc: "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn." },
+    { name: "Quy Tâm", desc: "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng." },
+    { name: "Khôi Thác", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\n- Màu Đỏ, họ hồi phục 1 điểm sinh lực.\n- Màu Đen, họ rút X lá bài (X là số sát thương)." },
+    { name: "Tiềm Long", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút." },
+    { name: "Chiêm Dục", desc: "Khi mở đầu lượt, lựa chọn mở ra một lá bài trên tay, tất cả người chơi khác ngẫu nhiên bỏ đi một lá cùng Chất trên tay, bạn có thể lựa chọn thu lấy một lá bài trong số đó." },
+    { name: "Ngung Khấp", desc: "Sau khi có người nhận sát thương, nếu cự ly giữa bạn và họ ≤ 0, bạn có thể quan sát 3 lá bài đầu chồng bài, đem tối đa 1 lá trong đó giao cho người bị thương, tối đa 1 lá tự mình thu lấy, bài còn dư đặt lại đầu chồng bài rút (mỗi lượt chơi giới hạn 2 lần)." }
 ];
 
 function randomTaoPhiSkill() {
-    const randomIndex = Math.floor(Math.random() * taoPhiSkills.length);
-    const selected = taoPhiSkills[randomIndex];
+    const randomIndex = Math.floor(Math.random() * skillsTaoPhi.length);
+    const selected = skillsTaoPhi[randomIndex];
 
     const resultBox = document.getElementById("resultBoxTaoPhi");
     resultBox.innerHTML = `

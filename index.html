@@ -696,7 +696,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-weight: bold;
 }
 
-/* TOOL 6: TINH PHÁP CHÍNH (Viền trắng) */
+/* TOOL 6: TINH PHÁP CHÍNH */
 .tp-container {
     max-width: 500px;
     margin: 0 auto;
@@ -783,6 +783,225 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-top: 6px;
 }
 
+/* TOOL 7: LƯU HUY */
+.lh-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+.lh-container h2 {
+    text-align: center;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px #000;
+}
+.lh-output {
+    background: rgba(8, 13, 24, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 18px;
+    margin-top: 20px;
+    max-height: 450px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e2f0d9;
+    white-space: pre-wrap;
+}
+
+/* TOOL 8: VÕ QUAN VŨ */
+.vv-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.vv-container h1 {
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px #000;
+}
+.vv-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+.vv-btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.vv-btn {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-main);
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    flex: 1;
+    min-width: 200px;
+}
+.vv-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(212, 175, 55, 0.3);
+}
+.vv-btn-green {
+    background: linear-gradient(135deg, #1b4d3e 0%, #0f2b23 100%);
+}
+.vv-btn-green:hover {
+    background: linear-gradient(135deg, #246351 0%, #1b4d3e 100%);
+}
+.vv-result-box {
+    background: rgba(8, 13, 24, 0.95);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.vv-result-title {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    width: 100%;
+}
+.vv-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+.vv-card-item {
+    background: rgba(13, 20, 36, 0.9);
+    border: 1px solid var(--border-main);
+    color: var(--text-main);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.vv-card-item.sat-type {
+    background: #2b1312;
+    border-color: #e74c3c;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+}
+
+/* TOOL 9: QUÁCH ĐỀ OANH */
+.qdo-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+.qdo-container h2 {
+    text-align: center;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #000;
+}
+.qdo-table-container {
+    overflow-x: auto;
+    background: rgba(8, 13, 24, 0.9);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    max-width: 100%;
+}
+.qdo-table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+.qdo-table th, .qdo-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 12px;
+    min-width: 45px;
+    font-family: "Times New Roman", Times, serif;
+}
+.qdo-table th {
+    background-color: #162238;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+.qdo-suit-header {
+    background-color: #0f172a;
+    text-align: left;
+    padding-left: 15px;
+    min-width: 100px;
+    font-weight: bold;
+}
+.qdo-cell {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: bold;
+    color: var(--text-main);
+    background: rgba(19, 29, 53, 0.6);
+}
+.qdo-cell:hover {
+    background-color: var(--bg-card-hover);
+}
+.qdo-cell.blacked {
+    background-color: #080d18 !important;
+    color: #475569 !important;
+    text-decoration: line-through;
+}
+.qdo-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+.qdo-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-main);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    transition: 0.2s;
+}
+.qdo-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+}
+
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -822,6 +1041,18 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-tinhphapchinh', this)">
             <span class="tool-badge-num">6</span>
             <span>Tinh Pháp Chính</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-luuhuy', this)">
+            <span class="tool-badge-num">7</span>
+            <span>Lưu Huy</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-voquanvu', this)">
+            <span class="tool-badge-num">8</span>
+            <span>Võ Quan Vũ</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-quachdeoanh', this)">
+            <span class="tool-badge-num">9</span>
+            <span>Quách Đề Oanh</span>
         </li>
     </ul>
 </div>
@@ -1064,6 +1295,62 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
+    <!-- TOOL 7: LƯU HUY -->
+    <div id="tool-luuhuy" class="tool-view">
+        <div class="lh-container">
+            <h2>📜 Lưu Huy - Mô Phỏng Thuật Toán Bài Lá</h2>
+            <p class="note" style="text-align: center;">Chạy mô phỏng thuật toán rút bài và lật bài ngẫu nhiên qua các vòng cho đến khi còn lại 3 số.</p>
+            <div style="text-align: center; margin-bottom: 15px;">
+                <button class="ch-btn" style="max-width: 250px;" onclick="runLuuHuySimulation()">▶ CHẠY MÔ PHỎNG</button>
+            </div>
+            <div id="lhOutput" class="lh-output">Nhấn nút "CHẠY MÔ PHỎNG" để bắt đầu...</div>
+        </div>
+    </div>
+
+    <!-- TOOL 8: VÕ QUAN VŨ -->
+    <div id="tool-voquanvu" class="tool-view">
+        <div class="vv-container">
+            <h1>VÕ QUAN VŨ</h1>
+            <p class="vv-subtitle">Công cụ hỗ trợ rút bài ngẫu nhiên</p>
+
+            <div class="vv-btn-group">
+                <button class="vv-btn" onclick="trichXuatKhacNhau()">1. Trích xuất 5 lá khác nhau</button>
+                <button class="vv-btn vv-btn-green" onclick="trichXuatLoaiSat()">2. Trích xuất lá Sát (1/3)</button>
+            </div>
+
+            <div class="vv-result-box">
+                <div id="vvResultTitle" class="vv-result-title">Chưa có kết quả</div>
+                <div id="vvResultContent" class="vv-card-list">
+                    <span style="color: var(--text-muted);">Nhấn nút phía trên để bắt đầu rút bài</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOL 9: QUÁCH ĐỀ OANH -->
+    <div id="tool-quachdeoanh" class="tool-view">
+        <div class="qdo-container">
+            <h2>Bảng Quách Đề Oanh</h2>
+
+            <div class="qdo-table-container">
+                <table class="qdo-table" id="gameTable">
+                    <thead>
+                        <tr id="headerRow">
+                            <th>Chất \ Cột</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Các hàng sẽ được tạo tự động bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="qdo-controls">
+                <button class="qdo-btn" onclick="resetTableQDO()">Đặt lại (Reset)</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Hộp thoại Modal hiển thị text khi ấn vào kỹ năng Hứa Thiệu -->
@@ -1276,7 +1563,7 @@ renderGrid();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU (BỔ SUNG ĐẦY ĐỦ KỸ NĂNG)
+   LOGIC TOOL 2: HỨA THIỆU
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
@@ -1388,37 +1675,37 @@ const skillDescriptions = {
     "Xu Chu": "Giai đoạn hành động giới hạn một lần, bạn có thể lấy ra một lá bài ở đầu chồng bài rút, nếu là [Sát], bạn sử dụng nó; nếu không phải là [Sát], bạn lựa chọn một hạng mục: thu lấy tất cả bài lấy ra, hoặc lấy ra lần nữa (số lần không thể vượt quá số người chơi còn sống).",
     
     /* KỸ NĂNG MỞ ĐẦU GIAI ĐOẠN KẾT THÚC */
-    "Quận Binh": "Giai đoạn kết thúc của một người chơi, nếu số bài trên tay của họ ≤ 1, họ có thể rút một lá bài và đem tất cả bài trên tay giao cho bạn, sau đó bạn đem cùng lượng bài giao cho người đó[cite: 3].",
-    "Trực Ngôn": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi rút một lá bài và mở nó ra, nếu bài này là bài Cơ Bản, bạn rút một lá bài. Nếu bài này là bài Trang Bị, họ sử dụng nó và hồi phục 1 điểm sinh lực[cite: 3].",
-    "Truân Giang": "Giai đoạn kết thúc, nếu trong giai đoạn hành động bạn không sử dụng bài chỉ định qua người chơi khác thành mục tiêu, bạn có thể rút X lá bài (X là tất cả thế lực trên bàn chơi)[cite: 3].",
-    "Bế Nguyệt": "Giai đoạn kết thúc, bạn có thể rút một lá bài. Nếu bạn không có bài trên tay, thay đổi thành rút hai lá bài[cite: 3].",
-    "Tinh Sách": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn sử dụng qua số bài ≥ số sinh lực của bạn, thì bạn có thể thực hiện thêm một giai đoạn rút bài hoặc giai đoạn hành động. Nếu số chất của số bài này cũng ≥ số sinh lực của bạn, thì bạn chấp hành cả hai hạng mục[cite: 3].",
-    "Trấn Hành": "Mở đầu giai đoạn kết thúc hoặc sau khi bạn nhận thiệt hại, bạn có thể xem 3 lá bài ở đầu chồng bài rút, sau đó bạn thu lấy trong đó một lá bài không cùng chất với bài còn lại rồi đặt bài dư lại đầu chồng bài, gọi là \"Tín\"[cite: 3].",
-    "Mặc Chí": "Giai đoạn kết thúc, bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ nhất bạn sử dụng trong giai đoạn hành động lượt hiện tại, sau đó bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ hai bạn sử dụng trong giai đoạn hành động lượt hiện tại[cite: 3].",
-    "Tội Luận": "Giai đoạn kết thúc, bạn có thể xem 3 lá bài ở đầu chồng bài rút, bạn giữ lại một lá bài với mỗi hạng mục thỏa mãn sau đây, sau đó đặt lại theo thứ tự tùy ý bài còn dư:\n- Bạn đã gây ra sát thương trong lượt hiện tại.\n- Bạn chưa bỏ bài trong lượt hiện tại.\n- Bài trên tay nhỏ nhất bàn.\nNếu tất cả đều không thỏa mãn, bạn cùng một người chơi khác tự mất 1 điểm sinh lực[cite: 3].",
-    "Phục Gian": "Tỏa Định Kỹ. Giai đoạn chuẩn bị và giai đoạn kết thúc, bạn ngẫu nhiên xem bài trên tay của một người chơi có số bài trên tay không lớn nhất toàn bàn[cite: 3].",
-    "Khốn Phấn": "Tỏa Định Kỹ. Giai đoạn kết thúc, bạn tự mất 1 điểm sinh lực, sau đó rút hai lá bài[cite: 3].",
-    "Cư Thủ": "Giai đoạn kết thúc, bạn có thể lật mặt võ tướng và rút 4 lá bài, sau đó bạn bỏ đi một lá bài trên tay, nếu bằng cách này bỏ đi bài Trang Bị, thì bạn thay đổi thành sử dụng nó[cite: 3].",
-    "Trấn Cốt": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, giai đoạn kết thúc lượt hiện tại của bạn và khi kết thúc lượt sau của người đó, họ rút bài hoặc bỏ bài trên tay cho đến khi bằng số bài trên tay của bạn (rút bài tối đa 5 lá bài)[cite: 3].",
-    "Bỉnh Nhất": "Giai đoạn kết thúc, bạn có thể mở ra tất cả bài trên tay, nếu cùng màu, bạn lệnh tối đa tùy ý người chơi mỗi người rút một lá bài (số người được lựa chọn không thể vượt quá số bài trên tay bạn mở ra). Nếu cùng điểm số, thì bạn rút một lá bài[cite: 3].",
-    "Bí Kế": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số sinh lực bạn đã mất), sau đó bạn có thể đem cùng lượng bài trên tay giao cho người chơi khác[cite: 3].",
-    "Tuyệt Sách": "Giai đoạn kết thúc, bạn có thể gây ra 1 điểm sát thương đối với một người chơi khác không có bài trên tay[cite: 3].",
-    "Huệ Dân": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số người có số bài trên tay nhỏ hơn số sinh lực), sau đó mở ra cùng một lượng bài trên tay. Bắt đầu từ một người chơi bạn lựa chọn, họ lần lượt thu lấy trong đó một lá bài[cite: 2, 3].",
-    "Dụ Địch": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác bỏ đi một lá bài trên tay của bạn, nếu bài bỏ đi:\n- Không phải [Sát], thì bạn thu lấy một lá bài của họ.\n- Không phải màu Đen, thì bạn rút một lá bài[cite: 3].",
-    "Khoan Thích": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, cho đến khi mở đầu lượt tiếp theo của bạn, sau khi người này nhận điểm sát thương thứ 2 trong cùng một lượt, họ hồi phục 1 điểm sinh lực (mỗi lượt giới hạn phát động một lần)[cite: 3].",
-    "Tiết Ứng": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, [Sát] hoặc bài Cẩm Nang thường người này sử dụng ở lượt tiếp theo không hạn chế cự ly và có thể chỉ định thêm một mục tiêu, sau khi họ gây ra sát thương, họ không thể tiếp tục sử dụng bài cho đến khi kết thúc lượt[cite: 3].",
-    "Tùy Chinh": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi. Giai đoạn hành động tiếp theo của người này sử dụng [Sát] không hạn chế cự ly và có thể sử dụng thêm một lá [Sát]. Sau đó khi kết thúc giai đoạn hành động của họ, bạn có thể xem như sử dụng một lá [Sát] đối với một người chơi khác đã từng nhận sát thương trong lượt của họ[cite: 3].",
-    "Trấn Quân": "Giai đoạn chuẩn bị hoặc giai đoạn kết thúc, bạn có thể bỏ đi X lá bài của một người chơi (X bằng số bài trên tay của họ trừ đi số sinh lực và ít nhất 1), nếu trong đó không có bài Trang Bị, bạn lựa chọn một hạng mục:\n- Bỏ đi một lá bài.\n- Người này rút bằng lượng bài[cite: 3].",
-    "Cử Tiến": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài phi Cơ Bản và lệnh một người chơi khác lựa chọn một hạng mục:\n- Rút hai lá bài.\n- Hồi phục 1 điểm sinh lực.\n- Hồi phục bài võ tướng về trạng thái ban đầu[cite: 3].",
-    "Đãi Yến": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác thu được một lá bài Cơ Bản chất ♥, sau đó nếu họ từng là mục tiêu của kỹ năng này ở lượt trước, họ tự mất 1 điểm sinh lực[cite: 3].",
-    "Noãn Huệ": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi, người này có thể xem như sử dụng X lá bài Cơ Bản (X là số bài trong khu Trang Bị của họ và tối thiểu là 1, nếu họ sử dụng bài cùng tên bằng cách này, sau khi hoàn tất kết toán thì bỏ đi toàn bộ bài trong khu Trang Bị)[cite: 3].",
-    "Tẩm Tình": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài của một người chơi khác có chứa người chơi ở vị trí số một trong phạm vi công kích. Sau đó nếu số bài trên tay của họ nhiều hơn so với vị trí số một, bạn rút một lá bài[cite: 3].",
-    "Viện Hộ": "Giai đoạn kết thúc, bạn có thể đem một lá bài Trang Bị đặt vào khu Trang Bị của một người chơi, nếu bài này là:\n- Bài Vũ Khí, bỏ đi một lá bài của một người chơi nằm trong cự ly 1 của bạn.\n- Bài Phòng Cụ (Giáp), họ rút một lá bài.\n- Bài Tọa Kỵ (Ngựa), họ hồi phục 1 điểm sinh lực[cite: 3].",
-    "Sinh Tức": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn chưa từng gây ra sát thương, bạn có thể rút hai lá bài[cite: 3].",
-    "Trầm Dũng": "Giai đoạn kết thúc, bạn có thể rút X lá bài ( X là số loại bài bạn đã sử dụng ở lượt hiện tại)[cite: 3].",
-    "Tuẫn Tiết": "Khi kết thúc mỗi lượt chơi, nếu lượt hiện tại bạn từng thu được bài ở ngoài giai đoạn rút bài, có thể lựa chọn một hạng mục:\n- Lệnh một người chơi đem bài trên tay điều chỉnh đến bằng giá trị sinh lực của họ.\n- Lệnh một người chơi đem giá trị sinh lực điều chỉnh đến bằng số bài trên tay của họ.\n(Mỗi hạng mục giới hạn một lần mỗi vòng chơi)[cite: 3].",
-    "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó[cite: 3].",
-    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5)[cite: 3]."
+    "Quận Binh": "Giai đoạn kết thúc của một người chơi, nếu số bài trên tay của họ ≤ 1, họ có thể rút một lá bài và đem tất cả bài trên tay giao cho bạn, sau đó bạn đem cùng lượng bài giao cho người đó.",
+    "Trực Ngôn": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi rút một lá bài và mở nó ra, nếu bài này là bài Cơ Bản, bạn rút một lá bài. Nếu bài này là bài Trang Bị, họ sử dụng nó và hồi phục 1 điểm sinh lực.",
+    "Truân Giang": "Giai đoạn kết thúc, nếu trong giai đoạn hành động bạn không sử dụng bài chỉ định qua người chơi khác thành mục tiêu, bạn có thể rút X lá bài (X là tất cả thế lực trên bàn chơi).",
+    "Bế Nguyệt": "Giai đoạn kết thúc, bạn có thể rút một lá bài. Nếu bạn không có bài trên tay, thay đổi thành rút hai lá bài.",
+    "Tinh Sách": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn sử dụng qua số bài ≥ số sinh lực của bạn, thì bạn có thể thực hiện thêm một giai đoạn rút bài hoặc giai đoạn hành động. Nếu số chất của số bài này cũng ≥ số sinh lực của bạn, thì bạn chấp hành cả hai hạng mục.",
+    "Trấn Hành": "Mở đầu giai đoạn kết thúc hoặc sau khi bạn nhận thiệt hại, bạn có thể xem 3 lá bài ở đầu chồng bài rút, sau đó bạn thu lấy trong đó một lá bài không cùng chất với bài còn lại rồi đặt bài dư lại đầu chồng bài, gọi là \"Tín\".",
+    "Mặc Chí": "Giai đoạn kết thúc, bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ nhất bạn sử dụng trong giai đoạn hành động lượt hiện tại, sau đó bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ hai bạn sử dụng trong giai đoạn hành động lượt hiện tại.",
+    "Tội Luận": "Giai đoạn kết thúc, bạn có thể xem 3 lá bài ở đầu chồng bài rút, bạn giữ lại một lá bài với mỗi hạng mục thỏa mãn sau đây, sau đó đặt lại theo thứ tự tùy ý bài còn dư:\n- Bạn đã gây ra sát thương trong lượt hiện tại.\n- Bạn chưa bỏ bài trong lượt hiện tại.\n- Bài trên tay nhỏ nhất bàn.\nNếu tất cả đều không thỏa mãn, bạn cùng một người chơi khác tự mất 1 điểm sinh lực.",
+    "Phục Gian": "Tỏa Định Kỹ. Giai đoạn chuẩn bị và giai đoạn kết thúc, bạn ngẫu nhiên xem bài trên tay của một người chơi có số bài trên tay không lớn nhất toàn bàn.",
+    "Khốn Phấn": "Tỏa Định Kỹ. Giai đoạn kết thúc, bạn tự mất 1 điểm sinh lực, sau đó rút hai lá bài.",
+    "Cư Thủ": "Giai đoạn kết thúc, bạn có thể lật mặt võ tướng và rút 4 lá bài, sau đó bạn bỏ đi một lá bài trên tay, nếu bằng cách này bỏ đi bài Trang Bị, thì bạn thay đổi thành sử dụng nó.",
+    "Trấn Cốt": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, giai đoạn kết thúc lượt hiện tại của bạn và khi kết thúc lượt sau của người đó, họ rút bài hoặc bỏ bài trên tay cho đến khi bằng số bài trên tay của bạn (rút bài tối đa 5 lá bài).",
+    "Bỉnh Nhất": "Giai đoạn kết thúc, bạn có thể mở ra tất cả bài trên tay, nếu cùng màu, bạn lệnh tối đa tùy ý người chơi mỗi người rút một lá bài (số người được lựa chọn không thể vượt quá số bài trên tay bạn mở ra). Nếu cùng điểm số, thì bạn rút một lá bài.",
+    "Bí Kế": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số sinh lực bạn đã mất), sau đó bạn có thể đem cùng lượng bài trên tay giao cho người chơi khác.",
+    "Tuyệt Sách": "Giai đoạn kết thúc, bạn có thể gây ra 1 điểm sát thương đối với một người chơi khác không có bài trên tay.",
+    "Huệ Dân": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số người có số bài trên tay nhỏ hơn số sinh lực), sau đó mở ra cùng một lượng bài trên tay. Bắt đầu từ một người chơi bạn lựa chọn, họ lần lượt thu lấy trong đó một lá bài.",
+    "Dụ Địch": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác bỏ đi một lá bài trên tay của bạn, nếu bài bỏ đi:\n- Không phải [Sát], thì bạn thu lấy một lá bài của họ.\n- Không phải màu Đen, thì bạn rút một lá bài.",
+    "Khoan Thích": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, cho đến khi mở đầu lượt tiếp theo của bạn, sau khi người này nhận điểm sát thương thứ 2 trong cùng một lượt, họ hồi phục 1 điểm sinh lực (mỗi lượt giới hạn phát động một lần).",
+    "Tiết Ứng": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, [Sát] hoặc bài Cẩm Nang thường người này sử dụng ở lượt tiếp theo không hạn chế cự ly và có thể chỉ định thêm một mục tiêu, sau khi họ gây ra sát thương, họ không thể tiếp tục sử dụng bài cho đến khi kết thúc lượt.",
+    "Tùy Chinh": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi. Giai đoạn hành động tiếp theo của người này sử dụng [Sát] không hạn chế cự ly và có thể sử dụng thêm một lá [Sát]. Sau đó khi kết thúc giai đoạn hành động của họ, bạn có thể xem như sử dụng một lá [Sát] đối với một người chơi khác đã từng nhận sát thương trong lượt của họ.",
+    "Trấn Quân": "Giai đoạn chuẩn bị hoặc giai đoạn kết thúc, bạn có thể bỏ đi X lá bài của một người chơi (X bằng số bài trên tay của họ trừ đi số sinh lực và ít nhất 1), nếu trong đó không có bài Trang Bị, bạn lựa chọn một hạng mục:\n- Bỏ đi một lá bài.\n- Người này rút bằng lượng bài.",
+    "Cử Tiến": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài phi Cơ Bản và lệnh một người chơi khác lựa chọn một hạng mục:\n- Rút hai lá bài.\n- Hồi phục 1 điểm sinh lực.\n- Hồi phục bài võ tướng về trạng thái ban đầu.",
+    "Đãi Yến": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác thu được một lá bài Cơ Bản chất ♥, sau đó nếu họ từng là mục tiêu của kỹ năng này ở lượt trước, họ tự mất 1 điểm sinh lực.",
+    "Noãn Huệ": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi, người này có thể xem như sử dụng X lá bài Cơ Bản (X là số bài trong khu Trang Bị của họ và tối thiểu là 1, nếu họ sử dụng bài cùng tên bằng cách này, sau khi hoàn tất kết toán thì bỏ đi toàn bộ bài trong khu Trang Bị).",
+    "Tẩm Tình": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài của một người chơi khác có chứa người chơi ở vị trí số một trong phạm vi công kích. Sau đó nếu số bài trên tay của họ nhiều hơn so với vị trí số một, bạn rút một lá bài.",
+    "Viện Hộ": "Giai đoạn kết thúc, bạn có thể đem một lá bài Trang Bị đặt vào khu Trang Bị của một người chơi, nếu bài này là:\n- Bài Vũ Khí, bỏ đi một lá bài của một người chơi nằm trong cự ly 1 của bạn.\n- Bài Phòng Cụ (Giáp), họ rút một lá bài.\n- Bài Tọa Kỵ (Ngựa), họ hồi phục 1 điểm sinh lực.",
+    "Sinh Tức": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn chưa từng gây ra sát thương, bạn có thể rút hai lá bài.",
+    "Trầm Dũng": "Giai đoạn kết thúc, bạn có thể rút X lá bài ( X là số loại bài bạn đã sử dụng ở lượt hiện tại).",
+    "Tuẫn Tiết": "Khi kết thúc mỗi lượt chơi, nếu lượt hiện tại bạn từng thu được bài ở ngoài giai đoạn rút bài, có thể lựa chọn một hạng mục:\n- Lệnh một người chơi đem bài trên tay điều chỉnh đến bằng giá trị sinh lực của họ.\n- Lệnh một người chơi đem giá trị sinh lực điều chỉnh đến bằng số bài trên tay của họ.\n(Mỗi hạng mục giới hạn một lần mỗi vòng chơi).",
+    "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó.",
+    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5)."
 };
 
 function getDescription(name) {
@@ -1898,6 +2185,173 @@ function updateUITP() {
 }
 
 updateUITP();
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 7: LƯU HUY (MÔ PHỎNG THUẬT TOÁN)
+------------------------------------------------------------- */
+function runLuuHuySimulation() {
+    let cards = Array.from({length: 13}, (_, i) => i + 1);
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+
+    let roundNum = 1;
+    let outputText = "";
+
+    while (cards.length > 3) {
+        outputText += `================ VÒNG ${roundNum} ================\n`;
+        outputText += `Danh sách bài hiện tại (${cards.length} lá): [${cards.join(', ')}]\n`;
+
+        let currentCards = [...cards];
+        let flippedSequence = [];
+
+        let currentIdx = Math.floor(Math.random() * currentCards.length);
+        let firstFlipped = currentCards.splice(currentIdx, 1)[0];
+        flippedSequence.push(firstFlipped);
+
+        while (currentCards.length > 0) {
+            currentIdx = currentIdx % currentCards.length;
+            let leftIdx = (currentIdx - 1 + currentCards.length) % currentCards.length;
+            let rightIdx = currentIdx;
+
+            let chosenSide = Math.random() < 0.5 ? leftIdx : rightIdx;
+            let flippedCard = currentCards.splice(chosenSide, 1)[0];
+            flippedSequence.push(flippedCard);
+            currentIdx = chosenSide;
+        }
+
+        let firstNum = flippedSequence[0];
+        let lastNum = flippedSequence[flippedSequence.length - 1];
+
+        outputText += `Thứ tự lật trong vòng: [${flippedSequence.join(', ')}]\n`;
+        outputText += `👉 Số úp đầu tiên: ${firstNum}\n`;
+        outputText += `👉 Số úp cuối cùng: ${lastNum}\n\n`;
+
+        if (cards.includes(firstNum)) {
+            cards.splice(cards.indexOf(firstNum), 1);
+        }
+        if (cards.includes(lastNum) && lastNum !== firstNum) {
+            cards.splice(cards.indexOf(lastNum), 1);
+        }
+
+        roundNum++;
+    }
+
+    outputText += `================ KẾT QUẢ CUỐI CÙNG ================\n`;
+    outputText += `Dừng lại khi chỉ còn 3 số: [${cards.join(', ')}]\n`;
+
+    document.getElementById('lhOutput').innerText = outputText;
+}
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 8: VÕ QUAN VŨ
+------------------------------------------------------------- */
+const dsNgauNhien17 = [
+    "Sát", "Né", "Đào", "Rượu", "Vô trung sinh hữu", 
+    "Tá đao sát nhân", "Nam man nhập xâm", "Vạn tiễn tề phát", 
+    "Thuận thủ khiên dương", "Quá hạ sách kiều", "Vô giải khả kích", 
+    "Lạc bất tư thục", "Binh lương thốn đoạn", "Thiểm điện", 
+    "Thủy yên thất quân", "Hỏa công", "Quyết đấu"
+];
+
+const dsLoaiSat = ["Sát", "Hỏa sát", "Lôi sát"];
+
+function trichXuatKhacNhau() {
+    let arrayCopy = [...dsNgauNhien17];
+    for (let i = arrayCopy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+    }
+
+    const selectedCards = arrayCopy.slice(0, 5);
+
+    document.getElementById("vvResultTitle").innerText = "Kết quả: 5 loại bài ngẫu nhiên khác nhau";
+    const container = document.getElementById("vvResultContent");
+    container.innerHTML = "";
+
+    selectedCards.forEach(card => {
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "vv-card-item";
+        cardDiv.innerText = card;
+        container.appendChild(cardDiv);
+    });
+}
+
+function trichXuatLoaiSat() {
+    const randomIndex = Math.floor(Math.random() * dsLoaiSat.length);
+    const selectedCard = dsLoaiSat[randomIndex];
+
+    document.getElementById("vvResultTitle").innerText = "Kết quả: Loại Sát được chọn";
+    const container = document.getElementById("vvResultContent");
+    container.innerHTML = "";
+
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "vv-card-item sat-type";
+    cardDiv.innerText = selectedCard;
+    container.appendChild(cardDiv);
+}
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 9: QUÁCH ĐỀ OANH
+------------------------------------------------------------- */
+const columnsQDO = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+const suitsQDO = [
+    { name: 'Cơ', symbol: '♥', color: 'red' },
+    { name: 'Rô', symbol: '♦', color: 'red' },
+    { name: 'Chuồn', symbol: '♣', color: 'black' },
+    { name: 'Bích', symbol: '♠', color: 'black' }
+];
+
+function createTableQDO() {
+    const headerRow = document.getElementById('headerRow');
+    headerRow.innerHTML = '<th>Chất \\ Cột</th>';
+    columnsQDO.forEach(col => {
+        const th = document.createElement('th');
+        th.innerText = col;
+        headerRow.appendChild(th);
+    });
+
+    const tbody = document.querySelector('#gameTable tbody');
+    tbody.innerHTML = '';
+
+    suitsQDO.forEach(suit => {
+        const tr = document.createElement('tr');
+        
+        const th = document.createElement('th');
+        th.className = 'qdo-suit-header';
+        th.innerText = `${suit.name} ${suit.symbol}`;
+        th.style.color = suit.color === 'red' ? '#ff6b6b' : '#ffffff';
+        tr.appendChild(th);
+
+        columnsQDO.forEach(col => {
+            const td = document.createElement('td');
+            td.className = 'qdo-cell';
+            td.dataset.suit = suit.name;
+            td.dataset.col = col;
+            td.innerText = col;
+
+            if (suit.name === 'Bích' && ['2', '3', '4', '5', '6', '7', '8', '9'].includes(col)) {
+                td.classList.add('blacked');
+            }
+
+            td.addEventListener('click', function() {
+                this.classList.toggle('blacked');
+            });
+
+            tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+    });
+}
+
+function resetTableQDO() {
+    createTableQDO();
+}
+
+createTableQDO();
 </script>
 
 </body>

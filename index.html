@@ -1082,6 +1082,83 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     width: 100%;
 }
 
+/* TOOL 11: MƯU TRẦN LÂM */
+.mtl-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.mtl-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px #000;
+}
+.mtl-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+.mtl-btn-random {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-main);
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.mtl-btn-random:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
+}
+.mtl-result-box {
+    margin-top: 24px;
+    background: rgba(8, 13, 24, 0.95);
+    border-left: 4px solid var(--accent-gold);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: left;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mtl-result-title {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.mtl-result-desc {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    white-space: pre-line;
+}
+.mtl-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -1137,6 +1214,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-thantaophi', this)">
             <span class="tool-badge-num">10</span>
             <span>Thần Tào Phi</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-muutranlam', this)">
+            <span class="tool-badge-num">11</span>
+            <span>Mưu Trần Lâm</span>
         </li>
     </ul>
 </div>
@@ -1479,6 +1560,20 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
+    <!-- TOOL 11: MƯU TRẦN LÂM -->
+    <div id="tool-muutranlam" class="tool-view">
+        <div class="mtl-container">
+            <h1>Mưu Trần Lâm</h1>
+            <div class="mtl-subtitle">Hệ thống chọn ngẫu nhiên kỹ năng Mưu Trần Lâm</div>
+
+            <button class="mtl-btn-random" onclick="randomSkillMTL()">🎲 Random Kỹ Năng</button>
+
+            <div class="mtl-result-box" id="mtlResultBox">
+                <span class="mtl-placeholder">Hãy bấm nút để nhận kỹ năng ngẫu nhiên...</span>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Modal hiển thị kỹ năng -->
@@ -1745,7 +1840,7 @@ const skillDescriptions = {
     "Khổ Nhục": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài, sau đó tự mất 1 điểm sinh lực.",
     "Tiến Ngôn": "Giai đoạn hành động giới hạn mỗi hạng mục một lần, bạn có thể nói ra một loại bài hoặc một loại màu sắc. Sau đó lần lượt mở ra ở đầu chồng bài rút cho đến khi đạt được bài phù hợp với bài bạn đã nói rồi giao cho một người chơi có giới tính nam bất kỳ.",
     "Diệt Kế": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài Vũ Khí hoặc bài Cẩm Nang màu Đen đặt lên ở đầu chồng bài rút, lệnh một người chơi khác có bài trên tay lựa chọn một hạng mục:\n- Bỏ đi một lá Cẩm Nang.\n- Lần lượt bỏ đi hai lá phi Cẩm Nang.",
-    "Chế Hành": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi tùy ý lá bài, sau đó rút cùng lượng bài. Nếu bằng cách này bỏ đi tất cả bài trên tay, thì bạn rút thêm một lá bài.",
+    "Chế Hành": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi tùy ý bài, sau đó rút cùng lượng bài. Nếu bằng cách này bỏ đi tất cả bài trên tay, thì bạn rút thêm một lá bài.",
     "Công Tâm": "Giai đoạn hành động giới hạn một lần, bạn có thể xem bài trên tay của một người chơi khác, sau đó bạn có thể mở ra trong đó một lá bài chất ♥, lựa chọn một hạng mục:\n- Bỏ đi bài này.\n- Đem bài này đặt lên đầu chồng bài rút.",
     "Thận Hành": "Giai đoạn hành động, bạn có thể bỏ đi X lá bài, sau đó rút một lá bài (X là số lần bạn phát động kỹ năng trước đó trong giai đoạn này và tối đa 2).",
     "Tụng Từ": "Giai đoạn hành động, bạn có thể lựa chọn một hạng mục:\n- Lệnh một người chơi có số bài trên tay ≤ số sinh lực của họ rút hai lá bài.\n- Lệnh một người chơi có số bài trên tay lớn hơn số sinh lực của họ bỏ đi hai lá bài.",
@@ -1882,7 +1977,7 @@ const skillDescriptions = {
     "Vong Kích": "Sau khi bạn gây ra 1 điểm sát thương đối với người chơi khác hoặc sau khi bạn nhận 1 điểm sát thương do người chơi khác gây ra, bạn có thể rút hai lá bài, sau đó giao cho họ một lá bài.",
     "Ngự Sách": "Sau khi bạn nhận sát thương, bạn có thể mở ra một lá trên tay, sau đó trừ khi nguồn sát thương bỏ đi một lá trên tay không cùng loại với bài mở ra của bạn, nếu không thì bạn hồi phục 1 điểm sinh lực.",
     "Trí Trì": "Tỏa Định Kỹ. Sau khi bạn nhận sát thương ở ngoài lượt, lượt hiện tại [Sát] và bài Cẩm Nang thường vô hiệu đối với bạn.",
-    "Trí Ngu": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó mở ra tất cả bài trên tay và nguồn sát thương bỏ đi một lá bài trên tay. Nếu tất cả cùng Màu, bạn thu lấy bài bỏ đi và lượt tiếp theo số lần phát động \"Kỳ Sách\" +1.",
+    "Trí Ngu": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó mở ra tất cả bài trên tay và nguồn sát thương bỏ đi một lá bài trên tay. Nếu tất cả cùng Màu, bạn thu lấy bài bỏ đi và lượt tiếp theo số lần phát động "Kỳ Sách" +1.",
     "Nhai Sài": "Sau khi bạn nhận sát thương, bạn có thể lệnh nguồn sát thương lựa chọn một hạng mục:\n- Bỏ đi một nửa lượng bài trên tay (làm tròn lên).\n- Họ không thể tiếp tục sử dụng bài trên tay lượt hiện tại, sau đó bạn rút hai lá bài.\n- Mở ra tất cả bài trên tay của họ, sau đó giao cho bạn tất cả bài một loại chất trong bài trên tay.",
     "Vọng Quy": "Sau khi bạn gây sát thương, bạn có thể gây 1 điểm sát thương cho một người chơi có thế lực khác bạn (mỗi lượt một lần).\nSau khi bạn nhận sát thương, bạn có thể lệnh một người chơi có thế lực giống bạn rút 1 lá bài, nếu người đó không phải bạn thì bạn rút 1 lá bài.",
     "Tiềm Long": "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút.",
@@ -2501,6 +2596,28 @@ function randomSkillTTP() {
     resultBox.innerHTML = `
         <div class="ttp-result-title">⚡ ${selected.name}</div>
         <div class="ttp-result-desc">${selected.desc}</div>
+    `;
+}
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 11: MƯU TRẦN LÂM
+------------------------------------------------------------- */
+const mtlSkills = [
+    { name: "Vũ Kế", desc: "Mỗi khi bạn sử dụng hoặc đánh ra một lá bài, nếu chất của lá bài đó phù hợp với điều kiện, bạn có thể rút một lá bài hoặc gây 1 điểm sát thương." },
+    { name: "Mưu Đoạt", desc: "Giai đoạn hành động giới hạn một lần, bạn có thể xem bài trên tay một người chơi khác và cướp lấy một lá." },
+    { name: "Trấn Thủ", desc: "Tỏa định kỳ. Khi kết thúc lượt của bạn, nếu bạn không có bài trang bị nào, bạn có thể rút 2 lá bài." },
+    { name: "Hỏa Kế", desc: "Bạn có thể xem bất kỳ lá bài nào trên tay người chơi khác như [Hỏa Công] để sử dụng." },
+    { name: "Phá Trận", desc: "Giai đoạn hành động giới hạn một lần, bạn có thể chọn một mục tiêu và bỏ đi một nửa số bài trên tay của họ (làm tròn xuống)." }
+];
+
+function randomSkillMTL() {
+    const randomIndex = Math.floor(Math.random() * mtlSkills.length);
+    const selected = mtlSkills[randomIndex];
+
+    const resultBox = document.getElementById("mtlResultBox");
+    resultBox.innerHTML = `
+        <div class="mtl-result-title">⚡ ${selected.name}</div>
+        <div class="mtl-result-desc">${selected.desc}</div>
     `;
 }
 </script>

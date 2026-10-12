@@ -110,7 +110,7 @@ body {
     flex-shrink: 0;
 }
 
-/* KHU VỰC NHẬP/HIỂN THỊ CHÍNH */
+/* KHU VỰC NỘI DUNG CHÍNH BÊN PHẢI */
 .main-content {
     flex: 1;
     overflow-y: auto;
@@ -192,7 +192,39 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0,0,0,0.5);
 }
-.card-btn.hidden { display: none; }
+
+/* Khu vực hiển thị các lá bài đã chọn trong Tool 1 */
+.selected-cards-box {
+    background: rgba(8, 13, 24, 0.85);
+    border: 1px dashed var(--border-main);
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 15px;
+    min-height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+.selected-card-tag {
+    background: #1e3a8a;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+.selected-card-tag:hover {
+    background: #dc2626;
+    color: #fff;
+    border-color: #f87171;
+}
 
 .actions {
     display: flex;
@@ -783,9 +815,9 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-top: 6px;
 }
 
-/* TOOL 7: LƯU HUY */
+/* TOOL 7: LƯU HUY (PORT TKINTER INTERACTIVE) */
 .lh-container {
-    max-width: 900px;
+    max-width: 750px;
     margin: 0 auto;
     background: var(--bg-panel);
     backdrop-filter: blur(8px);
@@ -793,68 +825,84 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     border-radius: 8px;
     border: 2px solid var(--border-main);
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
 }
 .lh-container h2 {
-    text-align: center;
     color: var(--accent-gold);
     font-size: 1.8rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-shadow: 1px 1px 2px #000;
 }
-.lh-grid-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 420px;
-    margin: 0 auto 20px auto;
+.lh-first-hidden-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f87171;
+    margin: 15px 0;
+    text-shadow: 1px 1px 2px #000;
 }
-.lh-grid-cell {
-    aspect-ratio: 1;
-    background: rgba(8, 13, 24, 0.9);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
+.lh-controls-frame {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+.lh-controls-frame label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-main);
+    font-weight: bold;
+}
+.lh-canvas-wrapper {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto 15px auto;
+    background: rgba(8, 13, 24, 0.9);
+    border: 2px solid var(--border-main);
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+.lh-node {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: var(--text-main);
-    font-size: 16px;
+    font-size: 15px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s, transform 0.1s;
 }
-.lh-grid-cell.empty {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px dashed rgba(255, 255, 255, 0.15);
-}
-.lh-grid-cell.flipped {
-    background: #1e3a8a;
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-}
-.lh-grid-cell.removed {
-    background: #2b1312;
-    border-color: #e74c3c;
-    color: #ff6b6b;
-    opacity: 0.5;
-    text-decoration: line-through;
-}
-.lh-output {
+.lh-node:hover { transform: translate(-50%, -50%) scale(1.1); }
+.lh-node.active { background: #facc15; color: #000; }
+.lh-node.hidden-node { background: #9ca3af; color: #374151; }
+
+.lh-log-box {
+    width: 100%;
+    height: 120px;
     background: rgba(8, 13, 24, 0.95);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 18px;
-    margin-top: 20px;
-    max-height: 400px;
-    overflow-y: auto;
+    padding: 10px;
     font-family: monospace;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
     color: #e2f0d9;
-    white-space: pre-wrap;
+    text-align: left;
+    overflow-y: auto;
+    resize: none;
+    outline: none;
 }
 
-/* TOOL 8: VÕ QUAN VŨ */
+/* TOOL 8: VÕ QUAN VŨ (2 Ô RIÊNG BIỆT) */
 .vv-container {
-    max-width: 650px;
+    max-width: 800px;
     margin: 0 auto;
     background: var(--bg-panel);
     backdrop-filter: blur(8px);
@@ -875,12 +923,28 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     font-size: 0.95rem;
     margin-bottom: 25px;
 }
-.vv-btn-group {
+.vv-boxes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+.vv-box-panel {
+    background: rgba(8, 13, 24, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+}
+.vv-box-title {
+    color: var(--accent-gold);
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
 }
 .vv-btn {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
@@ -894,13 +958,12 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.4);
-    flex: 1;
-    min-width: 200px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 .vv-btn:hover {
     background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(212, 175, 55, 0.3);
 }
 .vv-btn-green {
     background: linear-gradient(135deg, #1b4d3e 0%, #0f2b23 100%);
@@ -908,48 +971,39 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 .vv-btn-green:hover {
     background: linear-gradient(135deg, #246351 0%, #1b4d3e 100%);
 }
-.vv-result-box {
-    background: rgba(8, 13, 24, 0.95);
+.vv-result-subbox {
+    background: rgba(13, 20, 36, 0.95);
     border: 1px dashed var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
-    min-height: 150px;
+    border-radius: 6px;
+    padding: 12px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.vv-result-title {
-    color: var(--accent-gold);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
-    width: 100%;
-}
 .vv-card-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     width: 100%;
 }
 .vv-card-item {
-    background: rgba(13, 20, 36, 0.9);
+    background: rgba(19, 29, 53, 0.9);
     border: 1px solid var(--border-main);
     color: var(--text-main);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .vv-card-item.sat-type {
     background: #2b1312;
     border-color: #e74c3c;
     color: #ff6b6b;
-    font-size: 1.2rem;
-    padding: 12px 25px;
+    font-size: 1.1rem;
+    padding: 10px 20px;
 }
 
 /* TOOL 9: QUÁCH ĐỀ OANH */
@@ -1100,17 +1154,24 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     <div id="tool-ttq" class="tool-view active">
         <div class="panel">
             <h2>🎴 Tool Thần Tôn Quyền</h2>
-            <div class="note">Nhập tên Tab (hoặc để trống), chọn bài rồi nhấn <b>ENTER</b>. Nhấn <b>Tổng Kết</b> khi hoàn tất.</div>
+            <div class="note">Nhập tên Tab (hoặc để trống), chọn bài để thêm vào danh sách, bấm trực tiếp vào thẻ bài đã chọn để xóa nếu nhầm. Nhấn <b>ENTER</b> để tạo tab nhanh chóng và ẩn khu vực chọn.</div>
 
             <div class="player-input-group">
                 <label for="playerNameInput">👤 Tên Tab/Người chơi:</label>
                 <input type="text" id="playerNameInput" class="player-name-input" placeholder="Ví dụ: Quan Vũ, Triệu Vân... (Để trống tự tạo tên)" autocomplete="off">
             </div>
 
+            <!-- Khu vực hiển thị các lá bài đã chọn có thể xóa -->
+            <div style="font-weight: bold; color: var(--accent-gold); margin-bottom: 6px;">Các lá bài đã chọn (Click để xóa):</div>
+            <div id="selectedCardsContainer" class="selected-cards-box">
+                <i style="color: var(--text-muted); font-size: 14px;">Chưa chọn lá bài nào...</i>
+            </div>
+
+            <div style="font-weight: bold; color: var(--accent-gold); margin: 15px 0 6px 0;">Chọn bài bên dưới:</div>
             <div id="cardGrid" class="grid"></div>
 
             <div class="actions">
-                <button type="button" class="action enter-btn" id="confirmEnterBtn">↵ Tạo Tab (ENTER)</button>
+                <button type="button" class="action enter-btn" id="confirmEnterBtn">↵ Tạo Tab & Ẩn (ENTER)</button>
                 <button type="button" class="action summary-btn" id="finalizeSummaryBtn">🏆 Tổng Kết Bài Khác Nhau</button>
                 <button type="button" class="action" id="undoBtn">↩ Hoàn tác lá vừa chọn</button>
                 <button type="button" class="action reset" id="clearCurrentBtn">↻ Bỏ chọn hiện tại</button>
@@ -1331,39 +1392,61 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
-    <!-- TOOL 7: LƯU HUY -->
+    <!-- TOOL 7: LƯU HUY (PORT TKINTER INTERACTIVE) -->
     <div id="tool-luuhuy" class="tool-view">
         <div class="lh-container">
-            <h2>📜 Lưu Huy - Thuật Toán Bàn Cờ 4x4 (13 Lá Bài)</h2>
-            <p class="note" style="text-align: center;">Mô phỏng đặt 13 lá bài (A đến K) vào ma trận 4x4 (khuyết 3 góc) và lật bài xoay vòng cho đến khi còn lại 3 số.</p>
+            <h2>Tool Lưu Huy - Tùy Chọn Ẩn & Xóa</h2>
             
-            <div style="text-align: center; margin-bottom: 20px;">
-                <button class="ch-btn" style="max-width: 250px;" onclick="runLuuHuySimulation()">▶ CHẠY MÔ PHỎNG</button>
+            <div id="lhFirstHidden" class="lh-first-hidden-label">Số đầu tiên ẩn đi: (Chưa có)</div>
+
+            <div class="lh-controls-frame">
+                <label><input type="radio" name="lhAction" value="hide" checked> Chế độ: Ẩn số (Lật úp thành dấu ?)</label>
+                <label><input type="radio" name="lhAction" value="delete"> Chế độ: Xóa số khỏi vòng</label>
             </div>
 
-            <div id="lhBoard" class="lh-grid-board">
-                <!-- Hiển thị bàn cờ 4x4 -->
+            <div style="margin-bottom: 15px;">
+                <button class="ch-btn" style="max-width: 320px; background: #22c55e;" onclick="resetCircleLH()">🎲 Random mới vòng tròn (A đến K)</button>
             </div>
 
-            <div id="lhOutput" class="lh-output">Nhấn "CHẠY MÔ PHỎNG" để bắt đầu...</div>
+            <div id="lhCanvasWrapper" class="lh-canvas-wrapper">
+                <!-- Các nút lá bài phân bố hình tròn -->
+            </div>
+
+            <textarea id="lhLog" class="lh-log-box" readonly>--- Đã khởi tạo vòng tròn Lưu Huy ---</textarea>
         </div>
     </div>
 
-    <!-- TOOL 8: VÕ QUAN VŨ -->
+    <!-- TOOL 8: VÕ QUAN VŨ (2 Ô RIÊNG BIỆT) -->
     <div id="tool-voquanvu" class="tool-view">
         <div class="vv-container">
             <h1>VÕ QUAN VŨ</h1>
-            <p class="vv-subtitle">Công cụ hỗ trợ rút bài ngẫu nhiên</p>
+            <p class="vv-subtitle">Công cụ hỗ trợ rút bài ngẫu nhiên (Chia thành 2 ô độc lập)</p>
 
-            <div class="vv-btn-group">
-                <button class="vv-btn" onclick="trichXuatKhacNhau()">1. Trích xuất 5 lá khác nhau</button>
-                <button class="vv-btn vv-btn-green" onclick="trichXuatLoaiSat()">2. Trích xuất lá Sát (1/3)</button>
-            </div>
+            <div class="vv-boxes-grid">
+                <!-- Ô 1 -->
+                <div class="vv-box-panel">
+                    <div>
+                        <div class="vv-box-title">Ô 1: Trích Xuất 5 Lá Khác Nhau</div>
+                        <button class="vv-btn" onclick="trichXuatKhacNhau()">Rút 5 Lá Khác Nhau</button>
+                    </div>
+                    <div class="vv-result-subbox">
+                        <div id="vvResultContent1" class="vv-card-list">
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">Chưa có kết quả rút...</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="vv-result-box">
-                <div id="vvResultTitle" class="vv-result-title">Chưa có kết quả</div>
-                <div id="vvResultContent" class="vv-card-list">
-                    <span style="color: var(--text-muted);">Nhấn nút phía trên để bắt đầu rút bài</span>
+                <!-- Ô 2 -->
+                <div class="vv-box-panel">
+                    <div>
+                        <div class="vv-box-title">Ô 2: Trích Xuất Lá Sát (Tỷ lệ 1/3)</div>
+                        <button class="vv-btn vv-btn-green" onclick="trichXuatLoaiSat()">Rút Loại Sát</button>
+                    </div>
+                    <div class="vv-result-subbox">
+                        <div id="vvResultContent2" class="vv-card-list">
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">Chưa có kết quả rút...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1428,7 +1511,7 @@ if (activeToolItem) {
 }
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 1: THẦN TÔN QUYỀN
+   LOGIC TOOL 1: THẦN TÔN QUYỀN (Hiện bài đã chọn, xóa khi nhầm, enter ẩn đi)
 ------------------------------------------------------------- */
 const CARDS = [
     "Sát", "Né", "Đào", "Rượu",
@@ -1461,16 +1544,25 @@ function saveData() {
 function chooseCard(card) {
     currentSelection.push(card);
     renderGrid();
+    renderSelectedCardsBox();
+}
+
+function removeSelectedCard(index) {
+    currentSelection.splice(index, 1);
+    renderGrid();
+    renderSelectedCardsBox();
 }
 
 function undoCard() {
     currentSelection.pop();
     renderGrid();
+    renderSelectedCardsBox();
 }
 
 function clearCurrent() {
     currentSelection = [];
     renderGrid();
+    renderSelectedCardsBox();
 }
 
 function confirmPlayerTab() {
@@ -1498,6 +1590,7 @@ function confirmPlayerTab() {
 
     saveData();
     renderGrid();
+    renderSelectedCardsBox();
     renderTabs();
 }
 
@@ -1536,15 +1629,32 @@ function removeTab(idx, e) {
 function renderGrid() {
     const grid = document.getElementById("cardGrid");
     grid.innerHTML = "";
-    const counts = {};
-    currentSelection.forEach(c => counts[c] = (counts[c] || 0) + 1);
-
+    
     CARDS.forEach(card => {
         const btn = document.createElement("button");
-        btn.className = "card-btn" + (counts[card] > 0 ? " hidden" : "");
+        btn.className = "card-btn";
         btn.textContent = card;
         btn.onclick = () => chooseCard(card);
         grid.appendChild(btn);
+    });
+}
+
+function renderSelectedCardsBox() {
+    const container = document.getElementById("selectedCardsContainer");
+    container.innerHTML = "";
+
+    if (currentSelection.length === 0) {
+        container.innerHTML = '<i style="color: var(--text-muted); font-size: 14px;">Chưa chọn lá bài nào... Click vào danh sách bên dưới để thêm.</i>';
+        return;
+    }
+
+    currentSelection.forEach((card, index) => {
+        const tag = document.createElement("div");
+        tag.className = "selected-card-tag";
+        tag.innerHTML = `<span>${card}</span> <span style="font-size:12px; opacity:0.8;">✕</span>`;
+        tag.title = "Bấm để xóa lá này";
+        tag.onclick = () => removeSelectedCard(index);
+        container.appendChild(tag);
     });
 }
 
@@ -1602,6 +1712,7 @@ document.getElementById("undoBtn").onclick = undoCard;
 document.getElementById("clearCurrentBtn").onclick = clearCurrent;
 
 renderGrid();
+renderSelectedCardsBox();
 renderTabs();
 
 /* -------------------------------------------------------------
@@ -2229,130 +2340,89 @@ function updateUITP() {
 updateUITP();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 7: LƯU HUY (BÀN CỜ 4x4)
+   LOGIC TOOL 7: LƯU HUY (PORT TKINTER INTERACTIVE)
 ------------------------------------------------------------- */
-// Cấu trúc ma trận 4x4, các vị trí khuyết (null) là các góc (0,0), (0,3), (3,0)
-const BOARD_CONFIG = [
-    [null, 0,    1,    null],
-    [2,    3,    4,    5],
-    [6,    7,    8,    9],
-    [10,   11,   12,   null]
-];
+const cardNamesLH = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let currentCircleLH = [];
+let hiddenSequenceLH = [];
+let firstHiddenLH = null;
 
-// Thứ tự xoay vòng quanh bàn cờ cho 13 vị trí lá bài
-const CIRCLE_POSITIONS = [
-    {r: 0, c: 1}, {r: 0, c: 2}, 
-    {r: 1, c: 3}, {r: 2, c: 3}, 
-    {r: 3, c: 2}, {r: 3, c: 1}, {r: 3, c: 0},
-    {r: 2, c: 0}, {r: 1, c: 0}, 
-    {r: 1, c: 1}, {r: 1, c: 2}, {r: 2, c: 2}, {r: 2, c: 1}
-];
-
-const CARD_LABELS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-
-function renderBoardLH(gridData, stateData = {}) {
-    const boardEl = document.getElementById('lhBoard');
-    boardEl.innerHTML = '';
-
-    for (let r = 0; r < 4; r++) {
-        for (let c = 0; c < 4; c++) {
-            const cellIndex = BOARD_CONFIG[r][c];
-            const cellDiv = document.createElement('div');
-            
-            if (cellIndex === null) {
-                cellDiv.className = 'lh-grid-cell empty';
-                cellDiv.innerText = '';
-            } else {
-                cellDiv.className = 'lh-grid-cell';
-                const val = gridData[cellIndex];
-                const cardText = CARD_LABELS[val - 1] || val;
-
-                if (stateData.removed && stateData.removed.includes(val)) {
-                    cellDiv.classList.add('removed');
-                } else if (stateData.flipped && stateData.flipped.includes(val)) {
-                    cellDiv.classList.add('flipped');
-                }
-
-                cellDiv.innerHTML = `<span style="font-size: 11px; opacity: 0.6; margin-bottom: 2px;">Ô #${cellIndex + 1}</span><span>${cardText}</span>`;
-            }
-            boardEl.appendChild(cellDiv);
-        }
-    }
+function logLH(text) {
+    const box = document.getElementById("lhLog");
+    box.value += text + "\n";
+    box.scrollTop = box.scrollHeight;
 }
 
-function runLuuHuySimulation() {
-    let cardValues = Array.from({length: 13}, (_, i) => i + 1);
-    for (let i = cardValues.length - 1; i > 0; i--) {
+function resetCircleLH() {
+    let shuffled = [...cardNamesLH];
+    for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [cardValues[i], cardValues[j]] = [cardValues[j], cardValues[i]];
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
 
-    renderBoardLH(cardValues);
+    currentCircleLH = shuffled.map(c => ({ val: c, status: "active" }));
+    hiddenSequenceLH = [];
+    firstHiddenLH = null;
 
-    let activeList = [...cardValues];
-    let removedCards = [];
-    let roundNum = 1;
-    let outputText = "🎲 KHỞI TẠO BÀN CỜ 13 LÁ BÀI (NGẪU NHIÊN):\n";
-
-    cardValues.forEach((val, idx) => {
-        const label = CARD_LABELS[val - 1];
-        outputText += ` Ô #${idx + 1}: ${label} (Giá trị: ${val})\n`;
-    });
-    outputText += "\n----------------------------------------\n";
-
-    while (activeList.length > 3) {
-        outputText += `\n▶ VÒNG ${roundNum} (Còn lại ${activeList.length} lá bài)\n`;
-        outputText += `Danh sách lá bài còn sống: [${activeList.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
-
-        let currentCircle = [...activeList];
-        let flippedSequence = [];
-
-        let currentIdx = Math.floor(Math.random() * currentCircle.length);
-        let firstFlipped = currentCircle.splice(currentIdx, 1)[0];
-        flippedSequence.push(firstFlipped);
-
-        while (currentCircle.length > 0) {
-            currentIdx = currentIdx % currentCircle.length;
-            let leftIdx = (currentIdx - 1 + currentCircle.length) % currentCircle.length;
-            let rightIdx = currentIdx;
-
-            let chosenSide = Math.random() < 0.5 ? leftIdx : rightIdx;
-            let flippedCard = currentCircle.splice(chosenSide, 1)[0];
-            flippedSequence.push(flippedCard);
-            currentIdx = chosenSide;
-        }
-
-        let firstCard = flippedSequence[0];
-        let lastCard = flippedSequence[flippedSequence.length - 1];
-
-        outputText += `Thứ tự lật trong vòng: [${flippedSequence.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
-        outputText += ` ❌ Lật đầu tiên (Loại): ${CARD_LABELS[firstCard - 1]}\n`;
-        outputText += ` ❌ Lật cuối cùng (Loại): ${CARD_LABELS[lastCard - 1]}\n`;
-
-        if (activeList.includes(firstCard)) {
-            activeList.splice(activeList.indexOf(firstCard), 1);
-            removedCards.push(firstCard);
-        }
-        if (activeList.includes(lastCard) && lastCard !== firstCard) {
-            activeList.splice(activeList.indexOf(lastCard), 1);
-            removedCards.push(lastCard);
-        }
-
-        roundNum++;
-    }
-
-    outputText += `\n========================================\n`;
-    outputText += `🏆 KẾT QUẢ CUỐI CÙNG (CÒN LẠI 3 SỐ):\n`;
-    outputText += `👉 Các lá bài giữ lại: [${activeList.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
-
-    renderBoardLH(cardValues, { removed: removedCards });
-    document.getElementById('lhOutput').innerText = outputText;
+    document.getElementById("lhFirstHidden").innerText = "Số đầu tiên ẩn đi: (Chưa có)";
+    logLH("\n--- Đã random vòng tròn mới từ A đến K ---\n " + currentCircleLH.map(i => i.val).join(", "));
+    drawCircleLH();
 }
 
-renderBoardLH(Array.from({length: 13}, (_, i) => i + 1));
+function drawCircleLH() {
+    const wrapper = document.getElementById("lhCanvasWrapper");
+    wrapper.innerHTML = "";
+    const n = currentCircleLH.length;
+    if (n === 0) return;
+
+    const cx = 225, cy = 225, r = 150;
+
+    currentCircleLH.forEach((item, i) => {
+        const angle = 2 * Math.PI * i / n - Math.PI / 2;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+
+        const node = document.createElement("div");
+        node.className = "lh-node " + (item.status === "hidden" ? "hidden-node" : "active");
+        node.style.left = x + "px";
+        node.style.top = y + "px";
+        node.innerText = item.status === "hidden" ? "?" : item.val;
+
+        node.onclick = () => onNodeClickLH(i);
+        wrapper.appendChild(node);
+    });
+}
+
+function onNodeClickLH(clickedIdx) {
+    const item = currentCircleLH[clickedIdx];
+    const val = item.val;
+    const action = document.querySelector('input[name="lhAction"]:checked').value;
+
+    if (action === "hide") {
+        if (item.status === "hidden") {
+            alert(`Lá bài ${val} này đã được úp từ trước!`);
+            return;
+        }
+        item.status = "hidden";
+        hiddenSequenceLH.push(val);
+
+        if (firstHiddenLH === null) {
+            firstHiddenLH = val;
+            document.getElementById("lhFirstHidden").innerText = `Số đầu tiên ẩn đi: ${firstHiddenLH}`;
+        }
+        logLH(`Ẩn lá bài: [${val}] (Lần ẩn thứ ${hiddenSequenceLH.length})`);
+    } else if (action === "delete") {
+        currentCircleLH.splice(clickedIdx, 1);
+        logLH(`Xóa hoàn toàn lá bài: [${val}] ra khỏi vòng tròn`);
+    }
+
+    drawCircleLH();
+}
+
+resetCircleLH();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 8: VÕ QUAN VŨ
+   LOGIC TOOL 8: VÕ QUAN VŨ (2 Ô RIÊNG BIỆT)
 ------------------------------------------------------------- */
 const dsNgauNhien17 = [
     "Sát", "Né", "Đào", "Rượu", "Vô trung sinh hữu", 
@@ -2372,9 +2442,7 @@ function trichXuatKhacNhau() {
     }
 
     const selectedCards = arrayCopy.slice(0, 5);
-
-    document.getElementById("vvResultTitle").innerText = "Kết quả: 5 loại bài ngẫu nhiên khác nhau";
-    const container = document.getElementById("vvResultContent");
+    const container = document.getElementById("vvResultContent1");
     container.innerHTML = "";
 
     selectedCards.forEach(card => {
@@ -2388,9 +2456,7 @@ function trichXuatKhacNhau() {
 function trichXuatLoaiSat() {
     const randomIndex = Math.floor(Math.random() * dsLoaiSat.length);
     const selectedCard = dsLoaiSat[randomIndex];
-
-    document.getElementById("vvResultTitle").innerText = "Kết quả: Loại Sát được chọn";
-    const container = document.getElementById("vvResultContent");
+    const container = document.getElementById("vvResultContent2");
     container.innerHTML = "";
 
     const cardDiv = document.createElement("div");

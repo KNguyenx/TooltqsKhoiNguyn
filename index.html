@@ -762,7 +762,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 }
 .tp-lowest-display b { font-size: 26px; color: var(--accent-gold); display: block; margin-top: 6px; }
 
-/* TOOL 7: LƯU HUY (ẨN THÌ ĐEN, VẪN THẤY SỐ + ĐẶT LẠI GIỮ NGUYÊN VỊ TRÍ) */
+/* TOOL 7: LƯU HUY */
 .lh-container {
     max-width: 750px;
     margin: 0 auto;
@@ -1300,7 +1300,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         </div>
     </div>
 
-    <!-- TOOL 7: LƯU HUY (ẨN THÌ ĐEN, VẪN THẤY SỐ + ĐẶT LẠI GIỮ NGUYÊN VỊ TRÍ) -->
+    <!-- TOOL 7: LƯU HUY -->
     <div id="tool-luuhuy" class="tool-view">
         <div class="lh-container">
             <h2>Tool Lưu Huy - Tùy Chọn Ẩn & Xóa</h2>
@@ -1619,7 +1619,7 @@ renderSelectedCardsBox();
 renderTabs();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 2: HỨA THIỆU (ĐÃ XÓA SẠCH CÁC KÝ HIỆU TRÍCH DẪN)
+   LOGIC TOOL 2: HỨA THIỆU (CẬP NHẬT MỚI Ô SAU KHI NHẬN SÁT THƯƠNG THEO FILE Hứa Thiệu 3_2.docx)
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
@@ -1761,7 +1761,37 @@ const skillDescriptions = {
     "Trầm Dũng": "Giai đoạn kết thúc, bạn có thể rút X lá bài ( X là số loại bài bạn đã sử dụng ở lượt hiện tại).",
     "Tuẫn Tiết": "Khi kết thúc mỗi lượt chơi, nếu lượt hiện tại bạn từng thu được bài ở ngoài giai đoạn rút bài, có thể lựa chọn một hạng mục:\n- Lệnh một người chơi đem bài trên tay điều chỉnh đến bằng giá trị sinh lực của họ.\n- Lệnh một người chơi đem giá trị sinh lực điều chỉnh đến bằng số bài trên tay của họ.\n(Mỗi hạng mục giới hạn một lần mỗi vòng chơi).",
     "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó.",
-    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5)."
+    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5).",
+
+    /* Ô SAU KHI NHẬN SÁT THƯƠNG (CẬP NHẬT MỚI THEO FILE Hứa Thiệu 3_2.docx) */
+    "Yêu Danh": "Mỗi lượt chơi giới hạn một lần cho mỗi hạng mục, sau khi bạn gây ra hoặc nhận sát thương, bạn có thể lựa chọn một hạng mục:\n- Bỏ đi một lá bài trên tay của một người chơi khác[cite: 9].\n- Lệnh một người chơi khác rút một lá bài[cite: 9].\n- Lệnh người chơi bỏ đi tối đa hai lá bài sau đó rút cùng lượng bài[cite: 9].",
+    "Đàn Tâm": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó sửa đổi kỹ năng “Kiểu Chiếu”[cite: 9].",
+    "Quy Tâm": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng[cite: 9].",
+    "Bí Dục": "Sau khi bạn nhận sát thương, bạn có thể lựa chọn một hạng mục:\n- Đem bài trên tay rút đến bằng số bài trên tay của nguồn sát thương (tối đa rút đến 5 lá)[cite: 9].\n- Bỏ đi số bài lớn hơn số bài trên tay của nguồn sát thương, sau đó gây ra 1 điểm sát thương đối với họ[cite: 9].",
+    "Phản Quỹ": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy một lá bài từ nguồn sát thương[cite: 9].",
+    "Cương Liệt": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể tiến hành phán xét, nếu kết quả là:\n- Màu Đỏ, gây ra 1 điểm sát thương đối với nguồn sát thương[cite: 9].\n- Màu Đen, bạn bỏ đi của họ một lá bài[cite: 9].",
+    "Di Kế": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể rút hai lá bài, sau đó bạn có thể đem tối đa hai lá bài (tùy ý) trên tay giao cho từ một đến hai người chơi khác[cite: 9].",
+    "Gian Hùng": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này[cite: 9].",
+    "Ân Oán": "Sau khi bạn thu được ít nhất hai lá bài cùng lúc từ một người chơi khác, bạn có thể lệnh họ rút một lá bài[cite: 9].\nSau khi bạn nhận 1 điểm sát thương, trừ khi nguồn gây sát thương giao cho bạn một lá bài trên tay, nếu không thì họ giảm 1 điểm sinh lực. Nếu bài họ giao cho bạn không phải chất ♥, bạn rút một lá bài[cite: 9].",
+    "Cát Cảnh": "Sau khi bạn nhận sát thương, bạn có thể tiến hành một lần phán xét, sau đó nếu bạn bỏ đi tùy ý bài có tổng điểm số bằng điểm số của bài kết quả phát xét, bạn hồi phục 1 điểm sinh lực[cite: 9].",
+    "Trù Sách": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể tiến hành một lần phát xét, nếu kết quả là:\n- Màu Đen, bạn bỏ đi một lá bài trong khu vực của một người chơi[cite: 9].\n- Màu Đỏ, bạn lệnh một người chơi rút một lá bài (người chơi “Tiên Phụ” rút hai lá)[cite: 9].",
+    "Tiết Mệnh": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể lệnh một người chơi đem bài trên tay rút bổ sung đến X lá (X là giới hạn sinh lực của họ và tối đa 5)[cite: 9].",
+    "Phóng Trục": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất)[cite: 9].",
+    "Tửu Thi": "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước[cite: 9].\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn[cite: 9].",
+    "Xưng Tượng": "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu[cite: 9].",
+    "Khôi Thác": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\n- Màu Đỏ, họ hồi phục 1 điểm sinh lực[cite: 9].\n- Màu Đen, họ rút X lá bài (X là số sát thương)[cite: 9].",
+    "Vong Kích": "Sau khi bạn gây ra 1 điểm sát thương đối với người chơi khác hoặc sau khi bạn nhận 1 điểm sát thương do người chơi khác gây ra, bạn có thể rút hai lá bài, sau đó giao cho họ một lá bài[cite: 9].",
+    "Ngự Sách": "Sau khi bạn nhận sát thương, bạn có thể mở ra một lá trên tay, sau đó trừ khi nguồn sát thương bỏ đi một lá trên tay không cùng loại với bài mở ra của bạn, nếu không thì bạn hồi phục 1 điểm sinh lực[cite: 9].",
+    "Trí Trì": "Tỏa Định Kỹ. Sau khi bạn nhận sát thương ở ngoài lượt, lượt hiện tại [Sát] và bài Cẩm Nang thường vô hiệu đối với bạn[cite: 9].",
+    "Trí Ngu": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó mở ra tất cả bài trên tay và nguồn sát thương bỏ đi một lá bài trên tay. Nếu tất cả cùng Màu, bạn thu lấy bài bỏ đi và lượt tiếp theo số lần phát động \"Kỳ Sách\" +1[cite: 9].",
+    "Nhai Sài": "Sau khi bạn nhận sát thương, bạn có thể lệnh nguồn sát thương lựa chọn một hạng mục:\n- Bỏ đi một nửa lượng bài trên tay (làm tròn lên)[cite: 9].\n- Họ không thể tiếp tục sử dụng bài trên tay lượt hiện tại, sau đó bạn rút hai lá bài[cite: 9].\n- Mở ra tất cả bài trên tay của họ, sau đó giao cho bạn tất cả bài một loại chất trong bài trên tay[cite: 9].",
+    "Vọng Quy": "Sau khi bạn gây sát thương, bạn có thể gây 1 điểm sát thương cho một người chơi có thế lực khác bạn (mỗi lượt một lần)[cite: 9].\nSau khi bạn nhận sát thương, bạn có thể lệnh một người chơi có thế lực giống bạn rút 1 lá bài, nếu người đó không phải bạn thì bạn rút 1 lá bài[cite: 9].",
+    "Tiềm Long": "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút[cite: 9].",
+    "Định Thố": "Mỗi lượt chơi giới hạn một lần, sau khi bạn gây ra hoặc nhận sát thương, bạn có thể rút hai lá bài, nếu hai lá bài này không cùng màu, bạn bỏ đi một lá bài trên tay[cite: 9].",
+    "Phối Khí": "Sau khi bạn nhận sát thương, bạn có thể di dời một lá bài trên bàn. Sau đó nếu tất cả người chơi nằm trong phạm vi công kích của tất cả người chơi, bạn có thể tiếp tục di dời một lá bài trên bàn[cite: 9].",
+    "Hoành Giang": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể lệnh giới hạn trữ bài của người chơi đang có lượt -1. Khi kết thúc lượt, nếu:\n- Họ không bỏ đi bài trong giai đoạn bỏ bài, bạn rút X lá bài (X là số lần kỹ năng này phát động lượt hiện tại)[cite: 9].\n- Có bỏ bài, thì bạn rút một lá bài[cite: 9].",
+    "Kích Nghịch": "Sau khi bạn nhận sát thương, bạn có thể trọng chú (đổi bài) tùy ý bài trên tay (số lượng bài trọng chú bằng cách này mỗi lượt không thể vượt quá giới hạn sinh lực của bạn). Nếu bạn bằng cách này thu được [Sát], bạn có thể sử dụng một lá [Sát] không hạn chế cự ly đồng thời không thể bị hưởng ứng đối với nguồn sát thương[cite: 9].",
+    "Kháng Lệ": "Sau khi bạn gây ra hoặc nhận sát thương, bạn có thể rút hai lá bài, sau đó khi bạn gây ra sát thương lần tiếp theo bỏ đi những bài này[cite: 9]."
 };
 
 function getDescription(name) {
@@ -2119,11 +2149,11 @@ function updateUITP() {
 updateUITP();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 7: LƯU HUY (GIỮ NGUYÊN VỊ TRÍ KHI ĐẶT LẠI + ẨN THÌ ĐEN NHƯNG VẪN THẤY SỐ)
+   LOGIC TOOL 7: LƯU HUY
 ------------------------------------------------------------- */
 const cardNamesLH = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 let deletedCardsLH = new Set();
-let baseCircleLH = []; // Lưu thứ tự vị trí ban đầu sau khi random
+let baseCircleLH = [];
 let currentCircleLH = [];
 let hiddenSequenceLH = [];
 let firstHiddenLH = null;
@@ -2142,12 +2172,10 @@ function resetCircleLH(fullNew = false) {
             const j = Math.floor(Math.random() * (i + 1));
             [available[i], available[j]] = [available[j], available[i]];
         }
-        // Lưu lại thứ tự vị trí cố định ban đầu
         baseCircleLH = available.map(c => ({ val: c, status: "active" }));
         logLH("\n--- Đã random mới hoàn toàn vòng tròn Lưu Huy ---");
     }
 
-    // Khi Đặt Lại hoặc Random Mới, đồng bộ lại từ baseCircleLH nhưng loại bỏ các lá đã bị xóa vĩnh viễn
     currentCircleLH = baseCircleLH
         .filter(item => !deletedCardsLH.has(item.val))
         .map(item => ({ val: item.val, status: "active" }));
@@ -2186,7 +2214,6 @@ function drawCircleLH() {
         node.className = "lh-node " + (item.status === "hidden" ? "hidden-node" : "active");
         node.style.left = x + "px";
         node.style.top = y + "px";
-        // Luôn hiển thị số val dù ở trạng thái active hay hidden
         node.innerText = item.val;
 
         node.onclick = () => onNodeClickLH(i);

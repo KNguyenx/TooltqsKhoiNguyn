@@ -110,7 +110,7 @@ body {
     flex-shrink: 0;
 }
 
-/* KHU VỰC NỘI DUNG CHÍNH BÊN PHẢI */
+/* KHU VỰC NHẬP/HIỂN THỊ CHÍNH */
 .main-content {
     flex: 1;
     overflow-y: auto;
@@ -801,13 +801,49 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
 }
+.lh-grid-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 420px;
+    margin: 0 auto 20px auto;
+}
+.lh-grid-cell {
+    aspect-ratio: 1;
+    background: rgba(8, 13, 24, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 16px;
+}
+.lh-grid-cell.empty {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+.lh-grid-cell.flipped {
+    background: #1e3a8a;
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+.lh-grid-cell.removed {
+    background: #2b1312;
+    border-color: #e74c3c;
+    color: #ff6b6b;
+    opacity: 0.5;
+    text-decoration: line-through;
+}
 .lh-output {
     background: rgba(8, 13, 24, 0.95);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 18px;
     margin-top: 20px;
-    max-height: 450px;
+    max-height: 400px;
     overflow-y: auto;
     font-family: monospace;
     font-size: 15px;
@@ -1298,12 +1334,18 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     <!-- TOOL 7: LƯU HUY -->
     <div id="tool-luuhuy" class="tool-view">
         <div class="lh-container">
-            <h2>📜 Lưu Huy - Mô Phỏng Thuật Toán Bài Lá</h2>
-            <p class="note" style="text-align: center;">Chạy mô phỏng thuật toán rút bài và lật bài ngẫu nhiên qua các vòng cho đến khi còn lại 3 số.</p>
-            <div style="text-align: center; margin-bottom: 15px;">
+            <h2>📜 Lưu Huy - Thuật Toán Bàn Cờ 4x4 (13 Lá Bài)</h2>
+            <p class="note" style="text-align: center;">Mô phỏng đặt 13 lá bài (A đến K) vào ma trận 4x4 (khuyết 3 góc) và lật bài xoay vòng cho đến khi còn lại 3 số.</p>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
                 <button class="ch-btn" style="max-width: 250px;" onclick="runLuuHuySimulation()">▶ CHẠY MÔ PHỎNG</button>
             </div>
-            <div id="lhOutput" class="lh-output">Nhấn nút "CHẠY MÔ PHỎNG" để bắt đầu...</div>
+
+            <div id="lhBoard" class="lh-grid-board">
+                <!-- Hiển thị bàn cờ 4x4 -->
+            </div>
+
+            <div id="lhOutput" class="lh-output">Nhấn "CHẠY MÔ PHỎNG" để bắt đầu...</div>
         </div>
     </div>
 
@@ -2187,62 +2229,127 @@ function updateUITP() {
 updateUITP();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 7: LƯU HUY (MÔ PHỎNG THUẬT TOÁN)
+   LOGIC TOOL 7: LƯU HUY (BÀN CỜ 4x4)
 ------------------------------------------------------------- */
+// Cấu trúc ma trận 4x4, các vị trí khuyết (null) là các góc (0,0), (0,3), (3,0)
+const BOARD_CONFIG = [
+    [null, 0,    1,    null],
+    [2,    3,    4,    5],
+    [6,    7,    8,    9],
+    [10,   11,   12,   null]
+];
+
+// Thứ tự xoay vòng quanh bàn cờ cho 13 vị trí lá bài
+const CIRCLE_POSITIONS = [
+    {r: 0, c: 1}, {r: 0, c: 2}, 
+    {r: 1, c: 3}, {r: 2, c: 3}, 
+    {r: 3, c: 2}, {r: 3, c: 1}, {r: 3, c: 0},
+    {r: 2, c: 0}, {r: 1, c: 0}, 
+    {r: 1, c: 1}, {r: 1, c: 2}, {r: 2, c: 2}, {r: 2, c: 1}
+];
+
+const CARD_LABELS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+function renderBoardLH(gridData, stateData = {}) {
+    const boardEl = document.getElementById('lhBoard');
+    boardEl.innerHTML = '';
+
+    for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+            const cellIndex = BOARD_CONFIG[r][c];
+            const cellDiv = document.createElement('div');
+            
+            if (cellIndex === null) {
+                cellDiv.className = 'lh-grid-cell empty';
+                cellDiv.innerText = '';
+            } else {
+                cellDiv.className = 'lh-grid-cell';
+                const val = gridData[cellIndex];
+                const cardText = CARD_LABELS[val - 1] || val;
+
+                if (stateData.removed && stateData.removed.includes(val)) {
+                    cellDiv.classList.add('removed');
+                } else if (stateData.flipped && stateData.flipped.includes(val)) {
+                    cellDiv.classList.add('flipped');
+                }
+
+                cellDiv.innerHTML = `<span style="font-size: 11px; opacity: 0.6; margin-bottom: 2px;">Ô #${cellIndex + 1}</span><span>${cardText}</span>`;
+            }
+            boardEl.appendChild(cellDiv);
+        }
+    }
+}
+
 function runLuuHuySimulation() {
-    let cards = Array.from({length: 13}, (_, i) => i + 1);
-    for (let i = cards.length - 1; i > 0; i--) {
+    let cardValues = Array.from({length: 13}, (_, i) => i + 1);
+    for (let i = cardValues.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [cards[i], cards[j]] = [cards[j], cards[i]];
+        [cardValues[i], cardValues[j]] = [cardValues[j], cardValues[i]];
     }
 
+    renderBoardLH(cardValues);
+
+    let activeList = [...cardValues];
+    let removedCards = [];
     let roundNum = 1;
-    let outputText = "";
+    let outputText = "🎲 KHỞI TẠO BÀN CỜ 13 LÁ BÀI (NGẪU NHIÊN):\n";
 
-    while (cards.length > 3) {
-        outputText += `================ VÒNG ${roundNum} ================\n`;
-        outputText += `Danh sách bài hiện tại (${cards.length} lá): [${cards.join(', ')}]\n`;
+    cardValues.forEach((val, idx) => {
+        const label = CARD_LABELS[val - 1];
+        outputText += ` Ô #${idx + 1}: ${label} (Giá trị: ${val})\n`;
+    });
+    outputText += "\n----------------------------------------\n";
 
-        let currentCards = [...cards];
+    while (activeList.length > 3) {
+        outputText += `\n▶ VÒNG ${roundNum} (Còn lại ${activeList.length} lá bài)\n`;
+        outputText += `Danh sách lá bài còn sống: [${activeList.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
+
+        let currentCircle = [...activeList];
         let flippedSequence = [];
 
-        let currentIdx = Math.floor(Math.random() * currentCards.length);
-        let firstFlipped = currentCards.splice(currentIdx, 1)[0];
+        let currentIdx = Math.floor(Math.random() * currentCircle.length);
+        let firstFlipped = currentCircle.splice(currentIdx, 1)[0];
         flippedSequence.push(firstFlipped);
 
-        while (currentCards.length > 0) {
-            currentIdx = currentIdx % currentCards.length;
-            let leftIdx = (currentIdx - 1 + currentCards.length) % currentCards.length;
+        while (currentCircle.length > 0) {
+            currentIdx = currentIdx % currentCircle.length;
+            let leftIdx = (currentIdx - 1 + currentCircle.length) % currentCircle.length;
             let rightIdx = currentIdx;
 
             let chosenSide = Math.random() < 0.5 ? leftIdx : rightIdx;
-            let flippedCard = currentCards.splice(chosenSide, 1)[0];
+            let flippedCard = currentCircle.splice(chosenSide, 1)[0];
             flippedSequence.push(flippedCard);
             currentIdx = chosenSide;
         }
 
-        let firstNum = flippedSequence[0];
-        let lastNum = flippedSequence[flippedSequence.length - 1];
+        let firstCard = flippedSequence[0];
+        let lastCard = flippedSequence[flippedSequence.length - 1];
 
-        outputText += `Thứ tự lật trong vòng: [${flippedSequence.join(', ')}]\n`;
-        outputText += `👉 Số úp đầu tiên: ${firstNum}\n`;
-        outputText += `👉 Số úp cuối cùng: ${lastNum}\n\n`;
+        outputText += `Thứ tự lật trong vòng: [${flippedSequence.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
+        outputText += ` ❌ Lật đầu tiên (Loại): ${CARD_LABELS[firstCard - 1]}\n`;
+        outputText += ` ❌ Lật cuối cùng (Loại): ${CARD_LABELS[lastCard - 1]}\n`;
 
-        if (cards.includes(firstNum)) {
-            cards.splice(cards.indexOf(firstNum), 1);
+        if (activeList.includes(firstCard)) {
+            activeList.splice(activeList.indexOf(firstCard), 1);
+            removedCards.push(firstCard);
         }
-        if (cards.includes(lastNum) && lastNum !== firstNum) {
-            cards.splice(cards.indexOf(lastNum), 1);
+        if (activeList.includes(lastCard) && lastCard !== firstCard) {
+            activeList.splice(activeList.indexOf(lastCard), 1);
+            removedCards.push(lastCard);
         }
 
         roundNum++;
     }
 
-    outputText += `================ KẾT QUẢ CUỐI CÙNG ================\n`;
-    outputText += `Dừng lại khi chỉ còn 3 số: [${cards.join(', ')}]\n`;
+    outputText += `\n========================================\n`;
+    outputText += `🏆 KẾT QUẢ CUỐI CÙNG (CÒN LẠI 3 SỐ):\n`;
+    outputText += `👉 Các lá bài giữ lại: [${activeList.map(v => CARD_LABELS[v-1]).join(', ')}]\n`;
 
+    renderBoardLH(cardValues, { removed: removedCards });
     document.getElementById('lhOutput').innerText = outputText;
 }
+
+renderBoardLH(Array.from({length: 13}, (_, i) => i + 1));
 
 /* -------------------------------------------------------------
    LOGIC TOOL 8: VÕ QUAN VŨ

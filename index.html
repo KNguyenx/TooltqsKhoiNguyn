@@ -1082,6 +1082,91 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     width: 100%;
 }
 
+/* TOOL 11: MƯU TRẦN LÂM */
+.mtl-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-main);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.mtl-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px #000;
+}
+.mtl-bell-box {
+    margin: 30px 0;
+}
+.mtl-bell-btn {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #f39c12 0%, #d35400 100%);
+    border: 4px solid var(--border-main);
+    color: #fff;
+    font-size: 60px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(243, 156, 18, 0.6);
+    transition: transform 0.1s, box-shadow 0.2s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.mtl-bell-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px rgba(243, 156, 18, 0.9);
+}
+.mtl-bell-btn:active {
+    transform: scale(0.95);
+}
+@keyframes ringShake {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-12deg); }
+    40% { transform: rotate(12deg); }
+    60% { transform: rotate(-8deg); }
+    80% { transform: rotate(8deg); }
+    100% { transform: rotate(0deg); }
+}
+.mtl-shake {
+    animation: ringShake 0.4s ease-in-out;
+}
+.mtl-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+.mtl-option-btn {
+    background: rgba(8, 13, 24, 0.9);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.mtl-option-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-main);
+}
+.mtl-option-btn.active {
+    background: #1e3a8a;
+    color: var(--accent-gold);
+    border-color: var(--border-main);
+    box-shadow: 0 0 10px rgba(30, 58, 138, 0.8);
+}
+
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -1137,6 +1222,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-thantaophi', this)">
             <span class="tool-badge-num">10</span>
             <span>Thần Tào Phi</span>
+        </li>
+        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-muutranlam', this)">
+            <span class="tool-badge-num">11</span>
+            <span>Mưu Trần Lâm</span>
         </li>
     </ul>
 </div>
@@ -1475,6 +1564,23 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
             <div class="ttp-result-box" id="ttpResultBox">
                 <span class="ttp-placeholder">Hãy bấm nút để nhận kỹ năng ngẫu nhiên...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOL 11: MƯU TRẦN LÂM -->
+    <div id="tool-muutranlam" class="tool-view">
+        <div class="mtl-container">
+            <h1>🔔 Mưu Trần Lâm - Chuông Hiệu Lệnh</h1>
+            <div class="note">Nhấn vào chuông để phát âm thanh thông báo. Bạn có thể chọn 1 trong 9 kiểu âm thanh khác nhau dưới đây.</div>
+
+            <div class="mtl-bell-box">
+                <button class="mtl-bell-btn" id="bellBtn" onclick="ringBell()" title="Bấm để rung chuông">🔔</button>
+            </div>
+
+            <div style="font-weight: bold; color: var(--accent-gold); margin-bottom: 10px;">Chọn loại âm thanh chuông:</div>
+            <div class="mtl-options-grid" id="bellOptionsGrid">
+                <!-- Sẽ được render bằng Javascript -->
             </div>
         </div>
     </div>
@@ -2503,6 +2609,74 @@ function randomSkillTTP() {
         <div class="ttp-result-desc">${selected.desc}</div>
     `;
 }
+
+/* -------------------------------------------------------------
+   LOGIC TOOL 11: MƯU TRẦN LÂM (CHUÔNG & 9 ÂM THANH)
+------------------------------------------------------------- */
+const bellSounds = [
+    { id: 1, name: "1. Chuông Vàng Cổ Điển", freq: 800, type: "sine", decay: 1.5 },
+    { id: 2, name: "2. Chuông Lệnh Trầm", freq: 400, type: "triangle", decay: 2.0 },
+    { id: 3, name: "3. Tiếng Chiêng Trận", freq: 220, type: "sawtooth", decay: 2.5 },
+    { id: 4, name: "4. Chuông Ngân Thanh", freq: 1200, type: "sine", decay: 1.0 },
+    { id: 5, name: "5. Hiệu Lệnh Đanh Thép", freq: 950, type: "square", decay: 0.8 },
+    { id: 6, name: "6. Chuông Chùa U Tịch", freq: 300, type: "sine", decay: 3.0 },
+    { id: 7, name: "7. Keng Báo Động", freq: 1500, type: "square", decay: 0.5 },
+    { id: 8, name: "8. Trống Trận Phối Hợp", freq: 150, type: "sawtooth", decay: 1.2 },
+    { id: 9, name: "9. Âm Vang Thần Bí", freq: 600, type: "triangle", decay: 2.2 }
+];
+
+let selectedBellSound = bellSounds[0];
+
+function renderBellOptions() {
+    const grid = document.getElementById("bellOptionsGrid");
+    grid.innerHTML = "";
+    bellSounds.forEach(sound => {
+        const btn = document.createElement("button");
+        btn.className = `mtl-option-btn ${sound.id === selectedBellSound.id ? 'active' : ''}`;
+        btn.innerText = sound.name;
+        btn.onclick = () => selectBellSound(sound);
+        grid.appendChild(btn);
+    });
+}
+
+function selectBellSound(sound) {
+    selectedBellSound = sound;
+    renderBellOptions();
+    ringBell();
+}
+
+function ringBell() {
+    const bellBtn = document.getElementById("bellBtn");
+    bellBtn.classList.remove("mtl-shake");
+    void bellBtn.offsetWidth; // Trigger reflow để chạy lại animation
+    bellBtn.classList.add("mtl-shake");
+
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = selectedBellSound.type;
+        osc.frequency.setValueAtTime(selectedBellSound.freq, ctx.currentTime);
+
+        // Tạo hiệu ứng ngân vang giảm dần
+        gain.gain.setValueAtTime(0.5, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + selectedBellSound.decay);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + selectedBellSound.decay);
+    } catch (e) {
+        console.error("Lỗi phát âm thanh chuông:", e);
+    }
+}
+
+renderBellOptions();
 </script>
 
 </body>

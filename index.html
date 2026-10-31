@@ -1167,94 +1167,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     box-shadow: 0 0 10px rgba(30, 58, 138, 0.8);
 }
 
-/* TOOL 12: TRÌNH DỤC + MƯU TRÌNH DỤC */
-.td-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--bg-panel);
-    backdrop-filter: blur(8px);
-    padding: 30px;
-    border-radius: 8px;
-    border: 2px solid var(--border-main);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-}
-.td-container h1 {
-    text-align: center;
-    color: var(--accent-gold);
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    text-shadow: 2px 2px 4px #000;
-}
-.td-section {
-    background: rgba(8, 13, 24, 0.9);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 20px;
-}
-.td-section h3 {
-    margin-top: 0;
-    color: var(--accent-gold);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
-}
-.td-handcard-list, .td-ambush-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-}
-.td-card-item {
-    background: #1e3a8a;
-    border: 1px solid var(--border-main);
-    color: var(--accent-gold);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-.td-ambush-item {
-    background: #2b1312;
-    border: 1px solid #e74c3c;
-    color: #ff6b6b;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 14px;
-}
-.td-form-group {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    align-items: center;
-}
-.td-form-group select, .td-form-group input {
-    flex: 1;
-    padding: 10px;
-    background: rgba(13, 20, 36, 0.95);
-    border: 1px solid var(--border-main);
-    color: var(--text-main);
-    border-radius: 6px;
-    font-family: "Times New Roman", Times, serif;
-}
-.td-log-box {
-    width: 100%;
-    height: 120px;
-    background: rgba(8, 13, 24, 0.95);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 10px;
-    font-family: monospace;
-    font-size: 14px;
-    color: #e2f0d9;
-    overflow-y: auto;
-    resize: none;
-    outline: none;
-}
-
 @media (max-width: 768px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -1314,10 +1226,6 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
         <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-muutranlam', this)">
             <span class="tool-badge-num">11</span>
             <span>Mưu Trần Lâm</span>
-        </li>
-        <li class="tool-item" data-bg="tonquyen.webp" onclick="switchTool('tool-trinhduc', this)">
-            <span class="tool-badge-num">12</span>
-            <span>Trình Dục / Mưu Trình Dục</span>
         </li>
     </ul>
 </div>
@@ -1672,58 +1580,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 
             <div style="font-weight: bold; color: var(--accent-gold); margin-bottom: 10px;">Chọn loại âm thanh chuông:</div>
             <div class="mtl-options-grid" id="bellOptionsGrid">
-                <!-- Render bằng JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- TOOL 12: TRÌNH DỤC + MƯU TRÌNH DỤC -->
-    <div id="tool-trinhduc" class="tool-view">
-        <div class="td-container">
-            <h1>📜 Trình Dục / Mưu Trình Dục - Kỹ Năng Thiết Phục</h1>
-            <div class="note">Thiết lập Phục Binh và giả lập kích hoạt cơ chế vô hiệu hóa bài/kỹ năng ngoài lượt.</div>
-
-            <!-- Bài trên tay -->
-            <div class="td-section">
-                <h3>🎴 Bài Trên Tay Của Trình Dục</h3>
-                <div class="td-form-group">
-                    <input type="text" id="tdNewHandCard" placeholder="Nhập tên lá bài (ví dụ: Sát, Né, Đào...)" autocomplete="off">
-                    <button class="ch-btn" style="max-width: 150px;" onclick="addHandCardTD()">+ Thêm Bài</button>
-                </div>
-                <div class="td-handcard-list" id="tdHandCardList"></div>
-            </div>
-
-            <!-- Đặt Phục Binh -->
-            <div class="td-section">
-                <h3>⚔️ Giai Đoạn Kết Thúc: Đặt Phục Binh</h3>
-                <div class="td-form-group">
-                    <select id="tdHandCardSelect"></select>
-                    <select id="tdAmbushNameSelect"></select>
-                    <button class="ch-btn" style="max-width: 180px; background: #1b4d3e;" onclick="setAmbushTD()">Đặt Phục Binh</button>
-                </div>
-                <div style="margin-top: 12px; font-weight: bold; color: var(--accent-gold);">Danh sách Phục Binh đã cài đặt:</div>
-                <div class="td-ambush-list" id="tdAmbushList"></div>
-            </div>
-
-            <!-- Kích hoạt Phục Binh -->
-            <div class="td-section">
-                <h3>💥 Người Chơi Khác Sử Dụng Bài (Giả Lập Kích Hoạt)</h3>
-                <div class="td-form-group">
-                    <input type="text" id="tdTargetPlayerName" placeholder="Tên người dùng bài" value="Quan Vũ">
-                    <select id="tdUsedCardSelect"></select>
-                </div>
-                <div class="td-form-group" style="margin-top: 10px;">
-                    <label style="color: var(--text-main); cursor: pointer;">
-                        <input type="checkbox" id="tdIsCurrentTurn"> Thời điểm này đang trong lượt của người dùng bài
-                    </label>
-                    <button class="ch-btn" style="max-width: 220px; background: #dc2626;" onclick="triggerAmbushTD()">⚡ Kích Hoạt Phục Binh</button>
-                </div>
-            </div>
-
-            <!-- Nhật ký -->
-            <div class="td-section">
-                <h3>📜 Nhật Ký Thiết Phục</h3>
-                <textarea id="tdLog" class="td-log-box" readonly>--- Đã khởi tạo hệ thống Thiết Phục ---</textarea>
+                <!-- Sẽ được render bằng Javascript -->
             </div>
         </div>
     </div>
@@ -1763,7 +1620,7 @@ if (activeToolItem) {
 }
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 1: THẦN TÔN QUYỀN (ĐÃ THÊM NGŨ CỐC PHONG ĐĂNG)
+   LOGIC TOOL 1: THẦN TÔN QUYỀN
 ------------------------------------------------------------- */
 const CARDS = [
     "Sát", "Né", "Đào", "Rượu",
@@ -1771,7 +1628,7 @@ const CARDS = [
     "Thuận Thủ Khiên Dương", "Quá Hà Sách Kiều",
     "Tá Đao Sát Nhân", "Hỏa Công", "Quyết Đấu",
     "Nam Man Nhập Xâm", "Vạn Tiễn Tề Phát",
-    "Đào Viên Kết Nghĩa", "Xích Sắt Liên Hoàn", "Ngũ Cốc Phong Đăng"
+    "Đào Viên Kết Nghĩa", "Xích Sắt Liên Hoàn"
 ];
 
 let currentSelection = [];
@@ -1971,7 +1828,175 @@ renderTabs();
 ------------------------------------------------------------- */
 const skillDescriptions = {
     "Huyết Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài màu Đỏ, sau đó xoay ngang tối đa X người chơi, và gây ra 1 điểm sát thương hỏa đối với một người chơi trong đó (X là số sinh lực bạn đã mất và ít nhất 1).",
-    "Thương Vũ": "Giai đoạn hành động giới hạn một lần, bạn có thể tiến hành phát xét, sau đó bạn sử dụng [Sát] có điểm số nhỏ hơn kết quả phát xét không hạn chế cự ly, [Sát] có điểm số lớn hơn kết quả phát xét không hạn chế số lần."
+    "Thương Vũ": "Giai đoạn hành động giới hạn một lần, bạn có thể tiến hành phát xét, sau đó bạn sử dụng [Sát] có điểm số nhỏ hơn kết quả phát xét không hạn chế cự ly, [Sát] có điểm số lớn hơn kết quả phát xét không hạn chế số lần.",
+    "Cường Tập": "Giai đoạn hành động giới hạn một lần, bạn có thể tự mất 1 điểm sinh lực hoặc bỏ đi một lá bài Vũ Khí, và gây ra 1 điểm sát thương đối với một người chơi khác nằm trong phạm vi công kích của bạn.",
+    "Loạn Kích": "Bạn có thể đem hai lá bài cùng Chất trên tay sử dụng như [Vạn Tiễn Tề Phát].",
+    "Tán Dao": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi tùy ý lá bài, sau đó gây ra 1 điểm sát thương đối với cùng lượng người chơi khác có số sinh lực lớn nhất.",
+    "Thiên Nghĩa": "Giai đoạn hành động giới hạn một lần, bạn có thể đấu điểm cùng với một người chơi:\n- Nếu bạn thắng, bạn có thể sử dụng thêm một lá [Sát] trong lượt hiện tại, sử dụng [Sát] không hạn chế cự ly và có thể chọn thêm một mục tiêu.\n- Nếu bạn không thắng, bạn không thể sử dụng [Sát] trong lượt hiện tại.",
+    "Phấn Việt": "Giai đoạn hành động giới hạn X lần (X là số người chơi không cùng phe với bạn còn sống), bạn có thể đấu điểm với một người chơi khác. Nếu bạn thắng, căn cứ vào điểm số bài đấu điểm của bạn để chấp hành những hiệu quả sau:\n- ≤ K: Xem như sử dụng một lá [Sát] lôi đối với họ.\n- ≤ 9: Thu lấy một lá [Sát] từ chồng bài rút.\n- ≤ 5: Thu lấy một lá bài của họ.",
+    "Nghĩa Tuyệt": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài, sau đó lệnh một người chơi khác mở ra một lá bài trên tay:\n- Nếu lá này màu Đen, thì họ bị vô hiệu phi tỏa định kỹ và không thể sử dụng hoặc đánh ra bài trên tay trong lượt hiện tại; bạn sử dụng [Sát] chất ♥ đối với họ gây sát thương +1.\n- Nếu lá này màu Đỏ, thì bạn thu lấy nó, sau đó bạn có thể lệnh người đó hồi phục 1 điểm sinh lực.",
+    "Đạo Thư": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi và lựa chọn một chất, sau đó thu lấy một lá bài trên tay của người này:\n- Nếu chất bài này và chất bạn lựa chọn giống nhau, bạn gây ra 1 điểm sát thương cho họ và kỹ năng này xem như chưa từng phát động.\n- Nếu không cùng chất, thì bạn giao cho người này một lá bài trên tay khác chất bạn lựa chọn (nếu không có thì bạn cần phải mở ra tất cả bài trên tay).",
+    "Hãm Trận": "Mỗi lượt giới hạn 1 lần, giai đoạn hành động, bạn có thể đấu điểm cùng với một người chơi:\n- Nếu bạn thắng, bạn bỏ qua Phòng Cụ (Giáp) của người đó trong giai đoạn này, bài bạn sử dụng đối với họ không hạn chế cự ly và số lần, khi bạn sử dụng bài gây ra sát thương đối với họ, sát thương này +1 (mỗi tên bài giới hạn một lần).\n- Nếu bạn không thắng, bạn không thể sử dụng [Sát] trong giai đoạn này và [Sát] của bạn không tính vào giới hạn trữ bài.",
+    "Phấn Tấn": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi khác, lượt hiện tại bạn tính toán cự ly đến họ xem như 1, sau đó đến khi kết thúc lượt, nếu bạn từng gây ra sát thương đối với họ, bạn rút một lá bài.",
+    "Chiến Tuyệt": "Giai đoạn hành động, bạn có thể đem tất cả bài trên tay sử dụng như [Quyết Đấu], sau đó bạn cùng với người bị thương mỗi người rút một lá bài. Nếu bạn rút ≥ 3 lá bài, thì kỹ năng này vô hiệu lượt hiện tại.",
+    "Man Tự": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài trên tay sử dụng như [Nam Man Nhập Xâm].\nSau khi có người chơi nhận sát thương từ [Nam Man Nhập Xâm], bạn rút một lá bài.",
+    "Liên Kế": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài trên tay và lựa chọn một người chơi khác, lệnh họ sử dụng ngẫu nhiên một lá Vũ Khí trong chồng bài rút. Sau đó người này lựa chọn một hạng mục:\n1. Sử dụng một lá [Sát] đối với một người chơi ngoại trừ bạn, và đem bài Vũ Khí giao cho một mục tiêu trong đó.\n2. Xem như bạn sử dụng một lá [Sát] đối với họ, và đem bài Vũ Khí giao cho bạn.",
+    "Vũ Nhung": "Giai đoạn hành động giới hạn một lần, bạn có thể cùng với một người chơi khác mở ra một lá bài trên tay:\n- Nếu bạn mở ra là [Sát] và người đó không là [Thiểm], bạn gây ra 1 điểm sát thương đối với họ.\n- Nếu bạn mở ra không là [Sát] và người đó là [Thiểm], bạn thu lấy một lá bài của họ.",
+    "Huyết Chiếu": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài trên tay và lựa chọn tối đa X người chơi khác (X là giới hạn sinh lực của bạn). Những người này lần lượt lựa chọn có giao cho bạn một lá bài hay không:\n- Nếu chọn có, người này rút một lá bài và lượt hiện tại bạn có thể sử dụng thêm một lá [Sát].\n- Nếu chọn không, lượt hiện tại người này không thể hưởng ứng bài bạn sử dụng.\n- Nếu không có người chơi nào giao bài cho bạn, bạn rút bài đến bằng giới hạn sinh lực.",
+    "Liên Hoàn": "Bạn có thể đem một lá chất ♣ trên tay xem như [Thiết Tác Liên Hoàn] để sử dụng hoặc trọng chú (đổi bài).",
+    "Tửu Trì": "Bạn có thể đem một lá chất ♠ trên tay sử dụng như [Tửu].",
+    "Trấm Hủy": "Khi bạn sử dụng [Sát] hoặc bài Cẩm Nang thường chỉ định mục tiêu duy nhất, bạn có thể lệnh một trong những người còn lại lựa chọn một hạng mục:\n1. Giao cho bạn một lá bài và trở thành người sử dụng của bài này.\n2. Trở thành một mục tiêu nữa của bài này (sau đó kỹ năng này vô hiệu trong lượt hiện tại).",
+    "Độc Võ": "Giai đoạn hành động, bạn có thể lựa chọn một người chơi khác nằm trong phạm vi công kích và bỏ đi X lá bài (X là số sinh lực của người này), gây ra 1 điểm sát thương đối với họ. Nếu người này rơi vào trạng thái hấp hối và được cứu hồi phục, thì bạn tự mất 1 điểm sinh lực và kỹ năng này vô hiệu đến kết thúc lượt.",
+    "Quốc Sắc": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một hạng mục, sau đó rút một lá bài:\n- Đem một lá chất ♦ sử dụng như [Lạc Bất Tư Thục].\n- Bỏ đi một lá chất ♦ và bỏ đi một lá [Lạc Bất Tư Thục] trên bàn chơi.",
+    "Khổ Nhục": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài, sau đó tự mất 1 điểm sinh lực.",
+    "Tiến Ngôn": "Giai đoạn hành động giới hạn mỗi hạng mục một lần, bạn có thể nói ra một loại bài hoặc một loại màu sắc. Sau đó lần lượt mở ra ở đầu chồng bài rút cho đến khi đạt được bài phù hợp với bài bạn đã nói rồi giao cho một người chơi có giới tính nam bất kỳ.",
+    "Diệt Kế": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài Vũ Khí hoặc bài Cẩm Nang màu Đen đặt lên ở đầu chồng bài rút, lệnh một người chơi khác có bài trên tay lựa chọn một hạng mục:\n- Bỏ đi một lá Cẩm Nang.\n- Lần lượt bỏ đi hai lá phi Cẩm Nang.",
+    "Chế Hành": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi tùy ý lá bài, sau đó rút cùng lượng bài. Nếu bằng cách này bỏ đi tất cả bài trên tay, thì bạn rút thêm một lá bài.",
+    "Công Tâm": "Giai đoạn hành động giới hạn một lần, bạn có thể xem bài trên tay của một người chơi khác, sau đó bạn có thể mở ra trong đó một lá bài chất ♥, lựa chọn một hạng mục:\n- Bỏ đi bài này.\n- Đem bài này đặt lên đầu chồng bài rút.",
+    "Thận Hành": "Giai đoạn hành động, bạn có thể bỏ đi X lá bài, sau đó rút một lá bài (X là số lần bạn phát động kỹ năng trước đó trong giai đoạn này và tối đa 2).",
+    "Tụng Từ": "Giai đoạn hành động, bạn có thể lựa chọn một hạng mục:\n- Lệnh một người chơi có số bài trên tay ≤ số sinh lực của họ rút hai lá bài.\n- Lệnh một người chơi có số bài trên tay lớn hơn số sinh lực của họ bỏ đi hai lá bài.",
+    "Quá Luận": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra một lá bài trên tay của một người chơi khác. Sau đó bạn có thể lựa chọn một lá bài của bạn. Nếu bài của họ điểm số nhỏ hơn, bạn và họ hoán đổi hai lá bài này, họ rút một lá bài; nếu bài của bạn có điểm số nhỏ hơn, bạn và họ hoán đổi hai lá bài này, bạn rút một lá bài.",
+    "Đốc Lương": "Giai đoạn hành động giới hạn một lần, bạn có thể thu lấy một lá bài của một người chơi khác, và lựa chọn một hạng mục:\n- Bạn quan sát hai lá bài ở đầu chồng bài rút, sau đó lựa chọn 1-2 lá bài Cơ Bản trong đó rồi lệnh họ thu lấy nó.\n- Lệnh giai đoạn rút bài ở một lượt tiếp theo của họ rút thêm một lá bài.",
+    "Liên Tru": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra và giao một lá bài cho một người chơi khác, nếu bài này là màu Đỏ, bạn rút một lá bài; nếu bài này là màu Đen, họ lựa chọn một hạng mục:\n- Bạn rút hai lá bài.\n- Bỏ đi hai lá bài.",
+    "Lược Mệnh": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi khác có Trang Bị khu Trang Bị ít hơn bạn, lệnh họ lựa chọn 1 điểm số, sau đó bạn tiến hành phát xét, nếu điểm số giống nhau, bạn gây ra hai điểm sát thương đối với họ; khác nhau, bạn thu lấy ngẫu nhiên một lá bài trong khu vực chơi của họ.",
+    "Cơ Tiệp": "Giai đoạn hành động giới hạn một lần, bạn có thể xem một lá bài ở đáy chồng bài rút, sau đó đem nó giao cho một người chơi tùy ý.",
+    "Bặc Toán": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi khác, sau đó lựa chọn tối đa hai lá bài không cùng tên gọi (giới hạn trong bài Cơ Bản hoặc bài Cẩm Nang). Ở giai đoạn rút bài tiếp theo của người đó, thay đổi thành thu lấy trong chồng bài rút hoặc chồng bài bỏ những lá bài mà bạn lựa chọn.",
+    "Mẫn Tư": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi tùy ý bài có tổng điểm số là 13, sau đó rút gấp đôi lượng bài. Bài thu được bằng cách này, bài màu Đen không hạn chế cự ly lượt hiện tại, bài màu Đỏ không tính vào trữ bài lượt hiện tại.",
+    "Thừa Thưởng": "Giai đoạn hành động giới hạn một lần, sau khi bài do bạn sử dụng chỉ định người chơi khác thành mục tiêu hoàn tất kết toán, nếu bài này không gây ra sát thương, bạn có thể thu lấy hai lá có cùng màu và điểm số với bài này trong chồng bài rút.",
+    "Phản Gián": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra một lá bài trên tay và đem giao cho một người chơi khác, người đó lựa chọn một hạng mục:\n- Mở ra tất cả bài trên tay, sau đó bỏ đi trong đó tất cả những lá cùng chất với lá bài này.\n- Tự mất 1 điểm sinh lực.",
+    "Tham Bái": "Giai đoạn hành động giới hạn một lần, bạn có thể lệnh một người chơi khác lựa chọn một hạng mục:\n- Lệnh bạn thu lấy ngẫu nhiên một lá bài trong khu vực chơi của họ, không thể tiếp tục sử dụng bài đối với họ trong lượt hiện tại.\n- Lệnh bạn sử dụng bài đối với họ không hạn chế cự ly và số lần trong lượt hiện tại.",
+    "Họa Thủy": "Giai đoạn chuẩn bị, bạn có thể lựa chọn tối đa X người chơi (X là số sinh lực đã mất của bạn và ít nhất 1), những người chơi này theo thứ tự bạn chọn lần lượt chấp hành một hạng mục:\n- Phi tỏa định kỹ vô hiệu trong lượt hiện tại.\n- Giao cho bạn một lá bài trên tay.\n- Bỏ đi tất cả bài trong khu Trang Bị.",
+    "Cẩm Hội": "Giai đoạn hành động giới hạn một lần, bạn có thể lấy ra từ chồng bài rút ngẫu nhiên ba lá bài loại không gây sát thương, sau đó lựa chọn một người chơi khác, người này lựa chọn và sử dụng một lá trong đó, sau đó bạn có thể lần lượt sử dụng hai lá còn dư.",
+    "Kỳ Tập": "Bạn có thể đem một lá bài màu Đen sử dụng như [Quá Hà Sách Kiều].",
+    "Nguy Minh": "Giai đoạn hành động giới hạn một lần, bạn có thể thu lấy của mục tiêu tối đa X lá bài trên tay, sau đó bạn giao lại cho họ cùng lượng bài (X là số sinh lực của bạn).",
+    "Tụng Thục": "Giai đoạn hành động giới hạn một lần, bạn có thể đấu điểm cùng với một người chơi khác, nếu bạn không thắng, bạn và người này mỗi người rút 2 lá bài; nếu bạn thắng, xem như kỹ năng này chưa được phát động trong lượt hiện tại.",
+    "Phách Tập": "Giai đoạn hành động giới hạn một lần, bạn có thể xem bài trên tay của một người chơi khác, sau đó bạn có thể bỏ đi bài trên tay của bạn cùng với họ tổng cộng 4 lá không cùng chất.",
+    "Cam Lộ": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn hai người chơi, hoán đổi bài trong khu Trang Bị của họ với nhau.",
+    "Định Bạn": "Giai đoạn hành động giới hạn X lần, bạn có thể lệnh một người chơi có bài trong khu Trang Bị rút một lá bài và lựa chọn một hạng mục.",
+    "Cuồng Phủ": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài Trang Bị trên bàn, sau đó xem như sử dụng một lá [Sát].",
+    "Kỳ Sách": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài trên tay sử dụng như một lá Cẩm Nang thường tùy ý.",
+    "Cung Kỵ": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài để phạm vi công kích của bạn vô hạn trong lượt hiện tại.",
+    "Hoài Dị": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra tất cả bài trên tay, nếu có một loại màu sắc, bạn rút một lá bài.",
+    "Khứ Tật": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi X lá bài, lệnh tối đa X người chơi mỗi người hồi phục 1 điểm sinh lực.",
+    "Thiểm Tập": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài Cơ Bản màu Đỏ, sau đó bỏ đi một lá bài của một người chơi nằm trong phạm vi công kích.",
+    "Tồi Kiên": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi có bài trên tay, nếu trong bài trên tay của họ có [Thiểm], họ đem tất cả [Thiểm] và bài Phòng Cụ giao cho bạn.",
+    "Khiêu Hấn": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi có chứa bạn trong phạm vi công kích của họ, sau đó trừ khi người đó sử dụng một lá [Sát] đối với bạn, nếu không thì bạn bỏ đi một lá bài của họ.",
+    "Thanh Nang": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài trên tay và lệnh một người chơi hồi phục 1 điểm sinh lực.",
+    "Minh Sách": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài Trang Bị hoặc [Sát] giao cho một người chơi khác.",
+    "An Quốc": "Giai đoạn hành động giới hạn một lần, bạn có thể lệnh một người chơi khác, nếu số bài trên tay của họ nhỏ nhất bàn, họ rút một lá bài.",
+    "Lập Mục": "Giai đoạn hành động, bạn có thể đem một lá chất ♦ sử dụng như [Lạc Bất Tư Thục] đối với bản thân, sau đó hồi phục 1 điểm sinh lực.",
+    "Kết Nhân": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi giới tính nam, đồng thời bỏ đi một lá bài trên tay hoặc đem một lá Trang Bị đặt vào khu Trang Bị của họ.",
+    "An Tuất": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn hai người chơi khác có số bài trên tay không bằng nhau.",
+    "Mật Chiếu": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài trên tay giao cho một người chơi khác, sau đó lệnh người đó đấu điểm cùng với một người thứ 3.",
+    "Tư Viện": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tùy ý số lá bài trên tay có điểm số tổng cộng là 13 giao cho một người chơi khác.",
+    "Ly Gián": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài và lựa chọn hai người chơi khác có giới tính nam.",
+    "Minh Giám": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài trên tay giao cho một người chơi khác.",
+    "Nhân Đức": "Giai đoạn hành động giới hạn một lần với mỗi người chơi, bạn có thể đem tùy ý bài trên tay giao cho người một chơi khác.",
+    "Đồ Nam": "Giai đoạn hành động giới hạn một lần, bạn có thể lệnh một người chơi khác xem một lá bài ở đầu chồng bài rút.",
+    "Nghiêm Giáo": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi khác mở ra bốn lá bài.",
+    "Đế Minh": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn hai người chơi khác và bỏ đi X lá bài.",
+    "Trực Gián": "Giai đoạn hành động, bạn có thể đem một lá bài Trang Bị trong bài trên tay đặt vào khu Trang Bị một người chơi khác.",
+    "Khu Hổ": "Giai đoạn hành động giới hạn một lần, bạn có thể đấu điểm cùng với một người chơi có sinh lực lớn hơn bạn.",
+    "Phi Quân": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài.",
+    "Nộ Sân": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra một lá bài trên tay của một người chơi khác.",
+    "Khám Tập": "Giai đoạn hành động giới hạn hai lần, bạn có thể mở ra tất cả bài trên tay.",
+    "Đoạn Lương": "Bạn có thể đem một lá bài Cơ Bản màu Đen hoặc Trang Bị màu Đen sử dụng như [Binh Lương Thốn Đoạn].",
+    "Hỏa Kế": "Bạn có thể đem một lá bài màu Đỏ trên tay sử dụng như [Hỏa Công].",
+    "Phẩm Đệ": "Giai đoạn hành động giới hạn mỗi người chơi một lần, bạn có thể bỏ đi một lá bài và lựa chọn một người chơi.",
+    "Triều Phượng": "Giai đoạn hành động giới hạn một lần, khi bạn gây ra sát thương, bạn có thể bỏ đi một lá bài trên tay.",
+    "Doanh Thuyết": "Giai đoạn hành động giới hạn một lần, bạn có thể giao một lá bài cho một người chơi khác.",
+    "Quỳnh Anh": "Giai đoạn hành động giới hạn một lần, bạn có thể di chuyển một lá bài trên bàn chơi.",
+    "Tự Cố": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi 1 lá bài.",
+    "Vi Ngỗ": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài màu Đỏ sử dụng như [Thuận Thủ Khiên Dương].",
+    "Trì Ứng": "Giai đoạn hành động giới hạn một lần, bạn có thể chọn một người chơi có số sinh lực ≤ bạn.",
+    "Hoa Hỏa": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài màu Đỏ trên tay sử dụng như [Sát] hỏa.",
+    "Lương Tú": "Giai đoạn hành động, bạn có thể bỏ đi hai lá bài không cùng loại.",
+    "Sổ Tiến": "Giai đoạn hành động giới hạn 3 lần, bạn có thể giao một lá bài cho một người chơi khác.",
+    "Tung Thế": "Giai đoạn hành động, bạn có thể mở ra một lá bài Cơ bản hoặc Cẩm Nang thường.",
+    "Phủ Lê": "Giai đoạn hành động giới hạn một lần, bạn có thể mở ra tất cả bài trên tay.",
+    "Lương Yến": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi khác.",
+    "Hội Trận": "Giai đoạn hành động giới hạn một lần, bạn có thể đem lượng bài tùy ý giao cho một người chơi khác.",
+    "Hung Toán": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi một lá bài trên tay đồng thời lựa chọn một người chơi.",
+    "Lự Tâm": "Giai đoạn hành động giới hạn một lần, bạn có thể giao cho một người chơi khác một lá bài.",
+    "Huệ Tế": "Giai đoạn hành động giới hạn một lần, bạn có thể lệnh một người chơi rút hai lá bài.",
+    "Bội Nghịch": "Giai đoạn hành động giới hạn một lần, bạn có thể đem bài trên tay điều chỉnh đến bằng giới hạn sinh lực.",
+    "Ký Xuân": "Giai đoạn hành động giới hạn mỗi hạng mục một lần, bạn có thể mở ra một lá bài trên tay.",
+    "Trường Khu": "Giai đoạn hành động giới hạn một lần, bạn có thể từ người ngồi trước hoặc người ngồi sau lựa chọn.",
+    "Cứu Hãm": "Giai đoạn hành động giới hạn một lần, bạn có thể trọng chú một nửa bài trên tay.",
+    "Văn Xán": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn tối đa hai người chơi khác.",
+    "Cường Trì": "Giai đoạn hành động giới hạn một lần, bạn có thể bỏ đi của bạn và một người chơi khác tổng cộng 3 lá bài.",
+    "Gian Kế": "Giai đoạn hành động giới hạn một lần, bạn có thể lệnh tối đa X người chơi ngồi cạnh nhau.",
+    "Gián Quốc": "Giai đoạn hành động giới hạn một lần cho mỗi hạng mục, bạn có thể lựa chọn một hạng mục.",
+    "Võ Duyên": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá [Sát] giao cho một người chơi khác.",
+    "Gián Tránh": "Giai đoạn hành động giới hạn một lần, bạn có thể quan sát bài trên tay của một người chơi khác.",
+    "Vũ Diễm": "Giai đoạn hành động hoặc sau khi bạn nhận sát thương, bạn có thể lựa chọn một người chơi giới tính nam.",
+    "Võ Uy": "Giai đoạn hành động giới hạn một lần, bạn có thể đem tất cả bài của một màu trên tay sử dụng như [Sát].",
+    "Tá Quân": "Giai đoạn hành động giới hạn một lần, bạn có thể lựa chọn một người chơi.",
+    "Tư Nhuệ": "Giai đoạn hành động giới hạn một lần, bạn có thể đem một lá bài sử dụng như một lá bài Cơ Bản.",
+    "Xu Chu": "Giai đoạn hành động giới hạn một lần, bạn có thể lấy ra một lá bài ở đầu chồng bài rút.",
+
+    /* KỸ NĂNG MỞ ĐẦU GIAI ĐOẠN KẾT THÚC */
+    "Quận Binh": "Giai đoạn kết thúc của một người chơi, nếu số bài trên tay của họ ≤ 1, họ có thể rút một lá bài và đem tất cả bài trên tay giao cho bạn, sau đó bạn đem cùng lượng bài giao cho người đó.",
+    "Trực Ngôn": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi rút một lá bài và mở nó ra, nếu bài này là bài Cơ Bản, bạn rút một lá bài. Nếu bài này là bài Trang Bị, họ sử dụng nó và hồi phục 1 điểm sinh lực.",
+    "Truân Giang": "Giai đoạn kết thúc, nếu trong giai đoạn hành động bạn không sử dụng bài chỉ định qua người chơi khác thành mục tiêu, bạn có thể rút X lá bài (X là tất cả thế lực trên bàn chơi).",
+    "Bế Nguyệt": "Giai đoạn kết thúc, bạn có thể rút một lá bài. Nếu bạn không có bài trên tay, thay đổi thành rút hai lá bài.",
+    "Tinh Sách": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn sử dụng qua số bài ≥ số sinh lực của bạn, thì bạn có thể thực hiện thêm một giai đoạn rút bài hoặc giai đoạn hành động. Nếu số chất của số bài này cũng ≥ số sinh lực của bạn, thì bạn chấp hành cả hai hạng mục.",
+    "Trấn Hành": "Mở đầu giai đoạn kết thúc hoặc sau khi bạn nhận thiệt hại, bạn có thể xem 3 lá bài ở đầu chồng bài rút, sau đó bạn thu lấy trong đó một lá bài không cùng chất với bài còn lại rồi đặt bài dư lại đầu chồng bài, gọi là \"Tín\".",
+    "Mặc Chí": "Giai đoạn kết thúc, bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ nhất bạn sử dụng trong giai đoạn hành động lượt hiện tại, sau đó bạn có thể đem một lá bài trên tay sử dụng như lá bài thứ hai bạn sử dụng trong giai đoạn hành động lượt hiện tại.",
+    "Tội Luận": "Giai đoạn kết thúc, bạn có thể xem 3 lá bài ở đầu chồng bài rút, bạn giữ lại một lá bài với mỗi hạng mục thỏa mãn sau đây, sau đó đặt lại theo thứ tự tùy ý bài còn dư:\n- Bạn đã gây ra sát thương trong lượt hiện tại.\n- Bạn chưa bỏ bài trong lượt hiện tại.\n- Bài trên tay nhỏ nhất bàn.\nNếu tất cả đều không thỏa mãn, bạn cùng một người chơi khác tự mất 1 điểm sinh lực.",
+    "Phục Gian": "Tỏa Định Kỹ. Giai đoạn chuẩn bị và giai đoạn kết thúc, bạn ngẫu nhiên xem bài trên tay của một người chơi có số bài trên tay không lớn nhất toàn bàn.",
+    "Khốn Phấn": "Tỏa Định Kỹ. Giai đoạn kết thúc, bạn tự mất 1 điểm sinh lực, sau đó rút hai lá bài.",
+    "Cư Thủ": "Giai đoạn kết thúc, bạn có thể lật mặt võ tướng và rút 4 lá bài, sau đó bạn bỏ đi một lá bài trên tay, nếu bằng cách này bỏ đi bài Trang Bị, thì bạn thay đổi thành sử dụng nó.",
+    "Trấn Cốt": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, giai đoạn kết thúc lượt hiện tại của bạn và khi kết thúc lượt sau của người đó, họ rút bài hoặc bỏ bài trên tay cho đến khi bằng số bài trên tay của bạn (rút bài tối đa 5 lá bài).",
+    "Bỉnh Nhất": "Giai đoạn kết thúc, bạn có thể mở ra tất cả bài trên tay, nếu cùng màu, bạn lệnh tối đa tùy ý người chơi mỗi người rút một lá bài (số người được lựa chọn không thể vượt quá số bài trên tay bạn mở ra). Nếu cùng điểm số, thì bạn rút một lá bài.",
+    "Bí Kế": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số sinh lực bạn đã mất), sau đó bạn có thể đem cùng lượng bài trên tay giao cho người chơi khác.",
+    "Tuyệt Sách": "Giai đoạn kết thúc, bạn có thể gây ra 1 điểm sát thương đối với một người chơi khác không có bài trên tay.",
+    "Huệ Dân": "Giai đoạn kết thúc, bạn có thể rút X lá bài (X là số người có số bài trên tay nhỏ hơn số sinh lực), sau đó mở ra cùng một lượng bài trên tay. Bắt đầu từ một người chơi bạn lựa chọn, họ lần lượt thu lấy trong đó một lá bài.",
+    "Dụ Địch": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác bỏ đi một lá bài trên tay của bạn, nếu bài bỏ đi:\n- Không phải [Sát], thì bạn thu lấy một lá bài của họ.\n- Không phải màu Đen, thì bạn rút một lá bài.",
+    "Khoan Thích": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, cho đến khi mở đầu lượt tiếp theo của bạn, sau khi người này nhận điểm sát thương thứ 2 trong cùng một lượt, họ hồi phục 1 điểm sinh lực (mỗi lượt giới hạn phát động một lần).",
+    "Tiết Ứng": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi khác, [Sát] hoặc bài Cẩm Nang thường người này sử dụng ở lượt tiếp theo không hạn chế cự ly và có thể chỉ định thêm một mục tiêu, sau khi họ gây ra sát thương, họ không thể tiếp tục sử dụng bài cho đến khi kết thúc lượt.",
+    "Tùy Chinh": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi. Giai đoạn hành động tiếp theo của người này sử dụng [Sát] không hạn chế cự ly và có thể sử dụng thêm một lá [Sát]. Sau đó khi kết thúc giai đoạn hành động của họ, bạn có thể xem như sử dụng một lá [Sát] đối với một người chơi khác đã từng nhận sát thương trong lượt của họ.",
+    "Trấn Quân": "Giai đoạn chuẩn bị hoặc giai đoạn kết thúc, bạn có thể bỏ đi X lá bài của một người chơi (X bằng số bài trên tay của họ trừ đi số sinh lực và ít nhất 1), nếu trong đó không có bài Trang Bị, bạn lựa chọn một hạng mục:\n- Bỏ đi một lá bài.\n- Người này rút bằng lượng bài.",
+    "Cử Tiến": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài phi Cơ Bản và lệnh một người chơi khác lựa chọn một hạng mục:\n- Rút hai lá bài.\n- Hồi phục 1 điểm sinh lực.\n- Hồi phục bài võ tướng về trạng thái ban đầu.",
+    "Đãi Yến": "Giai đoạn kết thúc, bạn có thể lệnh một người chơi khác thu được một lá bài Cơ Bản chất ♥, sau đó nếu họ từng là mục tiêu của kỹ năng này ở lượt trước, họ tự mất 1 điểm sinh lực.",
+    "Noãn Huệ": "Giai đoạn kết thúc, bạn có thể lựa chọn một người chơi, người này có thể xem như sử dụng X lá bài Cơ Bản (X là số bài trong khu Trang Bị của họ và tối thiểu là 1, nếu họ sử dụng bài cùng tên bằng cách này, sau khi hoàn tất kết toán thì bỏ đi toàn bộ bài trong khu Trang Bị).",
+    "Tẩm Tình": "Giai đoạn kết thúc, bạn có thể bỏ đi một lá bài của một người chơi khác có chứa người chơi ở vị trí số một trong phạm vi công kích. Sau đó nếu số bài trên tay của họ nhiều hơn so với vị trí số một, bạn rút một lá bài.",
+    "Viện Hộ": "Giai đoạn kết thúc, bạn có thể đem một lá bài Trang Bị đặt vào khu Trang Bị của một người chơi, nếu bài này là:\n- Bài Vũ Khí, bỏ đi một lá bài của một người chơi nằm trong cự ly 1 của bạn.\n- Bài Phòng Cụ (Giáp), họ rút một lá bài.\n- Bài Tọa Kỵ (Ngựa), họ hồi phục 1 điểm sinh lực.",
+    "Sinh Tức": "Giai đoạn kết thúc, nếu trong lượt hiện tại bạn chưa từng gây ra sát thương, bạn có thể rút hai lá bài.",
+    "Trầm Dũng": "Giai đoạn kết thúc, bạn có thể rút X lá bài ( X là số loại bài bạn đã sử dụng ở lượt hiện tại).",
+    "Tuẫn Tiết": "Khi kết thúc mỗi lượt chơi, nếu lượt hiện tại bạn từng thu được bài ở ngoài giai đoạn rút bài, có thể lựa chọn một hạng mục:\n- Lệnh một người chơi đem bài trên tay điều chỉnh đến bằng giá trị sinh lực của họ.\n- Lệnh một người chơi đem giá trị sinh lực điều chỉnh đến bằng số bài trên tay của họ.\n(Mỗi hạng mục giới hạn một lần mỗi vòng chơi).",
+    "Thâu Lương": "Khi kết thúc mỗi lượt chơi, bạn có thể giao cho tùy ý người chơi không có bài trên tay mỗi người một lá bài. Nếu bài này có thể chỉ định bản thân người này thành mục tiêu, thì họ có thể sử dụng nó.",
+    "Soạn Văn": "Giai đoạn kết thúc, bạn có thể mở ra X lá bài ở đầu chồng bài và lựa chọn một người chơi khác, đồng thời lựa chọn chấp hành một hạng mục:\n- Sử dụng bài loại gây sát thương trong đó đối với họ.\n- Lệnh họ thu được bài loại không gây sát thương trong đó.\nSau đó đem bài còn dư đặt lại ở đầu chồng bài rút (X là số bài trên tay của bạn cũng như tối đa là 5).",
+
+    /* Ô SAU KHI NHẬN SÁT THƯƠNG */
+    "Yêu Danh": "Mỗi lượt chơi giới hạn một lần cho mỗi hạng mục, sau khi bạn gây ra hoặc nhận sát thương, bạn có thể lựa chọn một hạng mục:\n- Bỏ đi một lá bài trên tay của một người chơi khác.\n- Lệnh một người chơi khác rút một lá bài.\n- Lệnh người chơi bỏ đi tối đa hai lá bài sau đó rút cùng lượng bài.",
+    "Đàn Tâm": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó sửa đổi kỹ năng “Kiểu Chiếu”.",
+    "Quy Tâm": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng.",
+    "Bí Dục": "Sau khi bạn nhận sát thương, bạn có thể lựa chọn một hạng mục:\n- Đem bài trên tay rút đến bằng số bài trên tay của nguồn sát thương (tối đa rút đến 5 lá).\n- Bỏ đi số bài lớn hơn số bài trên tay của nguồn sát thương, sau đó gây ra 1 điểm sát thương đối với họ.",
+    "Phản Quỹ": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy một lá bài từ nguồn sát thương.",
+    "Cương Liệt": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể tiến hành phán xét, nếu kết quả là:\n- Màu Đỏ, gây ra 1 điểm sát thương đối với nguồn sát thương.\n- Màu Đen, bạn bỏ đi của họ một lá bài.",
+    "Di Kế": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể rút hai lá bài, sau đó bạn có thể đem tối đa hai lá bài (tùy ý) trên tay giao cho từ một đến hai người chơi khác.",
+    "Gian Hùng": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này.",
+    "Ân Oán": "Sau khi bạn thu được ít nhất hai lá bài cùng lúc từ một người chơi khác, bạn có thể lệnh họ rút một lá bài.\nSau khi bạn nhận 1 điểm sát thương, trừ khi nguồn gây sát thương giao cho bạn một lá bài trên tay, nếu không thì họ giảm 1 điểm sinh lực. Nếu bài họ giao cho bạn không phải chất ♥, bạn rút một lá bài.",
+    "Cát Cảnh": "Sau khi bạn nhận sát thương, bạn có thể tiến hành một lần phán xét, sau đó nếu bạn bỏ đi tùy ý bài có tổng điểm số bằng điểm số của bài kết quả phát xét, bạn hồi phục 1 điểm sinh lực.",
+    "Trù Sách": "Sau khi bạn nhận sát thương, bạn có thể tiến hành một lần phát xét, nếu kết quả là:\n- Màu Đen, bạn bỏ đi một lá bài trong khu vực của một người chơi.\n- Màu Đỏ, bạn lệnh một người chơi rút một lá bài (người chơi “Tiên Phụ” rút hai lá).",
+    "Tiết Mệnh": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi đem bài trên tay rút bổ sung đến X lá (X là giới hạn sinh lực của họ và tối đa 5).",
+    "Phóng Trục": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất).",
+    "Tửu Thi": "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn.",
+    "Xưng Tượng": "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu.",
+    "Khôi Thác": "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\n- Màu Đỏ, họ hồi phục 1 điểm sinh lực.\n- Màu Đen, họ rút X lá bài (X là số sát thương).",
+    "Vong Kích": "Sau khi bạn gây ra 1 điểm sát thương đối với người chơi khác hoặc sau khi bạn nhận 1 điểm sát thương do người chơi khác gây ra, bạn có thể rút hai lá bài, sau đó giao cho họ một lá bài.",
+    "Ngự Sách": "Sau khi bạn nhận sát thương, bạn có thể mở ra một lá trên tay, sau đó trừ khi nguồn sát thương bỏ đi một lá trên tay không cùng loại với bài mở ra của bạn, nếu không thì bạn hồi phục 1 điểm sinh lực.",
+    "Trí Trì": "Tỏa Định Kỹ. Sau khi bạn nhận sát thương ở ngoài lượt, lượt hiện tại [Sát] và bài Cẩm Nang thường vô hiệu đối với bạn.",
+    "Trí Ngu": "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, sau đó mở ra tất cả bài trên tay và nguồn sát thương bỏ đi một lá bài trên tay. Nếu tất cả cùng Màu, bạn thu lấy bài bỏ đi và lượt tiếp theo số lần phát động \"Kỳ Sách\" +1.",
+    "Nhai Sài": "Sau khi bạn nhận sát thương, bạn có thể lệnh nguồn sát thương lựa chọn một hạng mục:\n- Bỏ đi một nửa lượng bài trên tay (làm tròn lên).\n- Họ không thể tiếp tục sử dụng bài trên tay lượt hiện tại, sau đó bạn rút hai lá bài.\n- Mở ra tất cả bài trên tay của họ, sau đó giao cho bạn tất cả bài một loại chất trong bài trên tay.",
+    "Vọng Quy": "Sau khi bạn gây sát thương, bạn có thể gây 1 điểm sát thương cho một người chơi có thế lực khác bạn (mỗi lượt một lần).\nSau khi bạn nhận sát thương, bạn có thể lệnh một người chơi có thế lực giống bạn rút 1 lá bài, nếu người đó không phải bạn thì bạn rút 1 lá bài.",
+    "Tiềm Long": "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút.",
+    "Định Thố": "Mỗi lượt chơi giới hạn một lần, sau khi bạn gây ra hoặc nhận sát thương, bạn có thể rút hai lá bài, nếu hai lá bài này không cùng màu, bạn bỏ đi một lá bài trên tay.",
+    "Phối Khí": "Sau khi bạn nhận sát thương, bạn có thể di dời một lá bài trên bàn. Sau đó nếu tất cả người chơi nằm trong phạm vi công kích của tất cả người chơi, bạn có thể tiếp tục di dời một lá bài trên bàn.",
+    "Hoành Giang": "Sau khi bạn nhận 1 điểm sát thương, bạn có thể lệnh giới hạn trữ bài của người chơi đang có lượt -1. Khi kết thúc lượt, nếu:\n- Họ không bỏ đi bài trong giai đoạn bỏ bài, bạn rút X lá bài (X là số lần kỹ năng này phát động lượt hiện tại).\n- Có bỏ bài, thì bạn rút một lá bài.",
+    "Kích Nghịch": "Sau khi bạn nhận sát thương, bạn có thể trọng chú (đổi bài) tùy ý bài trên tay (số lượng bài trọng chú bằng cách này mỗi lượt không thể vượt quá giới hạn sinh lực của bạn). Nếu bạn bằng cách này thu được [Sát], bạn có thể sử dụng một lá [Sát] không hạn chế cự ly đồng thời không thể bị hưởng ứng đối với nguồn sát thương.",
+    "Kháng Lệ": "Sau khi bạn gây ra hoặc nhận sát thương, bạn có thể rút hai lá bài, sau đó khi bạn gây ra sát thương lần tiếp theo bỏ đi những bài này."
 };
 
 function getDescription(name) {
@@ -1995,9 +2020,29 @@ function closeModalDirect() {
 }
 
 const rawDataHT = {
-    action: ["Huyết Tế", "Thương Vũ", "Cường Tập", "Loạn Kích", "Tán Dao", "Thiên Nghĩa", "Phấn Việt", "Nghĩa Tuyệt"],
-    end: ["Quận Binh", "Trực Ngôn", "Truân Giang", "Bế Nguyệt", "Tinh Sách"],
-    damage: ["Yêu Danh", "Đàn Tâm", "Quy Tâm", "Bí Dục", "Phản Quỹ"]
+    action: [
+        "Huyết Tế", "Thương Vũ", "Cường Tập", "Loạn Kích", "Tán Dao", "Thiên Nghĩa", "Phấn Việt", "Nghĩa Tuyệt", "Đạo Thư", "Hãm Trận",
+        "Phấn Tấn", "Chiến Tuyệt", "Man Tự", "Liên Kế", "Vũ Nhung", "Huyết Chiếu", "Liên Hoàn", "Tửu Trì", "Trấm Hủy", "Độc Võ",
+        "Quốc Sắc", "Khổ Nhục", "Tiến Ngôn", "Diệt Kế", "Chế Hành", "Công Tâm", "Thận Hành", "Tụng Từ", "Quá Luận", "Đốc Lương",
+        "Liên Tru", "Lược Mệnh", "Cơ Tiệp", "Bặc Toán", "Mẫn Tư", "Thừa Thưởng", "Phản Gián", "Tham Bái", "Họa Thủy", "Cẩm Hội",
+        "Kỳ Tập", "Nguy Minh", "Tụng Thục", "Phách Tập", "Cam Lộ", "Định Bạn", "Cuồng Phủ", "Kỳ Sách", "Cung Kỵ", "Hoài Dị",
+        "Khứ Tật", "Thiểm Tập", "Tồi Kiên", "Khiêu Hấn", "Thanh Nang", "Minh Sách", "An Quốc", "Lập Mục", "Kết Nhân", "An Tuất",
+        "Mật Chiếu", "Tư Viện", "Ly Gián", "Minh Giám", "Nhân Đức", "Đồ Nam", "Nghiêm Giáo", "Đế Minh", "Trực Gián", "Khu Hổ",
+        "Phi Quân", "Nộ Sân", "Khám Tập", "Đoạn Lương", "Hỏa Kế", "Phẩm Đệ", "Triều Phượng", "Doanh Thuyết", "Quỳnh Anh", "Tự Cố",
+        "Vi Ngỗ", "Trì Ứng", "Hoa Hỏa", "Lương Tú", "Sổ Tiến", "Tung Thế", "Phủ Lê", "Lương Yến", "Hội Trận", "Hung Toán",
+        "Lự Tâm", "Huệ Tế", "Bội Nghịch", "Ký Xuân", "Trường Khu", "Cứu Hãm", "Văn Xán", "Cường Trì", "Gian Kế", "Gián Quốc",
+        "Võ Duyên", "Gián Tránh", "Vũ Diễm", "Võ Uy", "Tá Quân", "Tư Nhuệ", "Xu Chu"
+    ],
+    end: [
+        "Quận Binh", "Trực Ngôn", "Truân Giang", "Bế Nguyệt", "Tinh Sách", "Trấn Hành", "Mặc Chí", "Tội Luận", "Phục Gian", "Khốn Phấn",
+        "Cư Thủ", "Trấn Cốt", "Bỉnh Nhất", "Bí Kế", "Tuyệt Sách", "Huệ Dân", "Dụ Địch", "Khoan Thích", "Tiết Ứng", "Tùy Chinh",
+        "Trấn Quân", "Cử Tiến", "Đãi Yến", "Noãn Huệ", "Tẩm Tình", "Viện Hộ", "Sinh Tức", "Trầm Dũng", "Tuẫn Tiết", "Thâu Lương", "Soạn Văn"
+    ],
+    damage: [
+        "Yêu Danh", "Đàn Tâm", "Quy Tâm", "Bí Dục", "Phản Quỹ", "Cương Liệt", "Di Kế", "Gian Hùng", "Ân Oán", "Cát Cảnh",
+        "Trù Sách", "Tiết Mệnh", "Phóng Trục", "Tửu Thi", "Xưng Tượng", "Khôi Thác", "Vong Kích", "Ngự Sách", "Trí Trì", "Trí Ngu",
+        "Nhai Sài", "Vọng Quy", "Tiềm Long", "Định Thố", "Phối Khí", "Hoành Giang", "Kích Nghịch", "Kháng Lệ"
+    ]
 };
 
 const skillsDataHT = {
@@ -2019,6 +2064,7 @@ function renderGridHT(type) {
         const tag = document.createElement('div');
         tag.className = `ht-skill-tag ${skill.used ? 'ht-skill-used' : 'ht-skill-available'}`;
         tag.textContent = skill.name;
+        tag.setAttribute('data-tooltip', skill.name);
         tag.onclick = () => showSkillModal(skill.name);
         gridEl.appendChild(tag);
     });
@@ -2053,6 +2099,7 @@ function renderDrawnUIHT(type) {
         const nameSpan = document.createElement('span');
         nameSpan.className = 'ht-skill-name-drawn';
         nameSpan.textContent = skill.name;
+        nameSpan.style.cursor = 'pointer';
         nameSpan.onclick = () => showSkillModal(skill.name);
 
         const selectBtn = document.createElement('button');
@@ -2228,8 +2275,19 @@ updateSeatOptionsCH();
    LOGIC TOOL 4: MƯU TƯ MÃ SƯ
 ------------------------------------------------------------- */
 const cardsDataTMS = {
-    "A": [["♥", "Đào Viên Kết Nghĩa"], ["♥", "Vạn Tiễn Tề Phát"], ["♥", "Vô Giải Khả Kích"], ["♦", "Gia Cát Liên Nỏ"]],
-    "K": [["♥", "Thiểm"], ["♥", "Trảo Hoàng Phi Điện"], ["♠", "Nam Man Nhập Xâm"]]
+    "A": [["♥", "Đào Viên Kết Nghĩa"], ["♥", "Vạn Tiễn Tề Phát"], ["♥", "Vô Giải Khả Kích"], ["♦", "Gia Cát Liên Nỏ"], ["♦", "Quyết Đấu"], ["♦", "Chu Tước Vũ Phiến"], ["♣", "Gia Cát Liên Nỏ"], ["♣", "Quyết Đấu"], ["♣", "Bạch Ngân Sư Tử"], ["♠", "Thiểm Điện"], ["♠", "Quyết Đấu"], ["♠", "Cổ Đỉnh Đao"]],
+    "2": [["♥", "Thiểm"], ["♥", "Thiểm"], ["♥", "Hỏa Công"], ["♦", "Thiểm"], ["♦", "Đào"], ["♦", "Đào"], ["♣", "Sát"], ["♣", "Bát Quái Trận"], ["♣", "Đằng Giáp"], ["♠", "Thư Hùng Song Cổ Kiếm"], ["♠", "Bát Quái Trận"], ["♠", "Hàn Băng Kiếm"]],
+    "3": [["♥", "Đào"], ["♥", "Ngũ Cốc Phong Đăng"], ["♥", "Hỏa Công"], ["♦", "Thiểm"], ["♦", "Thuận Thủ Khiên Dương"], ["♦", "Đào"], ["♣", "Sát"], ["♣", "Quá Hà Sách Kiều"], ["♣", "Rượu"], ["♠", "Thuận Thủ Khiên Dương"], ["♠", "Quá Hà Sách Kiều"], ["♠", "Rượu"]],
+    "4": [["♥", "Đào"], ["♥", "Ngũ Cốc Phong Đăng"], ["♥", "Hỏa Sát"], ["♦", "Thiểm"], ["♦", "Thuận Thủ Khiên Dương"], ["♦", "Hỏa Sát"], ["♣", "Sát"], ["♣", "Quá Hà Sách Kiều"], ["♣", "Binh Lương Thốn Đoạn"], ["♠", "Thuận Thủ Khiên Dương"], ["♠", "Quá Hà Sách Kiều"], ["♠", "Lôi Sát"]],
+    "5": [["♥", "Xích Thố"], ["♥", "Kỳ Lân Cung"], ["♥", "Đào"], ["♦", "Thiểm"], ["♦", "Phá Thạch Phủ"], ["♦", "Hỏa Sát"], ["♦", "Mộc Lưu Ngưu Mã"], ["♣", "Đích Lô"], ["♣", "Sát"], ["♣", "Lôi Sát"], ["♠", "Tuyệt Ảnh"], ["♠", "Thanh Long Yển Nguyệt Đao"], ["♠", "Lôi Sát"]],
+    "6": [["♥", "Đào"], ["♥", "Lạc Bất Tư Thục"], ["♥", "Đào"], ["♦", "Sát"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♣", "Sát"], ["♣", "Lạc Bất Tư Thục"], ["♣", "Lôi Sát"], ["♠", "Thanh Công Kiếm"], ["♠", "Lạc Bất Tư Thục"], ["♠", "Lôi Sát"]],
+    "7": [["♥", "Đào"], ["♥", "Vô Trung Sinh Hữu"], ["♥", "Hỏa Sát"], ["♦", "Sát"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♣", "Sát"], ["♣", "Nam Man Nhập Xâm"], ["♣", "Lôi Sát"], ["♠", "Sát"], ["♠", "Nam Man Nhập Xâm"], ["♠", "Lôi Sát"]],
+    "8": [["♥", "Đào"], ["♥", "Vô Trung Sinh Hữu"], ["♥", "Thiểm"], ["♦", "Sát"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♣", "Sát"], ["♣", "Sát"], ["♣", "Lôi Sát"], ["♠", "Sát"], ["♠", "Sát"], ["♠", "Lôi Sát"]],
+    "9": [["♥", "Đào"], ["♥", "Vô Trung Sinh Hữu"], ["♥", "Thiểm"], ["♦", "Sát"], ["♦", "Sát"], ["♦", "Rượu"], ["♣", "Sát"], ["♣", "Sát"], ["♣", "Rượu"], ["♠", "Sát"], ["♠", "Sát"], ["♠", "Rượu"]],
+    "10": [["♥", "Sát"], ["♥", "Sát"], ["♥", "Hỏa Sát"], ["♦", "Sát"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♣", "Sát"], ["♣", "Sát"], ["♣", "Thiết Tác Liên Hoàn"], ["♠", "Sát"], ["♠", "Sát"], ["♠", "Binh Lương Thốn Đoạn"]],
+    "J": [["♥", "Sát"], ["♥", "Vô Trung Sinh Hữu"], ["♥", "Thiểm"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♦", "Thiểm"], ["♣", "Sát"], ["♣", "Sát"], ["♣", "Thiết Tác Liên Hoàn"], ["♠", "Thuận Thủ Khiên Dương"], ["♠", "Vô Giải Khả Kích"], ["♠", "Thiết Tác Liên Hoàn"]],
+    "Q": [["♥", "Đào"], ["♥", "Quá Hà Sách Kiều"], ["♥", "Thiểm Điện"], ["♦", "Đào"], ["♦", "Phương Thiên Họa Kích"], ["♦", "Hỏa Công"], ["♣", "Tá Đao Sát Nhân"], ["♣", "Vô Giải Khả Kích"], ["♣", "Thiết Tác Liên Hoàn"], ["♠", "Trượng Bát Xà Mâu"], ["♠", "Quá Hà Sách Kiều"], ["♠", "Thiết Tác Liên Hoàn"]],
+    "K": [["♥", "Thiểm"], ["♥", "Trảo Hoàng Phi Điện"], ["♥", "Vô Giải Khả Kích"], ["♦", "Sát"], ["♦", "Tử Tuynh"], ["♦", "Hoa Lưu"], ["♣", "Tá Đao Sát Nhân"], ["♣", "Vô Giải Khả Kích"], ["♣", "Thiết Tác Liên Hoàn"], ["♠", "Nam Man Nhập Xâm"], ["♠", "Đại Uyển"], ["♠", "Vô Giải Khả Kích"]]
 };
 const ranksTMS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
@@ -2237,7 +2295,7 @@ function drawCardsTMS() {
     const container = document.getElementById('resultTMS');
     container.innerHTML = '';
     ranksTMS.forEach(rank => {
-        const options = cardsDataTMS[rank] || [["♠", "Sát"]];
+        const options = cardsDataTMS[rank];
         const selected = options[Math.floor(Math.random() * options.length)];
         const suit = selected[0], name = selected[1];
         const colorClass = (suit === '♥' || suit === '♦') ? 'tms-red' : 'tms-black';
@@ -2250,17 +2308,27 @@ function drawCardsTMS() {
 drawCardsTMS();
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 5: BỒ NGUYÊN
+   LOGIC TOOL 5: BỒ NGUYÊN (CẬP NHẬT TỈ LỆ)
 ------------------------------------------------------------- */
 function confirmActionBN() {
     const card = document.getElementById('cardSelect').value;
     const suit = document.getElementById('suitSelect').value;
     
     let successRate = 90;
-    if (card === 'K' || card === 'ThiemDien') successRate = 100;
+    if (card === 'K' || card === 'ThiemDien') {
+        successRate = 100;
+    } else if (['9', '10', 'J', 'Q'].includes(card)) {
+        successRate = 95;
+    } else if (['5', '6', '7', '8'].includes(card)) {
+        successRate = 90;
+    } else if (['A', '2', '3', '4'].includes(card)) {
+        successRate = 85;
+    }
 
     let isSuccess = Math.random() * 100 <= successRate;
-    let weapon = (card === 'ThiemDien') ? 'Thiên Lôi Nhận' : 'Hỗn Độc Loan Chuỳ';
+
+    let weapon = (card === 'ThiemDien') ? 'Thiên Lôi Nhận' : 
+        (suit === 'Co' ? 'Hồng Đoạn Thương' : suit === 'Ro' ? 'Liệt Thối Đao' : suit === 'Chuon' ? 'Thuỷ Ba Kiếm' : 'Hỗn Độc Loan Chuỳ');
 
     const resultCard = document.getElementById('resultCardBN');
     document.getElementById('rateTextBN').innerText = successRate + '%';
@@ -2280,6 +2348,19 @@ function updateUITP() {
     document.getElementById('count-chuon').innerText = countsTP.chuon;
     document.getElementById('count-ro').innerText = countsTP.ro;
     document.getElementById('count-co').innerText = countsTP.co;
+
+    let minVal = Math.min(...Object.values(countsTP));
+    let suitsMap = { bich: 'Bích', chuon: 'Chuồn', ro: 'Rô', co: 'Cơ' };
+    let lowestSuits = [];
+    ['bich', 'chuon', 'ro', 'co'].forEach(suit => {
+        let card = document.getElementById(`card-${suit}`);
+        card.classList.remove('lowest');
+        if (countsTP[suit] === minVal) {
+            card.classList.add('lowest');
+            lowestSuits.push(suitsMap[suit]);
+        }
+    });
+    document.getElementById('lowest-suits-text').innerText = lowestSuits.join(', ');
 }
 updateUITP();
 
@@ -2303,9 +2384,30 @@ function resetCircleLH(fullNew = false) {
     if (fullNew) {
         deletedCardsLH.clear();
         let available = [...cardNamesLH];
+        for (let i = available.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [available[i], available[j]] = [available[j], available[i]];
+        }
         baseCircleLH = available.map(c => ({ val: c, status: "active" }));
+        logLH("\n--- Đã random mới hoàn toàn vòng tròn Lưu Huy ---");
     }
-    currentCircleLH = baseCircleLH.filter(item => !deletedCardsLH.has(item.val)).map(item => ({ val: item.val, status: "active" }));
+
+    currentCircleLH = baseCircleLH
+        .filter(item => !deletedCardsLH.has(item.val))
+        .map(item => ({ val: item.val, status: "active" }));
+
+    if (currentCircleLH.length === 0) {
+        alert("Tất cả các số đã bị xóa hết! Đang reset lại toàn bộ.");
+        deletedCardsLH.clear();
+        resetCircleLH(true);
+        return;
+    }
+
+    hiddenSequenceLH = [];
+    firstHiddenLH = null;
+
+    document.getElementById("lhFirstHidden").innerText = "Số đầu tiên ẩn đi: (Chưa có)";
+    logLH(`--- Đã đặt lại vòng tròn (${currentCircleLH.length} lá) - Giữ nguyên vị trí ---`);
     drawCircleLH();
 }
 
@@ -2313,16 +2415,23 @@ function drawCircleLH() {
     const wrapper = document.getElementById("lhCanvasWrapper");
     wrapper.innerHTML = "";
     const n = currentCircleLH.length;
+    if (n === 0) {
+        wrapper.innerHTML = '<div style="color:var(--text-muted); text-align:center; padding-top:200px;">Đã xóa hết số! Bấm Random Mới để chơi tiếp.</div>';
+        return;
+    }
+
     const cx = 225, cy = 225, r = 150;
     currentCircleLH.forEach((item, i) => {
         const angle = 2 * Math.PI * i / n - Math.PI / 2;
         const x = cx + r * Math.cos(angle);
         const y = cy + r * Math.sin(angle);
+
         const node = document.createElement("div");
         node.className = "lh-node " + (item.status === "hidden" ? "hidden-node" : "active");
         node.style.left = x + "px";
         node.style.top = y + "px";
         node.innerText = item.val;
+
         node.onclick = () => onNodeClickLH(i);
         wrapper.appendChild(node);
     });
@@ -2330,54 +2439,192 @@ function drawCircleLH() {
 
 function onNodeClickLH(clickedIdx) {
     const item = currentCircleLH[clickedIdx];
-    item.status = "hidden";
+    const val = item.val;
+    const action = document.querySelector('input[name="lhAction"]:checked').value;
+
+    if (action === "hide") {
+        if (item.status === "hidden") {
+            alert(`Lá bài ${val} này đã được ẩn từ trước!`);
+            return;
+        }
+        item.status = "hidden";
+        hiddenSequenceLH.push(val);
+
+        if (firstHiddenLH === null) {
+            firstHiddenLH = val;
+            document.getElementById("lhFirstHidden").innerText = `Số đầu tiên ẩn đi: ${firstHiddenLH}`;
+        }
+        logLH(`Ẩn (đổi đen) lá bài: [${val}] (Lần ẩn thứ ${hiddenSequenceLH.length})`);
+    } else if (action === "delete") {
+        deletedCardsLH.add(val);
+        currentCircleLH.splice(clickedIdx, 1);
+        logLH(`Xóa hoàn toàn lá bài: [${val}] ra khỏi vòng tròn`);
+    }
+
     drawCircleLH();
 }
+
 resetCircleLH(true);
 
 /* -------------------------------------------------------------
    LOGIC TOOL 8: VÕ QUAN VŨ
 ------------------------------------------------------------- */
-const dsNgauNhien18 = ["Sát", "Né", "Đào", "Rượu", "Vô Trung Sinh Hữu"];
+const vvSkillDescriptions = {
+    "Đào Viên Kết Nghĩa": "Đào Viên Kết Nghĩa",
+    "Sát": "Sát",
+    "Né": "Né",
+    "Đào": "Đào",
+    "Rượu": "Rượu",
+    "Vô Trung Sinh Hữu": "Vô Trung Sinh Hữu",
+    "Tá Đao Sát Nhân": "Tá Đao Sát Nhân",
+    "Nam Man Nhập Xâm": "Nam Man Nhập Xâm",
+    "Vạn Tiễn Tề Phát": "Vạn Tiễn Tề Phát",
+    "Thuận Thủ Khiên Dương": "Thuận Thủ Khiên Dương",
+    "Quá Hà Sách Kiều": "Quá Hà Sách Kiều",
+    "Vô Giải Khả Kích": "Vô Giải Khả Kích",
+    "Lạc Bất Tư Thục": "Lạc Bất Tư Thục",
+    "Binh Lương Thốn Đoạn": "Binh Lương Thốn Đoạn",
+    "Thiểm Điện": "Thiểm Điện",
+    "Thủy Yêm Thất Quân": "Thủy Yêm Thất Quân",
+    "Hỏa Công": "Hỏa Công",
+    "Quyết Đấu": "Quyết Đấu",
+    "Ngũ Cốc Phong Đăng": "Ngũ Cốc Phong Đăng"
+};
+
+const dsNgauNhien18 = [
+    "Đào Viên Kết Nghĩa", "Sát", "Né", "Đào", "Rượu", "Vô Trung Sinh Hữu", 
+    "Tá Đao Sát Nhân", "Nam Man Nhập Xâm", "Vạn Tiễn Tề Phát", 
+    "Thuận Thủ Khiên Dương", "Quá Hà Sách Kiều", "Vô Giải Khả Kích", 
+    "Lạc Bất Tư Thục", "Binh Lương Thốn Đoạn", "Thiểm Điện", 
+    "Thủy Yêm Thất Quân", "Hỏa Công", "Quyết Đấu", "Ngũ Cốc Phong Đăng"
+];
 const dsLoaiSat = ["Sát", "Hỏa sát", "Lôi sát"];
 
+function showVVSkillModal(cardName) {
+    const desc = vvSkillDescriptions[cardName] || cardName;
+    document.getElementById('modalTitle').textContent = cardName;
+    document.getElementById('modalBody').textContent = desc;
+    document.getElementById('skillModal').style.display = 'flex';
+}
+
 function trichXuatKhacNhau() {
+    let arrayCopy = [...dsNgauNhien18];
+    for (let i = arrayCopy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+    }
+    const selectedCards = arrayCopy.slice(0, 5);
     const container = document.getElementById("vvResultContent1");
-    container.innerHTML = "Sát, Né, Đào";
+    container.innerHTML = "";
+    selectedCards.forEach(card => {
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "vv-card-item";
+        cardDiv.innerText = card;
+        cardDiv.onclick = () => showVVSkillModal(card);
+        container.appendChild(cardDiv);
+    });
 }
 
 function trichXuatLoaiSat() {
+    const selectedCard = dsLoaiSat[Math.floor(Math.random() * dsLoaiSat.length)];
     const container = document.getElementById("vvResultContent2");
-    container.innerHTML = "Hỏa Sát";
+    container.innerHTML = "";
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "vv-card-item sat-type";
+    cardDiv.innerText = selectedCard;
+    container.appendChild(cardDiv);
 }
 
 /* -------------------------------------------------------------
    LOGIC TOOL 9: QUÁCH ĐỀ OANH
 ------------------------------------------------------------- */
 const columnsQDO = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-const suitsQDO = [{ name: 'Cơ', symbol: '♥', color: 'red' }];
+const suitsQDO = [
+    { name: 'Cơ', symbol: '♥', color: 'red' },
+    { name: 'Rô', symbol: '♦', color: 'red' },
+    { name: 'Chuồn', symbol: '♣', color: 'black' },
+    { name: 'Bích', symbol: '♠', color: 'black' }
+];
 
 function createTableQDO() {
+    const headerRow = document.getElementById('headerRow');
+    headerRow.innerHTML = '<th>Chất \\ Cột</th>';
+    columnsQDO.forEach(col => {
+        const th = document.createElement('th');
+        th.innerText = col;
+        headerRow.appendChild(th);
+    });
+
     const tbody = document.querySelector('#gameTable tbody');
-    tbody.innerHTML = '<tr><td>♥ Cơ</td><td>A</td></tr>';
+    tbody.innerHTML = '';
+    suitsQDO.forEach(suit => {
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        th.className = 'qdo-suit-header';
+        th.innerText = `${suit.name} ${suit.symbol}`;
+        th.style.color = suit.color === 'red' ? '#ff6b6b' : '#ffffff';
+        tr.appendChild(th);
+
+        columnsQDO.forEach(col => {
+            const td = document.createElement('td');
+            td.className = 'qdo-cell';
+            td.dataset.suit = suit.name;
+            td.dataset.col = col;
+            td.innerText = col;
+            if (suit.name === 'Bích' && ['2', '3', '4', '5', '6', '7', '8', '9'].includes(col)) {
+                td.classList.add('blacked');
+            }
+            td.addEventListener('click', function() { this.classList.toggle('blacked'); });
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
 }
+
 function resetTableQDO() { createTableQDO(); }
 createTableQDO();
 
 /* -------------------------------------------------------------
    LOGIC TOOL 10: THẦN TÀO PHI
 ------------------------------------------------------------- */
+const ttpSkills = [
+    { name: "Gian Hùng", desc: "Sau khi bạn nhận sát thương, bạn có thể rút một lá bài, rồi thu lấy lá bài gây ra sát thương này." },
+    { name: "Phóng Trục", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi khác lật mặt võ tướng, sau đó người đó rút X lá bài (X là số sinh lực bạn đã mất)." },
+    { name: "Xưng Tượng", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 4 lá đầu chồng bài rút, sau đó thu lấy tùy ý trong đó số lá bài có tổng điểm số ≤ 13. Nếu bài thu được này có tổng điểm số là 13, thì bạn phục hồi bài võ tướng về trạng thái ban đầu." },
+    { name: "Tửu Thi", desc: "Mỗi khi bạn cần sử dụng [Tửu], nếu mặt trước bài võ tướng của bạn đang hướng lên trên, bạn có thể lật mặt bài võ tướng của bạn, xem như sử dụng một lá [Tửu]; nếu bạn vì nhận sát thương mà tiêu hao sinh lực khi mặt sau bài võ tướng của bạn đang hướng lên trên, sau khi kết toán sát thương này, bạn có thể lật mặt sau sang mặt trước.\nCứ sau mỗi lần bạn sử dụng [Tửu], số lần sử dụng [Sát] của bạn +1 cho đến khi kết thúc lượt của bạn." },
+    { name: "Quy Tâm", desc: "Sau khi bạn nhận 1 điểm sát thương, bạn có thể thu lấy ngẫu nhiên từ khu vực của mỗi người chơi khác một lá bài, sau đó bạn lật mặt bài võ tướng." },
+    { name: "Khôi Thác", desc: "Sau khi bạn nhận sát thương, bạn có thể lệnh một người chơi tiến hành phát xét, nếu kết quả là:\nMàu Đỏ, họ hồi phục 1 điểm sinh lực.\nMàu Đen, họ rút X lá bài (X là số sát thương)." },
+    { name: "Tiềm Long", desc: "Sau khi bạn nhận sát thương, bạn có thể mở ra 3 lá đầu chồng bài rút rồi thu lấy trong đó tối đa X lá bài (X là số sinh lực bạn đã mất), sau đó đặt phần còn dư xuống đáy chồng bài rút." },
+    { name: "Chiêm Dục", desc: "Khi mở đầu lượt, lựa chọn mở ra một lá bài trên tay, tất cả người chơi khác ngẫu nhiên bỏ đi một lá cùng Chất trên tay, bạn có thể lựa chọn thu lấy một lá bài trong số đó." },
+    { name: "Ngung Khấp", desc: "Sau khi có người nhận sát thương, nếu cự ly giữa bạn và họ ≤ 0, bạn có thể quan sát 3 lá bài đầu chồng bài, đem tối đa 1 lá trong đó giao cho người bị thương, tối đa 1 lá tự mình thu lấy, bài còn dư đặt lại đầu chồng bài rút (mỗi lượt chơi giới hạn 2 lần)." }
+];
+
 function randomSkillTTP() {
-    document.getElementById("ttpResultBox").innerHTML = "⚡ Gian Hùng";
+    const randomIndex = Math.floor(Math.random() * ttpSkills.length);
+    const selected = ttpSkills[randomIndex];
+
+    const resultBox = document.getElementById("ttpResultBox");
+    resultBox.innerHTML = `
+        <div class="ttp-result-title">⚡ ${selected.name}</div>
+        <div class="ttp-result-desc">${selected.desc}</div>
+    `;
 }
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 11: MƯU TRẦN LÂM
+   LOGIC TOOL 11: MƯU TRẦN LÂM (CHUÔNG & 9 ÂM THANH)
 ------------------------------------------------------------- */
 const bellSounds = [
     { id: 1, name: "1. Chuông Vàng Cổ Điển", freq: 800, type: "sine", decay: 1.5 },
-    { id: 2, name: "2. Chuông Lệnh Trầm", freq: 400, type: "triangle", decay: 2.0 }
+    { id: 2, name: "2. Chuông Lệnh Trầm", freq: 400, type: "triangle", decay: 2.0 },
+    { id: 3, name: "3. Tiếng Chiêng Trận", freq: 220, type: "sawtooth", decay: 2.5 },
+    { id: 4, name: "4. Chuông Ngân Thanh", freq: 1200, type: "sine", decay: 1.0 },
+    { id: 5, name: "5. Hiệu Lệnh Đanh Thép", freq: 950, type: "square", decay: 0.8 },
+    { id: 6, name: "6. Chuông Chùa U Tịch", freq: 300, type: "sine", decay: 3.0 },
+    { id: 7, name: "7. Keng Báo Động", freq: 1500, type: "square", decay: 0.5 },
+    { id: 8, name: "8. Trống Trận Phối Hợp", freq: 150, type: "sawtooth", decay: 1.2 },
+    { id: 9, name: "9. Âm Vang Thần Bí", freq: 600, type: "triangle", decay: 2.2 }
 ];
+
 let selectedBellSound = bellSounds[0];
 
 function renderBellOptions() {
@@ -2387,201 +2634,49 @@ function renderBellOptions() {
         const btn = document.createElement("button");
         btn.className = `mtl-option-btn ${sound.id === selectedBellSound.id ? 'active' : ''}`;
         btn.innerText = sound.name;
-        btn.onclick = () => { selectedBellSound = sound; renderBellOptions(); ringBell(); };
+        btn.onclick = () => selectBellSound(sound);
         grid.appendChild(btn);
     });
+}
+
+function selectBellSound(sound) {
+    selectedBellSound = sound;
+    renderBellOptions();
+    ringBell();
 }
 
 function ringBell() {
     const bellBtn = document.getElementById("bellBtn");
     bellBtn.classList.remove("mtl-shake");
-    void bellBtn.offsetWidth;
+    void bellBtn.offsetWidth; // Trigger reflow để chạy lại animation
     bellBtn.classList.add("mtl-shake");
+
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = selectedBellSound.type;
+        osc.frequency.setValueAtTime(selectedBellSound.freq, ctx.currentTime);
+
+        // Tạo hiệu ứng ngân vang giảm dần
+        gain.gain.setValueAtTime(0.5, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + selectedBellSound.decay);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + selectedBellSound.decay);
+    } catch (e) {
+        console.error("Lỗi phát âm thanh chuông:", e);
+    }
 }
+
 renderBellOptions();
-
-/* -------------------------------------------------------------
-   LOGIC TOOL 12: TRÌNH DỤC + MƯU TRÌNH DỤC (CLASS PHƯƠNG ÁN THIẾT PHỤC)
-------------------------------------------------------------- */
-class PhuongAnThietPhuc {
-    constructor(playerId) {
-        this.playerId = playerId;
-        this.ambushes = []; // Danh sách các lá Phục Binh đã thiết lập
-    }
-
-    // 1. Giai đoạn kết thúc: Ký lục và đặt Phục Binh
-    setAmbush(cardName, handCardId, playerHandCards) {
-        // Kiểm tra xem tên bài đã có trong Phục Binh chưa (không được trùng tên)
-        const isDuplicate = this.ambushes.some(item => item.cardName === cardName);
-        if (isDuplicate) {
-            return { success: false, message: `Đã có Phục Binh tên "${cardName}" rồi!` };
-        }
-
-        // Bỏ 1 lá bài trên tay
-        const cardIndex = playerHandCards.findIndex(c => c.id === handCardId);
-        if (cardIndex === -1) {
-            return { success: false, message: "Không tìm thấy lá bài trên tay để bỏ ra!" };
-        }
-
-        playerHandCards.splice(cardIndex, 1);
-
-        // Thêm vào danh sách Phục Binh
-        this.ambushes.push({
-            cardName: cardName,
-            sourceCardId: handCardId
-        });
-
-        return { success: true, message: `Đã thiết lập thành công Phục Binh: [${cardName}]` };
-    }
-
-    // 2. Kích hoạt khi người chơi khác sử dụng bài ngoài lượt
-    triggerAmbush(targetPlayer, usedCardName, currentTurnPlayerId) {
-        // Tìm xem có Phục Binh nào trùng tên không
-        const ambushIndex = this.ambushes.findIndex(item => item.cardName === usedCardName);
-
-        if (ambushIndex === -1) {
-            return { triggered: false, message: "Không có Phục Binh tương ứng." };
-        }
-
-        // Kích hoạt: Tiêu hủy lá Phục Binh
-        const activatedAmbush = this.ambushes.splice(ambushIndex, 1)[0];
-
-        let result = {
-            triggered: true,
-            invalidCard: usedCardName,
-            message: `Kích hoạt Phục Binh [${activatedAmbush.cardName}]! Vô hiệu hóa lá bài của ${targetPlayer.name}.`
-        };
-
-        // Nếu thời điểm này đang là lượt của người sử dụng bài
-        if (targetPlayer.id === currentTurnPlayerId) {
-            targetPlayer.disableAllSkillsForThisTurn = true;
-            result.message += ` Đặc biệt: Đang trong lượt của họ, toàn bộ kỹ năng của ${targetPlayer.name} bị vô hiệu hóa trong phần còn lại của lượt!`;
-        }
-
-        return result;
-    }
-}
-
-// Khởi tạo State giả lập cho Tool 12
-const trinhDucSystem = new PhuongAnThietPhuc("TrinhDuc_01");
-let trinhDucHandCards = [
-    { id: "c1", name: "Sát" },
-    { id: "c2", name: "Né" },
-    { id: "c3", name: "Đào" },
-    { id: "c4", name: "Vô Trung Sinh Hữu" }
-];
-const validAmbushNames = ["Sát", "Né", "Đào", "Rượu", "Vô Trung Sinh Hữu", "Vô Giải Khả Kích", "Thuận Thủ Khiên Dương", "Quá Hà Sách Kiều", "Tá Đao Sát Nhân", "Hỏa Công", "Quyết Đấu", "Nam Man Nhập Xâm", "Vạn Tiễn Tề Phát", "Đào Viên Kết Nghĩa", "Xích Sắt Liên Hoàn", "Ngũ Cốc Phong Đăng"];
-
-function logTD(text) {
-    const box = document.getElementById("tdLog");
-    box.value += text + "\n";
-    box.scrollTop = box.scrollHeight;
-}
-
-function renderUI_TD() {
-    // Render hand cards
-    const handList = document.getElementById("tdHandCardList");
-    const handSelect = document.getElementById("tdHandCardSelect");
-    handList.innerHTML = "";
-    handSelect.innerHTML = "";
-
-    trinhDucHandCards.forEach((c, index) => {
-        const item = document.createElement("div");
-        item.className = "td-card-item";
-        item.innerHTML = `<span>${c.name}</span> <span style="font-size:12px; cursor:pointer;" onclick="removeHandCardTD('${c.id}')">✕</span>`;
-        handList.appendChild(item);
-
-        const opt = document.createElement("option");
-        opt.value = c.id;
-        opt.textContent = `Bỏ lá: [${c.name}] (ID: ${c.id})`;
-        handSelect.appendChild(opt);
-    });
-
-    // Render valid names select
-    const ambushNameSelect = document.getElementById("tdAmbushNameSelect");
-    ambushNameSelect.innerHTML = "";
-    validAmbushNames.forEach(name => {
-        const opt = document.createElement("option");
-        opt.value = name;
-        opt.textContent = `Đặt Phục Binh: [${name}]`;
-        ambushNameSelect.appendChild(opt);
-    });
-
-    // Render trigger card select
-    const usedCardSelect = document.getElementById("tdUsedCardSelect");
-    usedCardSelect.innerHTML = "";
-    validAmbushNames.forEach(name => {
-        const opt = document.createElement("option");
-        opt.value = name;
-        opt.textContent = `Sử dụng bài: [${name}]`;
-        usedCardSelect.appendChild(opt);
-    });
-
-    // Render ambush list
-    const ambushList = document.getElementById("tdAmbushList");
-    ambushList.innerHTML = "";
-    if (trinhDucSystem.ambushes.length === 0) {
-        ambushList.innerHTML = `<i style="color:var(--text-muted); font-size:14px;">Chưa cài Phục Binh nào.</i>`;
-    } else {
-        trinhDucSystem.ambushes.forEach(item => {
-            const tag = document.createElement("div");
-            tag.className = "td-ambush-item";
-            tag.innerText = `💣 Phục Binh: [${item.cardName}]`;
-            ambushList.appendChild(tag);
-        });
-    }
-}
-
-function addHandCardTD() {
-    const input = document.getElementById("tdNewHandCard");
-    const val = input.value.trim();
-    if (!val) return;
-    trinhDucHandCards.push({ id: "c_" + Date.now(), name: val });
-    input.value = "";
-    renderUI_TD();
-}
-
-function removeHandCardTD(id) {
-    trinhDucHandCards = trinhDucHandCards.filter(c => c.id !== id);
-    renderUI_TD();
-}
-
-function setAmbushTD() {
-    const handCardId = document.getElementById("tdHandCardSelect").value;
-    const ambushName = document.getElementById("tdAmbushNameSelect").value;
-
-    if (!handCardId) {
-        alert("Không có lá bài trên tay nào để bỏ!");
-        return;
-    }
-
-    const res = trinhDucSystem.setAmbush(ambushName, handCardId, trinhDucHandCards);
-    logTD(res.message);
-    renderUI_TD();
-}
-
-function triggerAmbushTD() {
-    const targetName = document.getElementById("tdTargetPlayerName").value.trim() || "Người Chơi";
-    const usedCardName = document.getElementById("tdUsedCardSelect").value;
-    const isCurrentTurn = document.getElementById("tdIsCurrentTurn").checked;
-
-    const targetPlayer = {
-        id: "P_TARGET_01",
-        name: targetName,
-        disableAllSkillsForThisTurn: false
-    };
-
-    const currentTurnPlayerId = isCurrentTurn ? "P_TARGET_01" : "OTHER_PLAYER";
-
-    const res = trinhDucSystem.triggerAmbush(targetPlayer, usedCardName, currentTurnPlayerId);
-    logTD(res.message);
-    if (targetPlayer.disableAllSkillsForThisTurn) {
-        logTD(`⚠️ CẢNH BÁO: ${targetName} ĐÃ BỊ VÔ HIỆU HÓA TOÀN BỘ KỸ NĂNG TRONG LƯỢT HIỆN TẠI!`);
-    }
-    renderUI_TD();
-}
-
-renderUI_TD();
 </script>
 
 </body>

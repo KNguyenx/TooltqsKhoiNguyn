@@ -1185,7 +1185,7 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
     <ul class="tool-menu">
         <li class="tool-item active" data-bg="tonquyen.webp" onclick="switchTool('tool-ttq', this)">
             <span class="tool-badge-num">1</span>
-            <span>Thần Tôn Quyền</span>
+            <span>Thần Tôn Quyền, Trình Dục, Mưu Trình Dục</span>
         </li>
         <li class="tool-item" data-bg="Hua_Thieu.webp" onclick="switchTool('tool-huathieu', this)">
             <span class="tool-badge-num">2</span>
@@ -1233,10 +1233,10 @@ h1, h2 { margin: 0 0 10px; color: var(--accent-gold); font-family: "Times New Ro
 <!-- KHU VỰC HIỂN THỊ TOOL BÊN PHẢI -->
 <div class="main-content">
 
-    <!-- TOOL 1: THẦN TÔN QUYỀN -->
+    <!-- TOOL 1: THẦN TÔN QUYỀN, TRÌNH DỤC, MƯU TRÌNH DỤC -->
     <div id="tool-ttq" class="tool-view active">
         <div class="panel">
-            <h2>🎴 Tool Thần Tôn Quyền</h2>
+            <h2>🎴 Tool Thần Tôn Quyền, Trình Dục, Mưu Trình Dục</h2>
             <div class="note">Nhập tên Tab (hoặc để trống), chọn bài để thêm vào danh sách, bấm trực tiếp vào thẻ bài đã chọn để xóa nếu nhầm. Nhấn <b>ENTER</b> để tạo tab nhanh chóng và ẩn khu vực chọn.</div>
 
             <div class="player-input-group">
@@ -1620,7 +1620,7 @@ if (activeToolItem) {
 }
 
 /* -------------------------------------------------------------
-   LOGIC TOOL 1: THẦN TÔN QUYỀN
+   LOGIC TOOL 1: THẦN TÔN QUYỀN, TRÌNH DỤC, MƯU TRÌNH DỤC
 ------------------------------------------------------------- */
 const CARDS = [
     "Sát", "Né", "Đào", "Rượu",
@@ -1628,7 +1628,14 @@ const CARDS = [
     "Thuận Thủ Khiên Dương", "Quá Hà Sách Kiều",
     "Tá Đao Sát Nhân", "Hỏa Công", "Quyết Đấu",
     "Nam Man Nhập Xâm", "Vạn Tiễn Tề Phát",
-    "Đào Viên Kết Nghĩa", "Xích Sắt Liên Hoàn"
+    "Đào Viên Kết Nghĩa", "Xích Sắt Liên Hoàn",
+    "Binh Lương Thốn Đoạn", "Thiểm Điện",
+    "Gia Cát Liên Nỏ", "Thanh Công Kiếm", "Hàn Băng Kiếm",
+    "Thanh Long Yển Nguyệt Đao", "Trương Bát Xà Mâu", "Quan Thạch Phủ",
+    "Cổ Đỉnh Đao", "Kỳ Lân Cung", "Chu Tước Vũ Phiến", "Phương Thiên Họa Kích",
+    "Bát Quái Trận", "Nhân Vương Thuẫn", "Đằng Giáp", "Bạch Ngân Sư Tử",
+    "Xích Thố", "Đại Uyển", "Tử Tuynh", "Trảo Hoàng Phi Điện", "Đích Lô", "Tuyệt Ảnh",
+    "Mộc Ngưu Lưu Mã", "Ngũ Cốc Phong Lạc Bất Tư Thục"
 ];
 
 let currentSelection = [];
